@@ -13,7 +13,7 @@ BASE_PATH = os.path.abspath("..")
 PATH = os.path.join(BASE_PATH, "dataset", "movie_ratings.csv")
 
 
-def load_movie_ratings()->ndarray:
+def load_movie_ratings()->tuple:
     """读取用户对电影评分的数据。"""
 
     data = np.loadtxt(PATH, delimiter=',')
@@ -22,11 +22,7 @@ def load_movie_ratings()->ndarray:
     return data, label
 
 
-def f(mapping: defaultdict, key: int, value: int):
-    mapping[key].add(value)
-
-
-def get_user_rating_history():
+def get_user_rating_history(data: ndarray)->Dict[int, Set[int]]:
     pass
 
 
