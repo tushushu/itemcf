@@ -1,5 +1,5 @@
 ## PyRecall
-基于Python和PySpark开发的推荐系统召回算法库。
+基于Python开发的推荐系统召回算法库。
 
 ## 算法
 User CF  
