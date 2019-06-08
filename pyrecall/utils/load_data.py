@@ -25,7 +25,7 @@ def load_data()->Tuple[ndarray, ndarray]:
     """
 
     data = np.loadtxt(PATH, delimiter=',')
-    data, label = data[:, :-1], data[:, -1]
+    data, label = data[:, [0, 1, 3]], data[:, 2]
 
     return data, label
 
