@@ -19,7 +19,8 @@ def load_data()->Tuple[ndarray, ndarray]:
     """读取用户对电影评分的数据。
 
     Returns:
-        data {ndarray} -- 用户对哪些电影进行了评分，列名称[uid(int), item_id(int)]
+        data {ndarray} -- 用户对哪些电影进行了评分，列名称[uid(int), item_id(int),
+                          timestamp(float)]
         label {ndarray} -- 用户对电影的评分，列名称[rating(float)]
     """
 
@@ -38,7 +39,7 @@ def load_ucf_data()->Dict[int, Set[int]]:
 
     data, _ = load_data()
     ret = defaultdict(set)  # type: defaultdict
-    for uid, item_id in data:
+    for uid, item_id, _ in data:
         ret[uid].add(item_id)
 
     return ret
@@ -53,7 +54,7 @@ def load_icf_data()->Dict[int, Set[int]]:
 
     data, _ = load_data()
     ret = defaultdict(set)  # type: defaultdict
-    for uid, item_id in data:
+    for uid, item_id, _ in data:
         ret[item_id].add(uid)
 
     return ret
