@@ -15,8 +15,11 @@ BASE_PATH = os.path.abspath("..")
 PATH = os.path.join(BASE_PATH, "dataset", "movie_ratings.csv")
 
 
-def load_data()->Tuple[ndarray, ndarray]:
+def load_movie_ratings(with_timestamp=False)->Tuple[ndarray, ndarray]:
     """读取用户对电影评分的数据。
+
+    Keyword Arguments:
+        with_timestamp {bool} -- data中是否带上time_stamp。 (default: {False})
 
     Returns:
         data {ndarray} -- 用户对哪些电影进行了评分，列名称[uid(int), item_id(int),
@@ -24,8 +27,13 @@ def load_data()->Tuple[ndarray, ndarray]:
         label {ndarray} -- 用户对电影的评分，列名称[rating(float)]
     """
 
-    data = np.loadtxt(PATH, delimiter=',')
-    data, label = data[:, [0, 1, 3]], data[:, 2]
+    movie_ratings = np.loadtxt(PATH, delimiter=',')
+    data_col_indexes = [0, 1]
+    label_col_index = 2
+    if with_timestamp:
+        data_col_indexes.append(3)
+    data = movie_ratings[:, data_col_indexes]
+    label = movie_ratings[:, label_col_index]
 
     return data, label
 
@@ -37,9 +45,9 @@ def load_ucf_data()->Dict[int, Set[int]]:
         Dict[int, Set[int]] -- uid及其对应的item_id。
     """
 
-    data, _ = load_data()
+    data, _ = load_movie_ratings()
     ret = defaultdict(set)  # type: defaultdict
-    for uid, item_id, _ in data:
+    for uid, item_id in data:
         ret[uid].add(item_id)
 
     return ret
@@ -52,9 +60,9 @@ def load_icf_data()->Dict[int, Set[int]]:
         Dict[int, Set[int]] -- item_id及其对应的uid。
     """
 
-    data, _ = load_data()
+    data, _ = load_movie_ratings()
     ret = defaultdict(set)  # type: defaultdict
-    for uid, item_id, _ in data:
+    for uid, item_id in data:
         ret[item_id].add(uid)
 
     return ret
