@@ -5,7 +5,7 @@
 """
 import os
 from collections import defaultdict
-from typing import Dict, Set
+from typing import Set, Tuple, DefaultDict
 
 import pandas as pd
 from pandas import DataFrame
@@ -13,6 +13,7 @@ from pandas import DataFrame
 os.chdir(os.path.split(os.path.realpath(__file__))[0])
 BASE_PATH = os.path.abspath("..")
 PATH = os.path.join(BASE_PATH, "dataset", "movie_ratings.csv")
+SparseMap = DefaultDict[int, Set[int]]
 
 
 def load_movie_ratings()->DataFrame:
@@ -28,31 +29,19 @@ def load_movie_ratings()->DataFrame:
     return data
 
 
-def load_ucf_data()->Dict[int, Set[int]]:
-    """读取用户对电影评分的数据，适用于User CF算法。
+def load_sparse_map()->Tuple[SparseMap, SparseMap]:
+    """将用户对电影评分的数据转为sparse map，适用于User CF和Item CF算法。
 
     Returns:
-        Dict[int, Set[int]] -- uid及其对应的item_id。
+        SparseMap -- key: uid, value: 该uid浏览过的item_id。
+        SparseMap -- key: item_id, value: 浏览过该item_id的uid。
     """
 
     data = load_movie_ratings().loc[:, ["uid", "item_id"]]
-    ret = defaultdict(set)  # type: defaultdict
+    user_items = defaultdict(set)  # type: SparseMap
+    item_users = defaultdict(set)  # type: SparseMap
     for _, uid, item_id in data.itertuples():
-        ret[uid].add(item_id)
+        user_items[uid].add(item_id)
+        item_users[item_id].add(uid)
 
-    return ret
-
-
-def load_icf_data()->Dict[int, Set[int]]:
-    """读取用户对电影评分的数据，适用于Item CF算法。
-
-    Returns:
-        Dict[int, Set[int]] -- item_id及其对应的uid。
-    """
-
-    data = load_movie_ratings().loc[:, ["uid", "item_id"]]
-    ret = defaultdict(set)  # type: defaultdict
-    for _, uid, item_id in data.itertuples():
-        ret[item_id].add(uid)
-
-    return ret
+    return user_items, item_users
