@@ -23,10 +23,11 @@ class MaxHeap:
         self.heap = []  # type: List[Any]
 
     def __getitem__(self, i):
+        assert i < self.size, "下标越界!"
         return self.heap[i]
 
     def __len__(self):
-        return len(self.heap)
+        return self.size
 
     @property
     def full(self) -> bool:
