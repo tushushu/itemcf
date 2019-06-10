@@ -5,7 +5,7 @@
 """
 import os
 from collections import defaultdict
-from typing import Set, Tuple, DefaultDict
+from typing import Set, DefaultDict
 
 import pandas as pd
 from pandas import DataFrame
@@ -28,20 +28,19 @@ def load_movie_ratings()->DataFrame:
     data.columns = ["uid", "item_id", "rating", "timestamp"]
     return data
 
+def load_cf_data() -> SparseMap:
+    """读取用户对电影的评分的数据，并转为sparse map，适用于协同过滤算法。
 
-def load_sparse_map()->Tuple[SparseMap, SparseMap]:
-    """将用户对电影评分的数据转为sparse map，适用于User CF和Item CF算法。
+    Arguments:
+        data {DataFrame} -- 列名称[uid(int), item_id(int)]
 
     Returns:
         SparseMap -- key: uid, value: 该uid浏览过的item_id。
-        SparseMap -- key: item_id, value: 浏览过该item_id的uid。
     """
 
-    data = load_movie_ratings().loc[:, ["uid", "item_id"]]
+    data = load_movie_ratings()
     user_items = defaultdict(set)  # type: SparseMap
-    item_users = defaultdict(set)  # type: SparseMap
     for _, uid, item_id in data.itertuples():
         user_items[uid].add(item_id)
-        item_users[item_id].add(uid)
 
-    return user_items, item_users
+    return user_items
