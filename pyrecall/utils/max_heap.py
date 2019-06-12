@@ -14,30 +14,20 @@ class MaxHeap:
     Attributes:
         max_size {int} -- 堆的最大元素数量。
         size {int} -- 堆的当前元素数量。
-        heap {List[Any]} -- 存储堆的元素。
+        elements {List[Any]} -- 存储堆的元素。
     """
 
     def __init__(self, max_size: int):
         self.max_size = max_size
         self.size = 0
-        self.heap = []  # type: List[Any]
+        self.elements = []  # type: List[Any]
 
     def __getitem__(self, i):
         assert i < self.size, "下标越界!"
-        return self.heap[i]
+        return self.elements[i]
 
     def __len__(self):
         return self.size
-
-    @property
-    def full(self) -> bool:
-        """判断堆是否已经满了。
-
-        Returns:
-            bool
-        """
-
-        return self.size == self.max_size
 
     def heappush(self, item: Any):
         """将item加入 heap 中，保持堆的不变性。
@@ -46,18 +36,19 @@ class MaxHeap:
             item {Any} -- 可进行大小比较的对象。
         """
 
-        if self.full:
-            heapreplace(self.heap, item)
+        if self.size == self.max_size:
+            heapreplace(self.elements, item)
         else:
-            heappush(self.heap, item)
+            heappush(self.elements, item)
             self.size += 1
 
-    def heappop(self)->Any:
+    def heappop(self) -> Any:
         """弹出并返回heap的最大的元素，保持堆的不变性。
 
         Returns:
             Any
         """
 
-        assert self.size > 0, "Cannot pop item! The MaxHeap is empty!"
-        return heappop(self.heap)
+        assert self.size > 0, "堆中没有元素!"
+        self.size -= 1
+        return heappop(self.elements)

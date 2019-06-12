@@ -4,15 +4,15 @@
 """
 
 
-class Similarity:
-    """存储一个item的名称以与另外一个item的相似度，维护最相似item的大顶堆时使用。
+class Element:
+    """存储一个element的名称以与另外一个element的相似度，维护最相似element的大顶堆时使用。
 
     Attributes:
-        name {str} -- item名称。
-        val {float} -- 与另外一个item的相似度。
+        name {str} -- element名称。
+        sim {float} -- 与另外一个element的相似度。
     """
 
-    def __init__(self, name, sim):
+    def __init__(self, name, sim=None):
         self.name = name
         self.sim = sim
 
