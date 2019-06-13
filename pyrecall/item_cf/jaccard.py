@@ -6,8 +6,9 @@
 from collections import defaultdict
 from itertools import product
 from typing import List, Any, Dict, Set, DefaultDict, Tuple
-from pandas import DataFrame
+from pyspark.sql import DataFrame
 from ..utils.load_data import SparseMap
+from ..utils.process_data import get_item_users, get_user_items
 from ..utils.max_heap import MaxHeap
 from ..utils.element import Element
 
@@ -40,11 +41,11 @@ class JaccardItemCF:
         denominator = len(vector_1 | vector_2)
         return numerator / denominator
 
-    def cal_similarity(self, item_users: SparseMap, element_1: Element, element_2: Element):
+    def cal_similarity(self, item_users: dict, element_1: Element, element_2: Element):
         """计算物品间的相似度，并将相似度更新到Element类的属性。
 
         Arguments:
-            user_items {SparseMap} -- key: 用户id, value: 该用户浏览过的物品id。
+            item_users {dict} -- key: 物品id, value: 浏览过该物品的用户id。
             element_1 {Element} -- 物品1
             element_2 {Element} -- 物品2
         """
@@ -56,23 +57,6 @@ class JaccardItemCF:
         element_1.sim = sim
         element_2.sim = sim
 
-    @staticmethod
-    def process_data(user_items: SparseMap) -> SparseMap:
-        """将用户→物品的稀疏矩阵转为物品→用户的稀疏矩阵。
-
-        Arguments:
-            user_items {SparseMap} -- key: 用户id, value: 该用户浏览过的物品id。
-
-        Returns:
-            SparseMap -- key: 物品id, value: 浏览过该物品的用户id。
-        """
-
-        item_users = defaultdict(set)  # type: SparseMap
-        for uid, item_ids in user_items.items():
-            for item_id in item_ids:
-                item_users[item_id].add(uid)
-
-        return item_users
 
     def fit(self, data: DataFrame, max_items=10, scaled=False):
         """训练Jaccard ItemCF模型。
@@ -85,7 +69,7 @@ class JaccardItemCF:
             scaled {bool} -- 归一化物品评分(default: {False})
         """
 
-        item_users = self.process_data(data)
+        item_users = get_item_users(data)
         _item_pairs = product(item_users, item_users)
         item_pairs = filter(lambda x: x[0] < x[1], _item_pairs)
         element_pairs = map(lambda x: (Element(x[0]), Element(x[1])), item_pairs)
@@ -122,14 +106,14 @@ class JaccardItemCF:
 
         return sorted(item_sims.items(), key=lambda x: x[0], reverse=True)[: self.max_items]
 
-    def predict(self, data: SparseMap) -> Dict[int, List[Any]]:
+    def predict(self, data: dict) -> Dict[int, List[Any]]:
         """预测多个用户感兴趣的物品。
 
         Arguments:
-            data {SparseMap} -- key: uid, value: 该uid浏览过的item_id。
+            data {dict} -- key: uid, value: 该uid浏览过的item_id。
 
         Returns:
             Dict[int, List[Any]] -- {物品id: [(物品id, 相似度)...]...}
         """
 
-        return {uid: self.predict_one(items) for uid, items in data.items()}
+        pass

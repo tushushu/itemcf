@@ -10,8 +10,7 @@ from pyspark.sql.functions import collect_set  # pylint: disable=no-name-in-modu
 
 SparseMap = Dict[int, Set[int]]
 
-
-def reshape(data: DataFrame) -> SparseMap:
+def get_item_users(data: DataFrame) -> SparseMap:
     """[summary]
 
     Arguments:
@@ -26,5 +25,21 @@ def reshape(data: DataFrame) -> SparseMap:
         .rdd\
         .map(lambda x: (x[0], set(x[1])))\
         .collectAsMap()
+
+    return ret
+
+
+def get_user_items(data: DataFrame) -> SparseMap:
+    """[summary]
+
+    Arguments:
+        data {DataFrame} -- [description]
+
+    Returns:
+        SparseMap -- [description]
+    """
+
+    ret = data.groupby(data.uid)\
+        .agg(collect_set(data.item_id))
 
     return ret
