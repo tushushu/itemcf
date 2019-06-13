@@ -1,7 +1,7 @@
 ## PyRecall
-基于Python开发的推荐系统召回算法库。  
+基于PySpark开发的推荐系统召回算法库。  
 PyRecall兼容: Python 3.6-3.7  
-PyRecall依赖: Pandas的任意版本  
+PyRecall依赖: PySpark 2.0及以上 
 
 ## 算法
 User CF  
