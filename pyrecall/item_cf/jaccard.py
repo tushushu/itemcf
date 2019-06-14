@@ -4,13 +4,14 @@
 @Date: 2019-06-06 12:21:13
 """
 from collections import defaultdict
-from itertools import product
+from itertools import product, chain
 from typing import List, Any, Dict, Set, DefaultDict, Tuple
 from pyspark.sql import DataFrame
 from ..utils.load_data import SparseMap
-from ..utils.process_data import get_item_users, get_user_items
-from ..utils.max_heap import MaxHeap
+from ..utils.process_data import get_item_vectors, get_user_vectors
+from ..utils.distance import jaccard_sim
 from ..utils.element import Element
+from ..utils.max_heap import MaxHeap
 
 
 class JaccardItemCF:
@@ -24,40 +25,6 @@ class JaccardItemCF:
         self.sim_mat = defaultdict()
         self.max_items = 0
 
-    @staticmethod
-    def _cal_similarity(vector_1: Set[int], vector_2: Set[int]) -> float:
-        """计算Jaccard相似度公式。
-        Similarity = (A ∩ B) / (A ∪ B)
-
-        Arguments:
-            vector_1 {Set[int]} -- 浏览过该物品1的用户id。
-            vector_2 {Set[int]} -- 浏览过该物品2的用户id。
-
-        Returns:
-            float -- 相似度。
-        """
-
-        numerator = len(vector_1 & vector_2)
-        denominator = len(vector_1 | vector_2)
-        return numerator / denominator
-
-    def cal_similarity(self, item_users: dict, element_1: Element, element_2: Element):
-        """计算物品间的相似度，并将相似度更新到Element类的属性。
-
-        Arguments:
-            item_users {dict} -- key: 物品id, value: 浏览过该物品的用户id。
-            element_1 {Element} -- 物品1
-            element_2 {Element} -- 物品2
-        """
-
-        vector_1 = item_users[element_1.name]
-        vector_2 = item_users[element_2.name]
-        sim = self._cal_similarity(vector_1, vector_2)
-
-        element_1.sim = sim
-        element_2.sim = sim
-
-
     def fit(self, data: DataFrame, max_items=10, scaled=False):
         """训练Jaccard ItemCF模型。
 
@@ -65,22 +32,48 @@ class JaccardItemCF:
             data {DataFrame} -- 列名称[uid(int), item_id(int)]
 
         Keyword Arguments:
-            max_items {int} -- 为每个物品最多计算多少个相似的物品。 (default: {10})
-            scaled {bool} -- 归一化物品评分(default: {False})
+            max_items {int} -- 最多为每个物品最多计算多少个相似的物品。 (default: {10})
+            scaled {bool} -- 是否归一化物品相似度(default: {False})
         """
 
-        item_users = get_item_users(data)
-        _item_pairs = product(item_users, item_users)
-        item_pairs = filter(lambda x: x[0] < x[1], _item_pairs)
-        element_pairs = map(lambda x: (Element(x[0]), Element(x[1])), item_pairs)
-        sim_mat = defaultdict(lambda: MaxHeap(max_items))  # type: DefaultDict[int, MaxHeap]
+        # 剔除重复数据
+        data = data.distinct().cache()
+        # 获取物品及评分过该物品的用户
+        item_vectors = get_item_vectors(data)
+        # 获取所有的物品
+        items = data.select("item_id").distinct()
+        def get_sim_mat(items):
+            sim_mat = defaultdict(lambda: MaxHeap(max_items))  # type: DefaultDict[int, MaxHeap]
+            for item_1 in items:
+                vec_1 = item_vectors.get(item_1, set())
+                iterator = (x for x in item_vectors if x > item_1)
+                for item_2 in iterator:
+                    vec_2 = item_vectors.get(item_2, set())
+                    sim = jaccard_sim(vec_1, vec_2)
+                    if sim == 0:
+                        continue
+                    ele_1 = Element(item_1, sim)
+                    ele_2 = Element(item_2, sim)
+                    sim_mat[item_1].heappush(ele_2)
+                    sim_mat[item_2].heappush(ele_1)
+            return sim_mat
 
-        for element_1, element_2 in element_pairs:
-            self.cal_similarity(item_users, element_1, element_2)
-            sim_mat[element_1.name].heappush(element_2)
-            sim_mat[element_2.name].heappush(element_1)
 
-        # TODO 归一化相似度
+        def sim_mat_iterator(iterator):
+            yield get_sim_mat(iterator)
+
+        def merge(sim_mat_1, sim_mat_2):
+            for item_2, heap_2 in sim_mat_2:
+                if item_2 in sim_mat_1:
+                    heap_1 = sim_mat_1[item_2]
+                    for ele in heap_2.element:
+                        heap_1.heappush(ele)
+            return sim_mat_1
+
+        # 计算物品相似度
+        sim_mat = items.rdd.mapPartitions(sim_mat_iterator).reduce(merge)
+
+        # TODO 归一化物品相似度
         if scaled:
             pass
 
@@ -110,7 +103,7 @@ class JaccardItemCF:
         """预测多个用户感兴趣的物品。
 
         Arguments:
-            data {dict} -- key: uid, value: 该uid浏览过的item_id。
+            data {dict} -- key: uid, value: 该uid评分过的item_id。
 
         Returns:
             Dict[int, List[Any]] -- {物品id: [(物品id, 相似度)...]...}
