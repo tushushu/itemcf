@@ -7,6 +7,7 @@ from collections import defaultdict
 from itertools import product, chain
 from typing import List, Any, Dict, Set, DefaultDict, Tuple
 from pyspark.sql import DataFrame
+from pyspark.sql.functions import udf
 from ..utils.load_data import SparseMap
 from ..utils.process_data import get_item_vectors, get_user_vectors
 from ..utils.distance import jaccard_sim
@@ -29,15 +30,13 @@ class JaccardItemCF:
         """训练Jaccard ItemCF模型。
 
         Arguments:
-            data {DataFrame} -- 列名称[uid(int), item_id(int)]
+            data {DataFrame} -- 需剔除重复数据，列名称[uid(int), item_ids(int)]
 
         Keyword Arguments:
             max_items {int} -- 最多为每个物品最多计算多少个相似的物品。 (default: {10})
             scaled {bool} -- 是否归一化物品相似度(default: {False})
         """
 
-        # 剔除重复数据
-        data = data.distinct().cache()
         # 获取物品及评分过该物品的用户
         item_vectors = get_item_vectors(data)
         # 获取所有的物品
@@ -80,11 +79,11 @@ class JaccardItemCF:
         self.sim_mat = sim_mat
         self.max_items = max_items
 
-    def predict_one(self, items: Set[int]) -> List[Tuple[int, float]]:
+    def predict_one(self, items: List[int]) -> List[Tuple[int, float]]:
         """预测一个用户感兴趣的物品。
 
         Arguments:
-            items {Set[int]} -- 用户曾经评分过的物品。
+            items {List[int]} -- 用户曾经评分过的物品。
 
         Returns:
             List[Tuple[int, float]] -- [(物品id, 相似度)...]
@@ -99,14 +98,20 @@ class JaccardItemCF:
 
         return sorted(item_sims.items(), key=lambda x: x[0], reverse=True)[: self.max_items]
 
-    def predict(self, data: dict) -> Dict[int, List[Any]]:
+    def predict(self, data: DataFrame) -> DataFrame:
         """预测多个用户感兴趣的物品。
 
         Arguments:
-            data {dict} -- key: uid, value: 该uid评分过的item_id。
+            data {DataFrame} -- 需剔除重复数据，列名称[uid(int), item_ids(int)]
 
         Returns:
-            Dict[int, List[Any]] -- {物品id: [(物品id, 相似度)...]...}
+            DataFrame
         """
 
-        pass
+        user_vectors = get_user_vectors(data)
+        # TODO udf的return类型待修正
+        _predict = udf(self.predict_one)
+        ret = user_vectors.select("uid", _predict("item_ids").alias("recs"))
+
+        return ret
+
