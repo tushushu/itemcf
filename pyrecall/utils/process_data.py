@@ -6,7 +6,7 @@
 from typing import Dict, Set
 
 from pyspark.sql import DataFrame
-from pyspark.sql.functions import collect_list  # pylint: disable=no-name-in-module
+from pyspark.sql.functions import collect_set  # pylint: disable=no-name-in-module
 
 SparseVec = Dict[int, Set[int]]
 
@@ -21,7 +21,7 @@ def get_item_vectors(data: DataFrame) -> SparseVec:
     """
 
     ret = data.groupby(data.item_id)\
-        .agg(collect_list(data.uid))\
+        .agg(collect_set(data.uid))\
         .rdd\
         .map(lambda x: (x[0], set(x[1])))\
         .collectAsMap()
@@ -33,14 +33,14 @@ def get_user_vectors(data: DataFrame) -> DataFrame:
     """获取用户及用户曾经评分过的物品。
 
     Arguments:
-        data {DataFrame} -- 需剔除重复行，列名称[uid(int), item_id(int)]
+        data {DataFrame} -- 列名称[uid(int), item_id(int)]
 
     Returns:
         DataFrame -- 列名称[uid(int), item_ids(list)]
     """
 
     ret = data.groupby(data.uid)\
-        .agg(collect_list(data.item_id)\
+        .agg(collect_set(data.item_id)\
         .alias("item_ids"))
 
     return ret

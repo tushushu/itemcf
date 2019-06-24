@@ -30,7 +30,7 @@ class JaccardItemCF:
         """训练Jaccard ItemCF模型。
 
         Arguments:
-            data {DataFrame} -- 需剔除重复数据，列名称[uid(int), item_ids(int)]
+            data {DataFrame} -- 列名称[uid(int), item_ids(int)]
 
         Keyword Arguments:
             max_items {int} -- 最多为每个物品最多计算多少个相似的物品。 (default: {10})
@@ -102,7 +102,7 @@ class JaccardItemCF:
         """预测多个用户感兴趣的物品。
 
         Arguments:
-            data {DataFrame} -- 需剔除重复数据，列名称[uid(int), item_ids(int)]
+            data {DataFrame} -- 列名称[uid(int), item_ids(int)]
 
         Returns:
             DataFrame
