@@ -3,81 +3,52 @@
 @Author: tushushu
 @Date: 2019-06-06 12:21:13
 """
-from collections import defaultdict
-from itertools import product, chain
-from typing import List, Any, Dict, Set, DefaultDict, Tuple
+from typing import List, Tuple
 from pyspark.sql import DataFrame
-from pyspark.sql.functions import udf
-from ..utils.load_data import SparseMap
-from ..utils.process_data import get_item_vectors, get_user_vectors
-from ..utils.distance import jaccard_sim
-from ..utils.element import Element
-from ..utils.max_heap import MaxHeap
+from pyspark.sql.functions import udf, col  # pylint: disable=no-name-in-module
+from pyspark.sql.types import StructField, StructType, LongType, FloatType, ArrayType
+from ..utils.sparse_matrix import SparseMatrixBinary  # pylint: disable=no-name-in-module
+from ..preprocessing.process_data import get_item_vectors, get_user_vectors, get_popular_items
 
 
 class JaccardItemCF:
     """JaccardItemCF类。
 
     Attributes:
-        sim_mat -- 物品相似度矩阵。
+        mat {SparseMatrixBinary} -- 物品矩阵。
+        n_recommend {int} -- 模型推荐物品的数量。
     """
 
     def __init__(self):
-        self.sim_mat = defaultdict()
-        self.max_items = 0
+        self.mat = None
+        self.n_recommend = None
+        self.return_type = None
 
-    def fit(self, data: DataFrame, max_items=10, scaled=False):
-        """训练Jaccard ItemCF模型。
+    def fit(self, data: DataFrame, user_col: str, item_col: str, n_recommend: int, n_cache: int):
+        """训练Jaccard Item CF模型。
 
         Arguments:
-            data {DataFrame} -- 列名称[uid(int), item_ids(int)]
-
-        Keyword Arguments:
-            max_items {int} -- 最多为每个物品最多计算多少个相似的物品。 (default: {10})
-            scaled {bool} -- 是否归一化物品相似度(default: {False})
+            data {DataFrame} -- [user_col(IntegerType), item_col(IntegerType)]
+            user_col {str} -- 用户id所在的列名称。
+            item_col {str} -- 物品id所在的列名称。
+            n_recommend {int} -- 模型推荐物品的数量。
+            n_cache {int} -- 模型缓存n_cache个物品对应的n_recommend个相似物品。
         """
-
-        # 获取物品及评分过该物品的用户
-        item_vectors = get_item_vectors(data)
-        # 获取所有的物品
-        items = data.select("item_id").distinct()
-        def get_sim_mat(items):
-            sim_mat = defaultdict(lambda: MaxHeap(max_items))  # type: DefaultDict[int, MaxHeap]
-            for item_1 in items:
-                vec_1 = item_vectors.get(item_1, set())
-                iterator = (x for x in item_vectors if x > item_1)
-                for item_2 in iterator:
-                    vec_2 = item_vectors.get(item_2, set())
-                    sim = jaccard_sim(vec_1, vec_2)
-                    if sim == 0:
-                        continue
-                    ele_1 = Element(item_1, sim)
-                    ele_2 = Element(item_2, sim)
-                    sim_mat[item_1].heappush(ele_2)
-                    sim_mat[item_2].heappush(ele_1)
-            return sim_mat
-
-
-        def sim_mat_iterator(iterator):
-            yield get_sim_mat(iterator)
-
-        def merge(sim_mat_1, sim_mat_2):
-            for item_2, heap_2 in sim_mat_2:
-                if item_2 in sim_mat_1:
-                    heap_1 = sim_mat_1[item_2]
-                    for ele in heap_2.element:
-                        heap_1.heappush(ele)
-            return sim_mat_1
-
-        # 计算物品相似度
-        sim_mat = items.rdd.mapPartitions(sim_mat_iterator).reduce(merge)
-
-        # TODO 归一化物品相似度
-        if scaled:
-            pass
-
-        self.sim_mat = sim_mat
-        self.max_items = max_items
+        # 模型推荐物品的数量。
+        self.n_recommend = n_recommend
+        # 模型的推荐返回格式。
+        self.return_type = ArrayType(
+            StructType([
+                StructField(item_col, LongType()),
+                StructField("score", FloatType())
+            ])
+        )
+        # 获取物品及评分过该物品的用户。
+        item_vectors = get_item_vectors(data, user_col, item_col)
+        # 取出最热门的物品id。
+        popular_items = get_popular_items(data, user_col, item_col, n_cache)
+        # 计算物品矩阵。
+        self.mat = SparseMatrixBinary(item_vectors, popular_items, n_recommend)
 
     def predict_one(self, items: List[int]) -> List[Tuple[int, float]]:
         """预测一个用户感兴趣的物品。
@@ -89,29 +60,19 @@ class JaccardItemCF:
             List[Tuple[int, float]] -- [(物品id, 相似度)...]
         """
 
-        item_sims = defaultdict(float)  # type: DefaultDict[int, float]
-        for item in items:
-            elements = self.sim_mat[item].elements
-            for element in elements:
-                if element.name not in items:
-                    item_sims[element.name] += element.sim
+        return self.mat.recommend_py(items, self.n_recommend)
 
-        return sorted(item_sims.items(), key=lambda x: x[0], reverse=True)[: self.max_items]
-
-    def predict(self, data: DataFrame) -> DataFrame:
+    def predict(self, data: DataFrame, user_col: str, item_col: str) -> DataFrame:
         """预测多个用户感兴趣的物品。
 
         Arguments:
-            data {DataFrame} -- 列名称[uid(int), item_ids(int)]
+            data {DataFrame} -- [user_col(IntegerType), item_col(IntegerType)]
 
         Returns:
             DataFrame
         """
-
-        user_vectors = get_user_vectors(data)
-        # TODO udf的return类型待修正
-        _predict = udf(self.predict_one)
-        ret = user_vectors.select("uid", _predict("item_ids").alias("recs"))
-
+        user_vectors = get_user_vectors(data, user_col, item_col)
+        _predict = udf(self.predict_one, self.return_type)
+        ret = user_vectors.select(col(user_col), _predict(
+            item_col).alias("recommendation"))
         return ret
-

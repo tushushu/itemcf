@@ -34,7 +34,10 @@ def compile_file(file_name: str):
 
 
 if __name__ == "__main__":
-    compile_cpp11_file("cpp_set.pyx")
+    compile_cpp11_file("sim_metrics.pyx")
+    compile_cpp11_file("heap.pyx")
+    compile_cpp11_file("item_cf.pyx")
+    compile_cpp11_file("sparse_matrix.pyx")
 
 # source activate py36
 # python setup.py build_ext --inplace

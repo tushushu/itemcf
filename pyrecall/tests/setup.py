@@ -34,9 +34,7 @@ def compile_file(file_name: str):
 
 
 if __name__ == "__main__":
-    compile_cpp11_file("_list2vector.pyx")
-    compile_file("_common_elements.pyx")
-    compile_cpp11_file("_common_elements_cpp.pyx")
+    compile_cpp11_file("test_sorted_set.pyx")
 
 # source activate py36
 # python setup.py build_ext --inplace

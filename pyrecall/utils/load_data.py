@@ -28,6 +28,7 @@ def load_movie_ratings()->DataFrame:
     data.columns = ["uid", "item_id", "rating", "timestamp"]
     return data
 
+
 def load_cf_data() -> SparseMap:
     """读取用户对电影的评分的数据，并转为sparse map，适用于协同过滤算法。
 
