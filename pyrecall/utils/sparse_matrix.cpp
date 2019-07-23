@@ -845,22 +845,22 @@ struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_str
  * 
  * cdef class SparseMatrixBinary:             # <<<<<<<<<<<<<<
  *     # C++
- *     cdef cpp_map[int, vector[int]] data
+ *     cdef cpp_map[int, vector[int]] _data
  */
 struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
   PyObject_HEAD
   struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtab;
-  std::unordered_map<int,std::vector<int> >  data;
-  std::unordered_map<int,std::vector<std::pair<int,float> > >  cache;
+  std::unordered_map<int,std::vector<int> >  _data;
+  std::unordered_map<int,std::vector<std::pair<int,float> > >  _cache;
 };
 
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
- *         self.data[key] = value
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":45
+ *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
  *         cdef:
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  */
 struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ {
   PyObject_HEAD
@@ -880,9 +880,9 @@ struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_str
  */
 
 struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
-  std::vector<int>  (*get)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int);
-  std::vector<std::pair<int,float> >  (*knn_search)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int);
-  std::vector<std::pair<int,float> >  (*recommend)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int);
+  std::vector<int>  (*_get)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int);
+  std::vector<std::pair<int,float> >  (*_knn_search)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int);
+  std::vector<std::pair<int,float> >  (*_recommend)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int);
 };
 static struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
 
@@ -960,10 +960,6 @@ static CYTHON_INLINE PyObject* __Pyx_PyObject_GetAttrStr(PyObject* obj, PyObject
 /* GetBuiltinName.proto */
 static PyObject *__Pyx_GetBuiltinName(PyObject *name);
 
-/* RaiseArgTupleInvalid.proto */
-static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
-    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
-
 /* RaiseDoubleKeywords.proto */
 static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_name);
 
@@ -971,6 +967,10 @@ static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_n
 static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
+
+/* RaiseArgTupleInvalid.proto */
+static void __Pyx_RaiseArgtupleInvalid(const char* func_name, int exact,
+    Py_ssize_t num_min, Py_ssize_t num_max, Py_ssize_t num_found);
 
 /* ArgTypeTest.proto */
 #define __Pyx_ArgTypeTest(obj, type, none_allowed, name, exact)\
@@ -1310,10 +1310,10 @@ static CYTHON_INLINE PyObject* __Pyx_PyInt_From_long(long value);
 static CYTHON_INLINE int __Pyx_PyInt_As_int(PyObject *);
 
 /* CIntFromPy.proto */
-static CYTHON_INLINE unsigned int __Pyx_PyInt_As_unsigned_int(PyObject *);
+static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
 
 /* CIntFromPy.proto */
-static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *);
+static CYTHON_INLINE unsigned int __Pyx_PyInt_As_unsigned_int(PyObject *);
 
 /* CIntFromPy.proto */
 static CYTHON_INLINE size_t __Pyx_PyInt_As_size_t(PyObject *);
@@ -1445,9 +1445,9 @@ static int __Pyx_ImportFunction(PyObject *module, const char *funcname, void (**
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto*/
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k); /* proto*/
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k); /* proto*/
+static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto*/
+static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k); /* proto*/
+static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k); /* proto*/
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1521,7 +1521,6 @@ static const char __pyx_k_reduce_ex[] = "__reduce_ex__";
 static const char __pyx_k_pyx_result[] = "__pyx_result";
 static const char __pyx_k_pyx_vtable[] = "__pyx_vtable__";
 static const char __pyx_k_PickleError[] = "PickleError";
-static const char __pyx_k_popular_keys[] = "popular_keys";
 static const char __pyx_k_pyx_checksum[] = "__pyx_checksum";
 static const char __pyx_k_stringsource[] = "stringsource";
 static const char __pyx_k_reduce_cython[] = "__reduce_cython__";
@@ -1532,9 +1531,9 @@ static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_SparseMatrixBinary___iter[] = "SparseMatrixBinary.__iter__";
 static const char __pyx_k_pyx_unpickle_SparseMatrixBinar[] = "__pyx_unpickle_SparseMatrixBinary";
 static const char __pyx_k_Author_tushushu_Date_2019_07_03[] = "\n@Author: tushushu\n@Date: 2019-07-03 14:52:49\n";
-static const char __pyx_k_Incompatible_checksums_s_vs_0x03[] = "Incompatible checksums (%s vs 0x0355a09 = (cache, data))";
+static const char __pyx_k_Incompatible_checksums_s_vs_0x89[] = "Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))";
 static const char __pyx_k_dwh_pyrecall_pyrecall_utils_spar[] = "dwh.pyrecall.pyrecall.utils.sparse_matrix";
-static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x03;
+static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x89;
 static PyObject *__pyx_n_s_KeyError;
 static PyObject *__pyx_n_s_PickleError;
 static PyObject *__pyx_n_s_SparseMatrixBinary;
@@ -1557,7 +1556,6 @@ static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_n_s_pickle;
-static PyObject *__pyx_n_s_popular_keys;
 static PyObject *__pyx_n_s_pyx_PickleError;
 static PyObject *__pyx_n_s_pyx_checksum;
 static PyObject *__pyx_n_s_pyx_result;
@@ -1576,51 +1574,48 @@ static PyObject *__pyx_kp_s_stringsource;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_throw;
 static PyObject *__pyx_n_s_update;
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_popular_keys, unsigned int __pyx_v_k); /* proto */
+static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
 static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto */
 static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, std::vector<int>  __pyx_v_value); /* proto */
 static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search_py(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend_py(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k); /* proto */
 static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
 static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
 static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_int_3496457;
+static PyObject *__pyx_int_143976379;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":35
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":33
  *     """
  * 
- *     def __init__(self, dict data, list popular_keys, unsigned int k):             # <<<<<<<<<<<<<<
- *         self.data = data
- *         for key in popular_keys:
+ *     def __init__(self, dict data):             # <<<<<<<<<<<<<<
+ *         self._data = data
+ * 
  */
 
 /* Python wrapper */
 static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
 static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_data = 0;
-  PyObject *__pyx_v_popular_keys = 0;
-  unsigned int __pyx_v_k;
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__init__ (wrapper)", 0);
   {
-    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data,&__pyx_n_s_popular_keys,&__pyx_n_s_k,0};
-    PyObject* values[3] = {0,0,0};
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_data,0};
+    PyObject* values[1] = {0};
     if (unlikely(__pyx_kwds)) {
       Py_ssize_t kw_args;
       const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
       switch (pos_args) {
-        case  3: values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
-        CYTHON_FALLTHROUGH;
-        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-        CYTHON_FALLTHROUGH;
         case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
         CYTHON_FALLTHROUGH;
         case  0: break;
@@ -1631,44 +1626,27 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
         case  0:
         if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_data)) != 0)) kw_args--;
         else goto __pyx_L5_argtuple_error;
-        CYTHON_FALLTHROUGH;
-        case  1:
-        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_popular_keys)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 1); __PYX_ERR(0, 35, __pyx_L3_error)
-        }
-        CYTHON_FALLTHROUGH;
-        case  2:
-        if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_k)) != 0)) kw_args--;
-        else {
-          __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, 2); __PYX_ERR(0, 35, __pyx_L3_error)
-        }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 35, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "__init__") < 0)) __PYX_ERR(0, 33, __pyx_L3_error)
       }
-    } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 1) {
       goto __pyx_L5_argtuple_error;
     } else {
       values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
-      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
-      values[2] = PyTuple_GET_ITEM(__pyx_args, 2);
     }
     __pyx_v_data = ((PyObject*)values[0]);
-    __pyx_v_popular_keys = ((PyObject*)values[1]);
-    __pyx_v_k = __Pyx_PyInt_As_unsigned_int(values[2]); if (unlikely((__pyx_v_k == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 35, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("__init__", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 35, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("__init__", 1, 1, 1, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 33, __pyx_L3_error)
   __pyx_L3_error:;
   __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyDict_Type), 1, "data", 1))) __PYX_ERR(0, 35, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_popular_keys), (&PyList_Type), 1, "popular_keys", 1))) __PYX_ERR(0, 35, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_data, __pyx_v_popular_keys, __pyx_v_k);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyDict_Type), 1, "data", 1))) __PYX_ERR(0, 33, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_data);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1679,105 +1657,46 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   return __pyx_r;
 }
 
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_popular_keys, unsigned int __pyx_v_k) {
-  PyObject *__pyx_v_key = NULL;
+static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   std::unordered_map<int,std::vector<int> >  __pyx_t_1;
-  PyObject *__pyx_t_2 = NULL;
-  Py_ssize_t __pyx_t_3;
-  PyObject *__pyx_t_4 = NULL;
-  int __pyx_t_5;
-  std::vector<std::pair<int,float> >  __pyx_t_6;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":36
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":34
  * 
- *     def __init__(self, dict data, list popular_keys, unsigned int k):
- *         self.data = data             # <<<<<<<<<<<<<<
- *         for key in popular_keys:
- *             self.cache[key] = self.knn_search(key, k)
- */
-  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_int_3e___(__pyx_v_data); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 36, __pyx_L1_error)
-  __pyx_v_self->data = __pyx_t_1;
-
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":37
- *     def __init__(self, dict data, list popular_keys, unsigned int k):
- *         self.data = data
- *         for key in popular_keys:             # <<<<<<<<<<<<<<
- *             self.cache[key] = self.knn_search(key, k)
- * 
- */
-  if (unlikely(__pyx_v_popular_keys == Py_None)) {
-    PyErr_SetString(PyExc_TypeError, "'NoneType' object is not iterable");
-    __PYX_ERR(0, 37, __pyx_L1_error)
-  }
-  __pyx_t_2 = __pyx_v_popular_keys; __Pyx_INCREF(__pyx_t_2); __pyx_t_3 = 0;
-  for (;;) {
-    if (__pyx_t_3 >= PyList_GET_SIZE(__pyx_t_2)) break;
-    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
-    __pyx_t_4 = PyList_GET_ITEM(__pyx_t_2, __pyx_t_3); __Pyx_INCREF(__pyx_t_4); __pyx_t_3++; if (unlikely(0 < 0)) __PYX_ERR(0, 37, __pyx_L1_error)
-    #else
-    __pyx_t_4 = PySequence_ITEM(__pyx_t_2, __pyx_t_3); __pyx_t_3++; if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 37, __pyx_L1_error)
-    __Pyx_GOTREF(__pyx_t_4);
-    #endif
-    __Pyx_XDECREF_SET(__pyx_v_key, __pyx_t_4);
-    __pyx_t_4 = 0;
-
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":38
- *         self.data = data
- *         for key in popular_keys:
- *             self.cache[key] = self.knn_search(key, k)             # <<<<<<<<<<<<<<
+ *     def __init__(self, dict data):
+ *         self._data = data             # <<<<<<<<<<<<<<
  * 
  *     def __len__(self):
  */
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 38, __pyx_L1_error)
-    try {
-      __pyx_t_6 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->knn_search(__pyx_v_self, __pyx_t_5, __pyx_v_k);
-    } catch(...) {
-      __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 38, __pyx_L1_error)
-    }
-    __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 38, __pyx_L1_error)
-    (__pyx_v_self->cache[__pyx_t_5]) = __pyx_t_6;
+  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_int_3e___(__pyx_v_data); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 34, __pyx_L1_error)
+  __pyx_v_self->_data = __pyx_t_1;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":37
- *     def __init__(self, dict data, list popular_keys, unsigned int k):
- *         self.data = data
- *         for key in popular_keys:             # <<<<<<<<<<<<<<
- *             self.cache[key] = self.knn_search(key, k)
- * 
- */
-  }
-  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":35
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":33
  *     """
  * 
- *     def __init__(self, dict data, list popular_keys, unsigned int k):             # <<<<<<<<<<<<<<
- *         self.data = data
- *         for key in popular_keys:
+ *     def __init__(self, dict data):             # <<<<<<<<<<<<<<
+ *         self._data = data
+ * 
  */
 
   /* function exit code */
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_XDECREF(__pyx_t_2);
-  __Pyx_XDECREF(__pyx_t_4);
   __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
-  __Pyx_XDECREF(__pyx_v_key);
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":40
- *             self.cache[key] = self.knn_search(key, k)
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":36
+ *         self._data = data
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
- *         return self.data.size()
+ *         return self._data.size()
  * 
  */
 
@@ -1799,21 +1718,21 @@ static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spa
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":41
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":37
  * 
  *     def __len__(self):
- *         return self.data.size()             # <<<<<<<<<<<<<<
+ *         return self._data.size()             # <<<<<<<<<<<<<<
  * 
  *     def __getitem__(self, int key):
  */
-  __pyx_r = __pyx_v_self->data.size();
+  __pyx_r = __pyx_v_self->_data.size();
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":40
- *             self.cache[key] = self.knn_search(key, k)
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":36
+ *         self._data = data
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
- *         return self.data.size()
+ *         return self._data.size()
  * 
  */
 
@@ -1823,11 +1742,11 @@ static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spa
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":43
- *         return self.data.size()
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":39
+ *         return self._data.size()
  * 
  *     def __getitem__(self, int key):             # <<<<<<<<<<<<<<
- *         return self.get(key)
+ *         return self._get(key)
  * 
  */
 
@@ -1839,7 +1758,7 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__getitem__ (wrapper)", 0);
   assert(__pyx_arg_key); {
-    __pyx_v_key = __Pyx_PyInt_As_int(__pyx_arg_key); if (unlikely((__pyx_v_key == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 43, __pyx_L3_error)
+    __pyx_v_key = __Pyx_PyInt_As_int(__pyx_arg_key); if (unlikely((__pyx_v_key == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 39, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1860,25 +1779,25 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":44
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":40
  * 
  *     def __getitem__(self, int key):
- *         return self.get(key)             # <<<<<<<<<<<<<<
+ *         return self._get(key)             # <<<<<<<<<<<<<<
  * 
  *     def __setitem__(self, int key, vector[int] value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_int(((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->get(__pyx_v_self, __pyx_v_key)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_int(((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_get(__pyx_v_self, __pyx_v_key)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 40, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":43
- *         return self.data.size()
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":39
+ *         return self._data.size()
  * 
  *     def __getitem__(self, int key):             # <<<<<<<<<<<<<<
- *         return self.get(key)
+ *         return self._get(key)
  * 
  */
 
@@ -1893,11 +1812,11 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":46
- *         return self.get(key)
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":42
+ *         return self._get(key)
  * 
  *     def __setitem__(self, int key, vector[int] value):             # <<<<<<<<<<<<<<
- *         self.data[key] = value
+ *         self._data[key] = value
  * 
  */
 
@@ -1910,10 +1829,10 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setitem__ (wrapper)", 0);
   assert(__pyx_arg_key); {
-    __pyx_v_key = __Pyx_PyInt_As_int(__pyx_arg_key); if (unlikely((__pyx_v_key == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_key = __Pyx_PyInt_As_int(__pyx_arg_key); if (unlikely((__pyx_v_key == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 42, __pyx_L3_error)
   }
   assert(__pyx_arg_value); {
-    __pyx_v_value = __pyx_convert_vector_from_py_int(__pyx_arg_value); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L3_error)
+    __pyx_v_value = __pyx_convert_vector_from_py_int(__pyx_arg_value); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 42, __pyx_L3_error)
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
@@ -1933,20 +1852,20 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setitem__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":47
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":43
  * 
  *     def __setitem__(self, int key, vector[int] value):
- *         self.data[key] = value             # <<<<<<<<<<<<<<
+ *         self._data[key] = value             # <<<<<<<<<<<<<<
  * 
  *     def __iter__(self):
  */
-  (__pyx_v_self->data[__pyx_v_key]) = __pyx_v_value;
+  (__pyx_v_self->_data[__pyx_v_key]) = __pyx_v_value;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":46
- *         return self.get(key)
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":42
+ *         return self._get(key)
  * 
  *     def __setitem__(self, int key, vector[int] value):             # <<<<<<<<<<<<<<
- *         self.data[key] = value
+ *         self._data[key] = value
  * 
  */
 
@@ -1957,12 +1876,12 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
 }
 static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
- *         self.data[key] = value
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":45
+ *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
  *         cdef:
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  */
 
 /* Python wrapper */
@@ -1987,7 +1906,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   if (unlikely(!__pyx_cur_scope)) {
     __pyx_cur_scope = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)Py_None);
     __Pyx_INCREF(Py_None);
-    __PYX_ERR(0, 49, __pyx_L1_error)
+    __PYX_ERR(0, 45, __pyx_L1_error)
   } else {
     __Pyx_GOTREF(__pyx_cur_scope);
   }
@@ -1995,7 +1914,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_SparseMatrixBinary___iter, __pyx_n_s_dwh_pyrecall_pyrecall_utils_spar); if (unlikely(!gen)) __PYX_ERR(0, 49, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_SparseMatrixBinary___iter, __pyx_n_s_dwh_pyrecall_pyrecall_utils_spar); if (unlikely(!gen)) __PYX_ERR(0, 45, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2029,29 +1948,29 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     return NULL;
   }
   __pyx_L3_first_run:;
-  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 45, __pyx_L1_error)
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":51
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":47
  *     def __iter__(self):
  *         cdef:
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()             # <<<<<<<<<<<<<<
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         while it != end:
  */
-  __pyx_cur_scope->__pyx_v_it = __pyx_cur_scope->__pyx_v_self->data.begin();
+  __pyx_cur_scope->__pyx_v_it = __pyx_cur_scope->__pyx_v_self->_data.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":52
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":48
  *         cdef:
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()             # <<<<<<<<<<<<<<
  *         while it != end:
  *             yield deref(it).first, deref(it).second
  */
-  __pyx_cur_scope->__pyx_v_end = __pyx_cur_scope->__pyx_v_self->data.end();
+  __pyx_cur_scope->__pyx_v_end = __pyx_cur_scope->__pyx_v_self->_data.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":53
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         while it != end:             # <<<<<<<<<<<<<<
  *             yield deref(it).first, deref(it).second
  *             inc(it)
@@ -2060,18 +1979,18 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_t_1 = ((__pyx_cur_scope->__pyx_v_it != __pyx_cur_scope->__pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":54
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":50
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         while it != end:
  *             yield deref(it).first, deref(it).second             # <<<<<<<<<<<<<<
  *             inc(it)
  * 
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int((*__pyx_cur_scope->__pyx_v_it).first); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int((*__pyx_cur_scope->__pyx_v_it).first); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __pyx_convert_vector_to_py_int((*__pyx_cur_scope->__pyx_v_it).second); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert_vector_to_py_int((*__pyx_cur_scope->__pyx_v_it).second); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 54, __pyx_L1_error)
+    __pyx_t_4 = PyTuple_New(2); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_GIVEREF(__pyx_t_2);
     PyTuple_SET_ITEM(__pyx_t_4, 0, __pyx_t_2);
@@ -2088,25 +2007,25 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_generator->resume_label = 1;
     return __pyx_r;
     __pyx_L6_resume_from_yield:;
-    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 54, __pyx_L1_error)
+    if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 50, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":55
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":51
  *         while it != end:
  *             yield deref(it).first, deref(it).second
  *             inc(it)             # <<<<<<<<<<<<<<
  * 
- *     cdef vector[int] get(self, int key):
+ *     @property
  */
     (void)((++__pyx_cur_scope->__pyx_v_it));
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
- *         self.data[key] = value
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":45
+ *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
  *         cdef:
- *             cpp_map[int, vector[int]].iterator it = self.data.begin()
+ *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  */
 
   /* function exit code */
@@ -2128,108 +2047,284 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":57
- *             inc(it)
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":54
  * 
- *     cdef vector[int] get(self, int key):             # <<<<<<<<<<<<<<
- *         """"""
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)
+ *     @property
+ *     def data(self):             # <<<<<<<<<<<<<<
+ *         """Cython_data"""
+ *         return self._data
  */
 
-static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
+/* Python wrapper */
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":56
+ *     def data(self):
+ *         """Cython_data"""
+ *         return self._data             # <<<<<<<<<<<<<<
+ * 
+ *     @property
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_int_3e___(__pyx_v_self->_data); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":54
+ * 
+ *     @property
+ *     def data(self):             # <<<<<<<<<<<<<<
+ *         """Cython_data"""
+ *         return self._data
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":59
+ * 
+ *     @property
+ *     def cache(self):             # <<<<<<<<<<<<<<
+ *         """Cython_cache"""
+ *         return self._cache
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self) {
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  __Pyx_RefNannySetupContext("__get__", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":61
+ *     def cache(self):
+ *         """Cython_cache"""
+ *         return self._cache             # <<<<<<<<<<<<<<
+ * 
+ *     @cache.setter
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(__pyx_v_self->_cache); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 61, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  __pyx_r = __pyx_t_1;
+  __pyx_t_1 = 0;
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":59
+ * 
+ *     @property
+ *     def cache(self):             # <<<<<<<<<<<<<<
+ *         """Cython_cache"""
+ *         return self._cache
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+ * 
+ *     @cache.setter
+ *     def cache(self, data):             # <<<<<<<<<<<<<<
+ *         """Cython_cache"""
+ *         self._cache = data
+ */
+
+/* Python wrapper */
+static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data); /*proto*/
+static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((PyObject *)__pyx_v_data));
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data) {
+  int __pyx_r;
+  __Pyx_RefNannyDeclarations
+  std::unordered_map<int,std::vector<std::pair<int,float> > >  __pyx_t_1;
+  __Pyx_RefNannySetupContext("__set__", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":66
+ *     def cache(self, data):
+ *         """Cython_cache"""
+ *         self._cache = data             # <<<<<<<<<<<<<<
+ * 
+ *     cdef vector[int] _get(self, int key):
+ */
+  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(__pyx_v_data); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 66, __pyx_L1_error)
+  __pyx_v_self->_cache = __pyx_t_1;
+
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+ * 
+ *     @cache.setter
+ *     def cache(self, data):             # <<<<<<<<<<<<<<
+ *         """Cython_cache"""
+ *         self._cache = data
+ */
+
+  /* function exit code */
+  __pyx_r = 0;
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = -1;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":68
+ *         self._cache = data
+ * 
+ *     cdef vector[int] _get(self, int key):             # <<<<<<<<<<<<<<
+ *         """"""
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
+ */
+
+static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_it;
   std::vector<int>  __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
   PyObject *__pyx_t_3 = NULL;
-  __Pyx_RefNannySetupContext("get", 0);
+  __Pyx_RefNannySetupContext("_get", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":59
- *     cdef vector[int] get(self, int key):
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":70
+ *     cdef vector[int] _get(self, int key):
  *         """"""
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)             # <<<<<<<<<<<<<<
- *         if it == self.data.end():
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)             # <<<<<<<<<<<<<<
+ *         if it == self._data.end():
  *             raise KeyError('%i' % key)
  */
-  __pyx_v_it = __pyx_v_self->data.find(__pyx_v_key);
+  __pyx_v_it = __pyx_v_self->_data.find(__pyx_v_key);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":60
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":71
  *         """"""
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)
- *         if it == self.data.end():             # <<<<<<<<<<<<<<
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
+ *         if it == self._data.end():             # <<<<<<<<<<<<<<
  *             raise KeyError('%i' % key)
  *         return deref(it).second
  */
-  __pyx_t_1 = ((__pyx_v_it == __pyx_v_self->data.end()) != 0);
+  __pyx_t_1 = ((__pyx_v_it == __pyx_v_self->_data.end()) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":61
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)
- *         if it == self.data.end():
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":72
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
+ *         if it == self._data.end():
  *             raise KeyError('%i' % key)             # <<<<<<<<<<<<<<
  *         return deref(it).second
  * 
  */
-    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyInt_From_int(__pyx_v_key); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_i, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_3 = __Pyx_PyString_Format(__pyx_kp_s_i, __pyx_t_2); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_KeyError, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 61, __pyx_L1_error)
+    __pyx_t_2 = __Pyx_PyObject_CallOneArg(__pyx_builtin_KeyError, __pyx_t_3); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 72, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
     __Pyx_Raise(__pyx_t_2, 0, 0, 0);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-    __PYX_ERR(0, 61, __pyx_L1_error)
+    __PYX_ERR(0, 72, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":60
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":71
  *         """"""
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)
- *         if it == self.data.end():             # <<<<<<<<<<<<<<
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
+ *         if it == self._data.end():             # <<<<<<<<<<<<<<
  *             raise KeyError('%i' % key)
  *         return deref(it).second
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":62
- *         if it == self.data.end():
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":73
+ *         if it == self._data.end():
  *             raise KeyError('%i' % key)
  *         return deref(it).second             # <<<<<<<<<<<<<<
  * 
- *     cdef vector[pair[int, float]] knn_search(self, int key, unsigned int k) except +:
+ *     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:
  */
   __pyx_r = (*__pyx_v_it).second;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":57
- *             inc(it)
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":68
+ *         self._cache = data
  * 
- *     cdef vector[int] get(self, int key):             # <<<<<<<<<<<<<<
+ *     cdef vector[int] _get(self, int key):             # <<<<<<<<<<<<<<
  *         """"""
- *         cdef cpp_map[int, vector[int]].iterator it = self.data.find(key)
+ *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_WriteUnraisable("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.get", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._get", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":75
  *         return deref(it).second
  * 
- *     cdef vector[pair[int, float]] knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ *     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *         """keykkeykey"""
  *         cdef:
  */
 
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k) {
+static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k) {
   std::vector<std::pair<int,float> >  __pyx_v_heap;
   std::pair<int,float>  __pyx_v_element;
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_it1;
@@ -2241,38 +2336,38 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   float __pyx_t_2;
   int __pyx_t_3;
   int __pyx_t_4;
-  __Pyx_RefNannySetupContext("knn_search", 0);
+  __Pyx_RefNannySetupContext("_knn_search", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":69
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":80
  *             vector[pair[int, float]] heap
  *             pair[int, float] element
- *             cpp_map[int, vector[int]].iterator it1 = self.data.find(key)             # <<<<<<<<<<<<<<
- *             cpp_map[int, vector[int]].iterator it2 = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+ *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  */
-  __pyx_v_it1 = __pyx_v_self->data.find(__pyx_v_key);
+  __pyx_v_it1 = __pyx_v_self->_data.find(__pyx_v_key);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":70
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":81
  *             pair[int, float] element
- *             cpp_map[int, vector[int]].iterator it1 = self.data.find(key)
- *             cpp_map[int, vector[int]].iterator it2 = self.data.begin()             # <<<<<<<<<<<<<<
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+ *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)
+ *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:
  */
-  __pyx_v_it2 = __pyx_v_self->data.begin();
+  __pyx_v_it2 = __pyx_v_self->_data.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":71
- *             cpp_map[int, vector[int]].iterator it1 = self.data.find(key)
- *             cpp_map[int, vector[int]].iterator it2 = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()             # <<<<<<<<<<<<<<
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":82
+ *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)
+ *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()             # <<<<<<<<<<<<<<
  *         if it1 == end:
  *             return heap
  */
-  __pyx_v_end = __pyx_v_self->data.end();
+  __pyx_v_end = __pyx_v_self->_data.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":72
- *             cpp_map[int, vector[int]].iterator it2 = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":83
+ *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:             # <<<<<<<<<<<<<<
  *             return heap
  *         while it2 != end:
@@ -2280,8 +2375,8 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   __pyx_t_1 = ((__pyx_v_it1 == __pyx_v_end) != 0);
   if (__pyx_t_1) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":73
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":84
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:
  *             return heap             # <<<<<<<<<<<<<<
  *         while it2 != end:
@@ -2290,16 +2385,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_r = __pyx_v_heap;
     goto __pyx_L0;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":72
- *             cpp_map[int, vector[int]].iterator it2 = self.data.begin()
- *             cpp_map[int, vector[int]].iterator end = self.data.end()
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":83
+ *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
+ *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:             # <<<<<<<<<<<<<<
  *             return heap
  *         while it2 != end:
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":74
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":85
  *         if it1 == end:
  *             return heap
  *         while it2 != end:             # <<<<<<<<<<<<<<
@@ -2310,7 +2405,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_1 = ((__pyx_v_it2 != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":75
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":86
  *             return heap
  *         while it2 != end:
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)             # <<<<<<<<<<<<<<
@@ -2321,11 +2416,11 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
       __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim((*__pyx_v_it1).second, (*__pyx_v_it2).second);
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 75, __pyx_L1_error)
+      __PYX_ERR(0, 86, __pyx_L1_error)
     }
     __pyx_v_element.second = __pyx_t_2;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":76
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":87
  *         while it2 != end:
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
  *             if element.second == 0.0 or it2 == it1:             # <<<<<<<<<<<<<<
@@ -2343,7 +2438,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":77
+      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":88
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
  *             if element.second == 0.0 or it2 == it1:
  *                 inc(it2)             # <<<<<<<<<<<<<<
@@ -2352,7 +2447,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       (void)((++__pyx_v_it2));
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":78
+      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":89
  *             if element.second == 0.0 or it2 == it1:
  *                 inc(it2)
  *                 continue             # <<<<<<<<<<<<<<
@@ -2361,7 +2456,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       goto __pyx_L4_continue;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":76
+      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":87
  *         while it2 != end:
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
  *             if element.second == 0.0 or it2 == it1:             # <<<<<<<<<<<<<<
@@ -2370,7 +2465,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":79
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":90
  *                 inc(it2)
  *                 continue
  *             element.first = deref(it2).first             # <<<<<<<<<<<<<<
@@ -2380,16 +2475,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_4 = (*__pyx_v_it2).first;
     __pyx_v_element.first = __pyx_t_4;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":80
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":91
  *                 continue
  *             element.first = deref(it2).first
  *             heappush(heap, k, element)             # <<<<<<<<<<<<<<
  *             inc(it2)
  *         return heap
  */
-    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(__pyx_v_heap, __pyx_v_k, __pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 80, __pyx_L1_error)
+    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(__pyx_v_heap, __pyx_v_k, __pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 91, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":81
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":92
  *             element.first = deref(it2).first
  *             heappush(heap, k, element)
  *             inc(it2)             # <<<<<<<<<<<<<<
@@ -2400,50 +2495,50 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_L4_continue:;
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":82
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":93
  *             heappush(heap, k, element)
  *             inc(it2)
  *         return heap             # <<<<<<<<<<<<<<
  * 
- *     def knn_search_py(self, key: int, k: int) -> list:
+ *     def knn_search(self, key: int, k: int) -> list:
  */
   __pyx_r = __pyx_v_heap;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":75
  *         return deref(it).second
  * 
- *     cdef vector[pair[int, float]] knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ *     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *         """keykkeykey"""
  *         cdef:
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":84
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":95
  *         return heap
  * 
- *     def knn_search_py(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
+ *     def knn_search(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
  *         """knn_searchPython"""
  *         cdef:
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search_py(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search_py[] = "\345\214\205\350\243\205knn_search\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search_py(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search[] = "\345\214\205\350\243\205knn_search\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_key = 0;
   PyObject *__pyx_v_k = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("knn_search_py (wrapper)", 0);
+  __Pyx_RefNannySetupContext("knn_search (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_key,&__pyx_n_s_k,0};
     PyObject* values[2] = {0,0};
@@ -2467,11 +2562,11 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_k)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("knn_search_py", 1, 2, 2, 1); __PYX_ERR(0, 84, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("knn_search", 1, 2, 2, 1); __PYX_ERR(0, 95, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "knn_search_py") < 0)) __PYX_ERR(0, 84, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "knn_search") < 0)) __PYX_ERR(0, 95, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2484,20 +2579,20 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("knn_search_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 84, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("knn_search", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 95, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search_py(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_key, __pyx_v_k);
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_key, __pyx_v_k);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search_py(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k) {
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k) {
   std::unordered_map<int,std::vector<std::pair<int,float> > > ::iterator __pyx_v_it;
   std::unordered_map<int,std::vector<std::pair<int,float> > > ::iterator __pyx_v_end;
   PyObject *__pyx_r = NULL;
@@ -2507,88 +2602,88 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   PyObject *__pyx_t_3 = NULL;
   unsigned int __pyx_t_4;
   std::vector<std::pair<int,float> >  __pyx_t_5;
-  __Pyx_RefNannySetupContext("knn_search_py", 0);
+  __Pyx_RefNannySetupContext("knn_search", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":88
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":99
  *         cdef:
  *             cpp_map[int, vector[pair[int, float]]].iterator it
- *             cpp_map[int, vector[pair[int, float]]].iterator end = self.cache.end()             # <<<<<<<<<<<<<<
- *         it = self.cache.find(key)
+ *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()             # <<<<<<<<<<<<<<
+ *         it = self._cache.find(key)
  *         if it != end:
  */
-  __pyx_v_end = __pyx_v_self->cache.end();
+  __pyx_v_end = __pyx_v_self->_cache.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":89
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":100
  *             cpp_map[int, vector[pair[int, float]]].iterator it
- *             cpp_map[int, vector[pair[int, float]]].iterator end = self.cache.end()
- *         it = self.cache.find(key)             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
+ *         it = self._cache.find(key)             # <<<<<<<<<<<<<<
  *         if it != end:
  *             return deref(it).second
  */
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 89, __pyx_L1_error)
-  __pyx_v_it = __pyx_v_self->cache.find(__pyx_t_1);
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 100, __pyx_L1_error)
+  __pyx_v_it = __pyx_v_self->_cache.find(__pyx_t_1);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":90
- *             cpp_map[int, vector[pair[int, float]]].iterator end = self.cache.end()
- *         it = self.cache.find(key)
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":101
+ *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
+ *         it = self._cache.find(key)
  *         if it != end:             # <<<<<<<<<<<<<<
  *             return deref(it).second
- *         return self.knn_search(key, k)
+ *         return self._knn_search(key, k)
  */
   __pyx_t_2 = ((__pyx_v_it != __pyx_v_end) != 0);
   if (__pyx_t_2) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":91
- *         it = self.cache.find(key)
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":102
+ *         it = self._cache.find(key)
  *         if it != end:
  *             return deref(it).second             # <<<<<<<<<<<<<<
- *         return self.knn_search(key, k)
+ *         return self._knn_search(key, k)
  * 
  */
     __Pyx_XDECREF(__pyx_r);
-    __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___((*__pyx_v_it).second); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 91, __pyx_L1_error)
+    __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___((*__pyx_v_it).second); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 102, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
-    if (!(likely(PyList_CheckExact(__pyx_t_3))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 91, __pyx_L1_error)
+    if (!(likely(PyList_CheckExact(__pyx_t_3))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 102, __pyx_L1_error)
     __pyx_r = ((PyObject*)__pyx_t_3);
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":90
- *             cpp_map[int, vector[pair[int, float]]].iterator end = self.cache.end()
- *         it = self.cache.find(key)
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":101
+ *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
+ *         it = self._cache.find(key)
  *         if it != end:             # <<<<<<<<<<<<<<
  *             return deref(it).second
- *         return self.knn_search(key, k)
+ *         return self._knn_search(key, k)
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":92
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":103
  *         if it != end:
  *             return deref(it).second
- *         return self.knn_search(key, k)             # <<<<<<<<<<<<<<
+ *         return self._knn_search(key, k)             # <<<<<<<<<<<<<<
  * 
- *     cdef vector[pair[int, float]] recommend(self, cpp_set[int]& items, unsigned int k) except +:
+ *     cdef vector[pair[int, float]] _recommend(self, cpp_set[int]& items, unsigned int k) except +:
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 92, __pyx_L1_error)
-  __pyx_t_4 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_4 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L1_error)
+  __pyx_t_4 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_4 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 103, __pyx_L1_error)
   try {
-    __pyx_t_5 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->knn_search(__pyx_v_self, __pyx_t_1, __pyx_t_4);
+    __pyx_t_5 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, __pyx_t_1, __pyx_t_4);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 92, __pyx_L1_error)
+    __PYX_ERR(0, 103, __pyx_L1_error)
   }
-  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 92, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_t_5); if (unlikely(!__pyx_t_3)) __PYX_ERR(0, 103, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
-  if (!(likely(PyList_CheckExact(__pyx_t_3))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 92, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_3))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_3)->tp_name), 0))) __PYX_ERR(0, 103, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_3);
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":84
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":95
  *         return heap
  * 
- *     def knn_search_py(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
+ *     def knn_search(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
  *         """knn_searchPython"""
  *         cdef:
  */
@@ -2596,7 +2691,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2604,15 +2699,15 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":94
- *         return self.knn_search(key, k)
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":105
+ *         return self._knn_search(key, k)
  * 
- *     cdef vector[pair[int, float]] recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ *     cdef vector[pair[int, float]] _recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *         """"""
  *         cdef:
  */
 
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k) {
+static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k) {
   std::unordered_set<int> ::iterator __pyx_v_it;
   std::unordered_set<int> ::iterator __pyx_v_end;
   std::unordered_map<int,float>  __pyx_v_score_map;
@@ -2623,9 +2718,9 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   std::vector<std::pair<int,float> >  __pyx_t_2;
-  __Pyx_RefNannySetupContext("recommend", 0);
+  __Pyx_RefNannySetupContext("_recommend", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":97
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":108
  *         """"""
  *         cdef:
  *             cpp_set[int].iterator it = items.begin()             # <<<<<<<<<<<<<<
@@ -2634,7 +2729,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_it = __pyx_v_items.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":98
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":109
  *         cdef:
  *             cpp_set[int].iterator it = items.begin()
  *             cpp_set[int].iterator end = items.end()             # <<<<<<<<<<<<<<
@@ -2643,38 +2738,38 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_end = __pyx_v_items.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":101
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":112
  *             cpp_map[int, float] score_map
  *             cpp_map[int, vector[pair[int, float]]].iterator it_cache
- *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self.cache.end()             # <<<<<<<<<<<<<<
+ *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()             # <<<<<<<<<<<<<<
  *         while it != end:
- *             it_cache = self.cache.find(deref(it))
+ *             it_cache = self._cache.find(deref(it))
  */
-  __pyx_v_end_cache = __pyx_v_self->cache.end();
+  __pyx_v_end_cache = __pyx_v_self->_cache.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":102
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":113
  *             cpp_map[int, vector[pair[int, float]]].iterator it_cache
- *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self.cache.end()
+ *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()
  *         while it != end:             # <<<<<<<<<<<<<<
- *             it_cache = self.cache.find(deref(it))
+ *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:
  */
   while (1) {
     __pyx_t_1 = ((__pyx_v_it != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":103
- *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self.cache.end()
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":114
+ *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()
  *         while it != end:
- *             it_cache = self.cache.find(deref(it))             # <<<<<<<<<<<<<<
+ *             it_cache = self._cache.find(deref(it))             # <<<<<<<<<<<<<<
  *             if it_cache != end_cache:
  *                 top_k = deref(it_cache).second
  */
-    __pyx_v_it_cache = __pyx_v_self->cache.find((*__pyx_v_it));
+    __pyx_v_it_cache = __pyx_v_self->_cache.find((*__pyx_v_it));
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":104
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":115
  *         while it != end:
- *             it_cache = self.cache.find(deref(it))
+ *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:             # <<<<<<<<<<<<<<
  *                 top_k = deref(it_cache).second
  *             else:
@@ -2682,19 +2777,19 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_1 = ((__pyx_v_it_cache != __pyx_v_end_cache) != 0);
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":105
- *             it_cache = self.cache.find(deref(it))
+      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":116
+ *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:
  *                 top_k = deref(it_cache).second             # <<<<<<<<<<<<<<
  *             else:
- *                 top_k = self.knn_search(deref(it), k)
+ *                 top_k = self._knn_search(deref(it), k)
  */
       __pyx_t_2 = (*__pyx_v_it_cache).second;
       __pyx_v_top_k = __pyx_t_2;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":104
+      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":115
  *         while it != end:
- *             it_cache = self.cache.find(deref(it))
+ *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:             # <<<<<<<<<<<<<<
  *                 top_k = deref(it_cache).second
  *             else:
@@ -2702,35 +2797,35 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
       goto __pyx_L5;
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":107
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":118
  *                 top_k = deref(it_cache).second
  *             else:
- *                 top_k = self.knn_search(deref(it), k)             # <<<<<<<<<<<<<<
+ *                 top_k = self._knn_search(deref(it), k)             # <<<<<<<<<<<<<<
  *             agg_score(score_map, top_k, items)
  *             inc(it)
  */
     /*else*/ {
       try {
-        __pyx_t_2 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->knn_search(__pyx_v_self, (*__pyx_v_it), __pyx_v_k);
+        __pyx_t_2 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, (*__pyx_v_it), __pyx_v_k);
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 107, __pyx_L1_error)
+        __PYX_ERR(0, 118, __pyx_L1_error)
       }
       __pyx_v_top_k = __pyx_t_2;
     }
     __pyx_L5:;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":108
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":119
  *             else:
- *                 top_k = self.knn_search(deref(it), k)
+ *                 top_k = self._knn_search(deref(it), k)
  *             agg_score(score_map, top_k, items)             # <<<<<<<<<<<<<<
  *             inc(it)
  *         return top_k_map(score_map, k)
  */
-    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v_score_map, __pyx_v_top_k, __pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 108, __pyx_L1_error)
+    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v_score_map, __pyx_v_top_k, __pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 119, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":109
- *                 top_k = self.knn_search(deref(it), k)
+    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":120
+ *                 top_k = self._knn_search(deref(it), k)
  *             agg_score(score_map, top_k, items)
  *             inc(it)             # <<<<<<<<<<<<<<
  *         return top_k_map(score_map, k)
@@ -2739,56 +2834,56 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     (void)((++__pyx_v_it));
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":110
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":121
  *             agg_score(score_map, top_k, items)
  *             inc(it)
  *         return top_k_map(score_map, k)             # <<<<<<<<<<<<<<
  * 
- *     def recommend_py(self, items: list, k: int):
+ *     def recommend(self, items: list, k: int):
  */
   try {
     __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_v_score_map, __pyx_v_k);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 110, __pyx_L1_error)
+    __PYX_ERR(0, 121, __pyx_L1_error)
   }
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":94
- *         return self.knn_search(key, k)
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":105
+ *         return self._knn_search(key, k)
  * 
- *     cdef vector[pair[int, float]] recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ *     cdef vector[pair[int, float]] _recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *         """"""
  *         cdef:
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":112
+/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":123
  *         return top_k_map(score_map, k)
  * 
- *     def recommend_py(self, items: list, k: int):             # <<<<<<<<<<<<<<
+ *     def recommend(self, items: list, k: int):             # <<<<<<<<<<<<<<
  *         """recommendPython"""
- *         return self.recommend(items, k)
+ *         return self._recommend(items, k)
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend_py(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend_py[] = "\345\214\205\350\243\205recommend\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend_py(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend[] = "\345\214\205\350\243\205recommend\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_items = 0;
   PyObject *__pyx_v_k = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("recommend_py (wrapper)", 0);
+  __Pyx_RefNannySetupContext("recommend (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_items,&__pyx_n_s_k,0};
     PyObject* values[2] = {0,0};
@@ -2812,11 +2907,11 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_k)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("recommend_py", 1, 2, 2, 1); __PYX_ERR(0, 112, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("recommend", 1, 2, 2, 1); __PYX_ERR(0, 123, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "recommend_py") < 0)) __PYX_ERR(0, 112, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "recommend") < 0)) __PYX_ERR(0, 123, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -2829,14 +2924,14 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("recommend_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 112, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("recommend", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 123, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_items), (&PyList_Type), 1, "items", 1))) __PYX_ERR(0, 112, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend_py(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_items, __pyx_v_k);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_items), (&PyList_Type), 1, "items", 1))) __PYX_ERR(0, 123, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_items, __pyx_v_k);
 
   /* function exit code */
   goto __pyx_L0;
@@ -2847,47 +2942,47 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend_py(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k) {
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::unordered_set<int>  __pyx_t_1;
   unsigned int __pyx_t_2;
   std::vector<std::pair<int,float> >  __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("recommend_py", 0);
+  __Pyx_RefNannySetupContext("recommend", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":114
- *     def recommend_py(self, items: list, k: int):
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":125
+ *     def recommend(self, items: list, k: int):
  *         """recommendPython"""
- *         return self.recommend(items, k)             # <<<<<<<<<<<<<<
+ *         return self._recommend(items, k)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_unordered_set_from_py_int(__pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 114, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_unordered_set_from_py_int(__pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 125, __pyx_L1_error)
   try {
-    __pyx_t_3 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->recommend(__pyx_v_self, __pyx_t_1, __pyx_t_2);
+    __pyx_t_3 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_recommend(__pyx_v_self, __pyx_t_1, __pyx_t_2);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 114, __pyx_L1_error)
+    __PYX_ERR(0, 125, __pyx_L1_error)
   }
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 114, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 125, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":112
+  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":123
  *         return top_k_map(score_map, k)
  * 
- *     def recommend_py(self, items: list, k: int):             # <<<<<<<<<<<<<<
+ *     def recommend(self, items: list, k: int):             # <<<<<<<<<<<<<<
  *         """recommendPython"""
- *         return self.recommend(items, k)
+ *         return self._recommend(items, k)
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2930,13 +3025,13 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* "(tree fragment)":5
  *     cdef object _dict
  *     cdef bint use_setstate
- *     state = (self.cache, self.data)             # <<<<<<<<<<<<<<
+ *     state = (self._cache, self._data)             # <<<<<<<<<<<<<<
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:
  */
-  __pyx_t_1 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(__pyx_v_self->cache); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(__pyx_v_self->_cache); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  __pyx_t_2 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_int_3e___(__pyx_v_self->data); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_int_3e___(__pyx_v_self->_data); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_3 = PyTuple_New(2); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 5, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_3);
@@ -2951,7 +3046,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
 
   /* "(tree fragment)":6
  *     cdef bint use_setstate
- *     state = (self.cache, self.data)
+ *     state = (self._cache, self._data)
  *     _dict = getattr(self, '__dict__', None)             # <<<<<<<<<<<<<<
  *     if _dict is not None:
  *         state += (_dict,)
@@ -2962,7 +3057,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":7
- *     state = (self.cache, self.data)
+ *     state = (self._cache, self._data)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -3000,7 +3095,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_v_use_setstate = 1;
 
     /* "(tree fragment)":7
- *     state = (self.cache, self.data)
+ *     state = (self._cache, self._data)
  *     _dict = getattr(self, '__dict__', None)
  *     if _dict is not None:             # <<<<<<<<<<<<<<
  *         state += (_dict,)
@@ -3014,7 +3109,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *     else:
  *         use_setstate = False             # <<<<<<<<<<<<<<
  *     if use_setstate:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, None), state
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, None), state
  */
   /*else*/ {
     __pyx_v_use_setstate = 0;
@@ -3025,7 +3120,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, None), state
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, None), state
  *     else:
  */
   __pyx_t_5 = (__pyx_v_use_setstate != 0);
@@ -3034,9 +3129,9 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     /* "(tree fragment)":13
  *         use_setstate = False
  *     if use_setstate:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, None), state             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, None), state             # <<<<<<<<<<<<<<
  *     else:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, state)
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, state)
  */
     __Pyx_XDECREF(__pyx_r);
     __Pyx_GetModuleGlobalName(__pyx_t_2, __pyx_n_s_pyx_unpickle_SparseMatrixBinar); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 13, __pyx_L1_error)
@@ -3046,9 +3141,9 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_3496457);
-    __Pyx_GIVEREF(__pyx_int_3496457);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3496457);
+    __Pyx_INCREF(__pyx_int_143976379);
+    __Pyx_GIVEREF(__pyx_int_143976379);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_143976379);
     __Pyx_INCREF(Py_None);
     __Pyx_GIVEREF(Py_None);
     PyTuple_SET_ITEM(__pyx_t_3, 2, Py_None);
@@ -3071,15 +3166,15 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *     else:
  *         use_setstate = False
  *     if use_setstate:             # <<<<<<<<<<<<<<
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, None), state
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, None), state
  *     else:
  */
   }
 
   /* "(tree fragment)":15
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, None), state
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, None), state
  *     else:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, state)             # <<<<<<<<<<<<<<
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, state)             # <<<<<<<<<<<<<<
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_SparseMatrixBinary__set_state(self, __pyx_state)
  */
@@ -3092,9 +3187,9 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __Pyx_INCREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     __Pyx_GIVEREF(((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
     PyTuple_SET_ITEM(__pyx_t_3, 0, ((PyObject *)Py_TYPE(((PyObject *)__pyx_v_self))));
-    __Pyx_INCREF(__pyx_int_3496457);
-    __Pyx_GIVEREF(__pyx_int_3496457);
-    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_3496457);
+    __Pyx_INCREF(__pyx_int_143976379);
+    __Pyx_GIVEREF(__pyx_int_143976379);
+    PyTuple_SET_ITEM(__pyx_t_3, 1, __pyx_int_143976379);
     __Pyx_INCREF(__pyx_v_state);
     __Pyx_GIVEREF(__pyx_v_state);
     PyTuple_SET_ITEM(__pyx_t_3, 2, __pyx_v_state);
@@ -3134,7 +3229,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
 
 /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, state)
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SparseMatrixBinary__set_state(self, __pyx_state)
  */
@@ -3159,7 +3254,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __Pyx_RefNannySetupContext("__setstate_cython__", 0);
 
   /* "(tree fragment)":17
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, state)
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, state)
  * def __setstate_cython__(self, __pyx_state):
  *     __pyx_unpickle_SparseMatrixBinary__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
@@ -3170,7 +3265,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
 
   /* "(tree fragment)":16
  *     else:
- *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x0355a09, state)
+ *         return __pyx_unpickle_SparseMatrixBinary, (type(self), 0x894e7bb, state)
  * def __setstate_cython__(self, __pyx_state):             # <<<<<<<<<<<<<<
  *     __pyx_unpickle_SparseMatrixBinary__set_state(self, __pyx_state)
  */
@@ -3283,18 +3378,18 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
   /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x0355a09:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x894e7bb:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  */
-  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x0355a09) != 0);
+  __pyx_t_1 = ((__pyx_v___pyx_checksum != 0x894e7bb) != 0);
   if (__pyx_t_1) {
 
     /* "(tree fragment)":5
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x0355a09:
+ *     if __pyx_checksum != 0x894e7bb:
  *         from pickle import PickleError as __pyx_PickleError             # <<<<<<<<<<<<<<
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  *     __pyx_result = SparseMatrixBinary.__new__(__pyx_type)
  */
     __pyx_t_2 = PyList_New(1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 5, __pyx_L1_error)
@@ -3313,15 +3408,15 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":6
- *     if __pyx_checksum != 0x0355a09:
+ *     if __pyx_checksum != 0x894e7bb:
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)             # <<<<<<<<<<<<<<
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)             # <<<<<<<<<<<<<<
  *     __pyx_result = SparseMatrixBinary.__new__(__pyx_type)
  *     if __pyx_state is not None:
  */
     __pyx_t_2 = __Pyx_PyInt_From_long(__pyx_v___pyx_checksum); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_2);
-    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x03, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
+    __pyx_t_4 = __Pyx_PyString_Format(__pyx_kp_s_Incompatible_checksums_s_vs_0x89, __pyx_t_2); if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 6, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_4);
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __Pyx_INCREF(__pyx_v___pyx_PickleError);
@@ -3348,15 +3443,15 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
     /* "(tree fragment)":4
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
- *     if __pyx_checksum != 0x0355a09:             # <<<<<<<<<<<<<<
+ *     if __pyx_checksum != 0x894e7bb:             # <<<<<<<<<<<<<<
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  */
   }
 
   /* "(tree fragment)":7
  *         from pickle import PickleError as __pyx_PickleError
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  *     __pyx_result = SparseMatrixBinary.__new__(__pyx_type)             # <<<<<<<<<<<<<<
  *     if __pyx_state is not None:
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
@@ -3382,7 +3477,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
   __pyx_t_3 = 0;
 
   /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  *     __pyx_result = SparseMatrixBinary.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
@@ -3405,7 +3500,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
     /* "(tree fragment)":8
- *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x0355a09 = (cache, data))" % __pyx_checksum)
+ *         raise __pyx_PickleError("Incompatible checksums (%s vs 0x894e7bb = (_cache, _data))" % __pyx_checksum)
  *     __pyx_result = SparseMatrixBinary.__new__(__pyx_type)
  *     if __pyx_state is not None:             # <<<<<<<<<<<<<<
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
@@ -3418,7 +3513,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
  *     return __pyx_result             # <<<<<<<<<<<<<<
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  */
   __Pyx_XDECREF(__pyx_r);
   __Pyx_INCREF(__pyx_v___pyx_result);
@@ -3451,7 +3546,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
@@ -3472,7 +3567,7 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
   /* "(tree fragment)":12
  *     return __pyx_result
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]             # <<<<<<<<<<<<<<
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]             # <<<<<<<<<<<<<<
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[2])
  */
@@ -3481,17 +3576,17 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
   __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(PyTuple_GET_ITEM(__pyx_v___pyx_state, 0)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->cache = __pyx_t_1;
+  __pyx_v___pyx_result->_cache = __pyx_t_1;
   if (unlikely(__pyx_v___pyx_state == Py_None)) {
     PyErr_SetString(PyExc_TypeError, "'NoneType' object is not subscriptable");
     __PYX_ERR(1, 12, __pyx_L1_error)
   }
   __pyx_t_2 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_int_3e___(PyTuple_GET_ITEM(__pyx_v___pyx_state, 1)); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 12, __pyx_L1_error)
-  __pyx_v___pyx_result->data = __pyx_t_2;
+  __pyx_v___pyx_result->_data = __pyx_t_2;
 
   /* "(tree fragment)":13
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
  */
@@ -3513,7 +3608,7 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
   if (__pyx_t_3) {
 
     /* "(tree fragment)":14
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  *         __pyx_result.__dict__.update(__pyx_state[2])             # <<<<<<<<<<<<<<
  */
@@ -3545,7 +3640,7 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
 
     /* "(tree fragment)":13
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):             # <<<<<<<<<<<<<<
  *         __pyx_result.__dict__.update(__pyx_state[2])
  */
@@ -3555,7 +3650,7 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
  *     return __pyx_result
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):             # <<<<<<<<<<<<<<
- *     __pyx_result.cache = __pyx_state[0]; __pyx_result.data = __pyx_state[1]
+ *     __pyx_result._cache = __pyx_state[0]; __pyx_result._data = __pyx_state[1]
  *     if len(__pyx_state) > 2 and hasattr(__pyx_result, '__dict__'):
  */
 
@@ -4699,8 +4794,8 @@ static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_Sp
   if (unlikely(!o)) return 0;
   p = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)o);
   p->__pyx_vtab = __pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-  new((void*)&(p->data)) std::unordered_map<int,std::vector<int> > ();
-  new((void*)&(p->cache)) std::unordered_map<int,std::vector<std::pair<int,float> > > ();
+  new((void*)&(p->_data)) std::unordered_map<int,std::vector<int> > ();
+  new((void*)&(p->_cache)) std::unordered_map<int,std::vector<std::pair<int,float> > > ();
   return o;
 }
 
@@ -4711,8 +4806,8 @@ static void __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_Spa
     if (PyObject_CallFinalizerFromDealloc(o)) return;
   }
   #endif
-  __Pyx_call_destructor(p->data);
-  __Pyx_call_destructor(p->cache);
+  __Pyx_call_destructor(p->_data);
+  __Pyx_call_destructor(p->_cache);
   (*Py_TYPE(o)->tp_free)(o);
 }
 static PyObject *__pyx_sq_item_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o, Py_ssize_t i) {
@@ -4734,12 +4829,36 @@ static int __pyx_mp_ass_subscript_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matri
   }
 }
 
+static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(o);
+}
+
+static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(o);
+}
+
+static int __pyx_setprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+  if (v) {
+    return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(o, v);
+  }
+  else {
+    PyErr_SetString(PyExc_NotImplementedError, "__del__");
+    return -1;
+  }
+}
+
 static PyMethodDef __pyx_methods_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
-  {"knn_search_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search_py},
-  {"recommend_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend_py},
+  {"knn_search", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search},
+  {"recommend", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend},
   {"__reduce_cython__", (PyCFunction)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__, METH_NOARGS, 0},
   {"__setstate_cython__", (PyCFunction)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
+};
+
+static struct PyGetSetDef __pyx_getsets_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
+  {(char *)"data", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_data\345\261\236\346\200\247\343\200\202", 0},
+  {(char *)"cache", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, __pyx_setprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, (char *)"\350\256\277\351\227\256Cython\347\232\204_cache\345\261\236\346\200\247\343\200\202", 0},
+  {0, 0, 0, 0, 0}
 };
 
 static PySequenceMethods __pyx_tp_as_sequence_SparseMatrixBinary = {
@@ -4787,7 +4906,7 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_S
   0, /*tp_setattro*/
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_BASETYPE, /*tp_flags*/
-  "\347\250\200\347\226\217\347\237\251\351\230\265\347\232\204C++\345\256\236\347\216\260(\347\246\273\346\225\243\345\200\274)\343\200\202\n    \345\246\202\351\225\277\345\272\246\344\270\2725\347\232\204\347\250\240\345\257\206\345\220\221\351\207\217[0, 1, 0, 0, 1]\357\274\214\345\205\266\347\250\200\347\226\217\345\220\221\351\207\217\350\241\250\347\244\272\344\270\272[1, 4]\343\200\202\n\n    Arguments:\n        data {Dict[int, List[int]]} -- \344\273\245Python\345\257\271\350\261\241\345\255\230\345\202\250\347\232\204\347\250\200\347\226\217\347\237\251\351\230\265\343\200\202\n        popular_keys {List[int]} -- \346\212\212\347\203\255\351\227\250Key\345\257\271\345\272\224\347\232\204KNN\346\237\245\346\211\276\347\273\223\346\236\234\347\274\223\345\255\230\350\265\267\346\235\245\346\217\220\345\215\207\346\200\247\350\203\275\343\200\202\n        k {unsigned int} -- \347\203\255\351\227\250Key\347\232\204KNN\346\237\245\346\211\276\347\273\223\346\236\234\350\277\224\345\233\236\347\232\204\345\205\203\347\264\240\346\225\260\351\207\217\343\200\202\n\n    Attributes:\n        data {cpp_map[int, vector[int]]} -- \344\273\245C++\345\257\271\350\261\241\345\255\230\345\202\250\347\232\204\347\250\200\347\226\217\347\237\251\351\230\265\343\200\202\n        cache {cpp_map[int, vector[pair[int, float]]]} -- \347\203\255\351\227\250Key\347\232\204KNN\346\237\245\346\211\276\347\273\223\346\236\234\343\200\202\n    ", /*tp_doc*/
+  "\347\250\200\347\226\217\347\237\251\351\230\265\347\232\204C++\345\256\236\347\216\260(\347\246\273\346\225\243\345\200\274)\343\200\202\n    \345\246\202\351\225\277\345\272\246\344\270\2725\347\232\204\347\250\240\345\257\206\345\220\221\351\207\217[0, 1, 0, 0, 1]\357\274\214\345\205\266\347\250\200\347\226\217\345\220\221\351\207\217\350\241\250\347\244\272\344\270\272[1, 4]\343\200\202\n\n    Arguments:\n        data {Dict[int, List[int]]} -- \344\273\245Python\345\257\271\350\261\241\345\255\230\345\202\250\347\232\204\347\250\200\347\226\217\347\237\251\351\230\265\343\200\202\n\n    Attributes:\n        _data {cpp_map[int, vector[int]]} -- \344\273\245C++\345\257\271\350\261\241\345\255\230\345\202\250\347\232\204\347\250\200\347\226\217\347\237\251\351\230\265\343\200\202\n        _cache {cpp_map[int, vector[pair[int, float]]]} -- \347\203\255\351\227\250Key\347\232\204KNN\346\237\245\346\211\276\347\273\223\346\236\234\343\200\202\n    ", /*tp_doc*/
   0, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
@@ -4796,7 +4915,7 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_S
   0, /*tp_iternext*/
   __pyx_methods_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_methods*/
   0, /*tp_members*/
-  0, /*tp_getset*/
+  __pyx_getsets_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
@@ -4966,7 +5085,7 @@ static struct PyModuleDef __pyx_moduledef = {
 #endif
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
-  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x03, __pyx_k_Incompatible_checksums_s_vs_0x03, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x03), 0, 0, 1, 0},
+  {&__pyx_kp_s_Incompatible_checksums_s_vs_0x89, __pyx_k_Incompatible_checksums_s_vs_0x89, sizeof(__pyx_k_Incompatible_checksums_s_vs_0x89), 0, 0, 1, 0},
   {&__pyx_n_s_KeyError, __pyx_k_KeyError, sizeof(__pyx_k_KeyError), 0, 0, 1, 1},
   {&__pyx_n_s_PickleError, __pyx_k_PickleError, sizeof(__pyx_k_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_SparseMatrixBinary, __pyx_k_SparseMatrixBinary, sizeof(__pyx_k_SparseMatrixBinary), 0, 0, 1, 1},
@@ -4989,7 +5108,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
-  {&__pyx_n_s_popular_keys, __pyx_k_popular_keys, sizeof(__pyx_k_popular_keys), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_result, __pyx_k_pyx_result, sizeof(__pyx_k_pyx_result), 0, 0, 1, 1},
@@ -5011,7 +5129,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {0, 0, 0, 0, 0, 0, 0}
 };
 static CYTHON_SMALL_CODE int __Pyx_InitCachedBuiltins(void) {
-  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 61, __pyx_L1_error)
+  __pyx_builtin_KeyError = __Pyx_GetBuiltinName(__pyx_n_s_KeyError); if (!__pyx_builtin_KeyError) __PYX_ERR(0, 72, __pyx_L1_error)
   __pyx_builtin_range = __Pyx_GetBuiltinName(__pyx_n_s_range); if (!__pyx_builtin_range) __PYX_ERR(1, 61, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
@@ -5040,7 +5158,7 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
 
 static CYTHON_SMALL_CODE int __Pyx_InitGlobals(void) {
   if (__Pyx_InitStrings(__pyx_string_tab) < 0) __PYX_ERR(0, 1, __pyx_L1_error);
-  __pyx_int_3496457 = PyInt_FromLong(3496457L); if (unlikely(!__pyx_int_3496457)) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_int_143976379 = PyInt_FromLong(143976379L); if (unlikely(!__pyx_int_143976379)) __PYX_ERR(0, 1, __pyx_L1_error)
   return 0;
   __pyx_L1_error:;
   return -1;
@@ -5083,9 +5201,9 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
   __pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.get = (std::vector<int>  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_get;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.knn_search = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_knn_search;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.recommend = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_recommend;
+  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._get = (std::vector<int>  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get;
+  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._knn_search = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search;
+  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._recommend = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend;
   if (PyType_Ready(&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_dictoffset && __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_getattro == PyObject_GenericGetAttr)) {
@@ -5095,7 +5213,7 @@ static int __Pyx_modinit_type_init_code(void) {
   if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SparseMatrixBinary, (PyObject *)&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
   __pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-  if (PyType_Ready(&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (PyType_Ready(&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 45, __pyx_L1_error)
   __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_print = 0;
   if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_dictoffset && __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro == PyObject_GenericGetAttr)) {
     __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
@@ -5447,32 +5565,6 @@ static PyObject *__Pyx_GetBuiltinName(PyObject *name) {
     return result;
 }
 
-/* RaiseArgTupleInvalid */
-static void __Pyx_RaiseArgtupleInvalid(
-    const char* func_name,
-    int exact,
-    Py_ssize_t num_min,
-    Py_ssize_t num_max,
-    Py_ssize_t num_found)
-{
-    Py_ssize_t num_expected;
-    const char *more_or_less;
-    if (num_found < num_min) {
-        num_expected = num_min;
-        more_or_less = "at least";
-    } else {
-        num_expected = num_max;
-        more_or_less = "at most";
-    }
-    if (exact) {
-        more_or_less = "exactly";
-    }
-    PyErr_Format(PyExc_TypeError,
-                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
-                 func_name, more_or_less, num_expected,
-                 (num_expected == 1) ? "" : "s", num_found);
-}
-
 /* RaiseDoubleKeywords */
 static void __Pyx_RaiseDoubleKeywordsError(
     const char* func_name,
@@ -5587,6 +5679,32 @@ invalid_keyword:
     #endif
 bad:
     return -1;
+}
+
+/* RaiseArgTupleInvalid */
+static void __Pyx_RaiseArgtupleInvalid(
+    const char* func_name,
+    int exact,
+    Py_ssize_t num_min,
+    Py_ssize_t num_max,
+    Py_ssize_t num_found)
+{
+    Py_ssize_t num_expected;
+    const char *more_or_less;
+    if (num_found < num_min) {
+        num_expected = num_min;
+        more_or_less = "at least";
+    } else {
+        num_expected = num_max;
+        more_or_less = "at most";
+    }
+    if (exact) {
+        more_or_less = "exactly";
+    }
+    PyErr_Format(PyExc_TypeError,
+                 "%.200s() takes %.8s %" CYTHON_FORMAT_SSIZE_T "d positional argument%.1s (%" CYTHON_FORMAT_SSIZE_T "d given)",
+                 func_name, more_or_less, num_expected,
+                 (num_expected == 1) ? "" : "s", num_found);
 }
 
 /* ArgTypeTest */
@@ -7297,195 +7415,6 @@ raise_neg_overflow:
 }
 
 /* CIntFromPy */
-static CYTHON_INLINE unsigned int __Pyx_PyInt_As_unsigned_int(PyObject *x) {
-    const unsigned int neg_one = (unsigned int) ((unsigned int) 0 - (unsigned int) 1), const_zero = (unsigned int) 0;
-    const int is_unsigned = neg_one > const_zero;
-#if PY_MAJOR_VERSION < 3
-    if (likely(PyInt_Check(x))) {
-        if (sizeof(unsigned int) < sizeof(long)) {
-            __PYX_VERIFY_RETURN_INT(unsigned int, long, PyInt_AS_LONG(x))
-        } else {
-            long val = PyInt_AS_LONG(x);
-            if (is_unsigned && unlikely(val < 0)) {
-                goto raise_neg_overflow;
-            }
-            return (unsigned int) val;
-        }
-    } else
-#endif
-    if (likely(PyLong_Check(x))) {
-        if (is_unsigned) {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (unsigned int) 0;
-                case  1: __PYX_VERIFY_RETURN_INT(unsigned int, digit, digits[0])
-                case 2:
-                    if (8 * sizeof(unsigned int) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) >= 2 * PyLong_SHIFT) {
-                            return (unsigned int) (((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(unsigned int) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) >= 3 * PyLong_SHIFT) {
-                            return (unsigned int) (((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(unsigned int) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) >= 4 * PyLong_SHIFT) {
-                            return (unsigned int) (((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
-                        }
-                    }
-                    break;
-            }
-#endif
-#if CYTHON_COMPILING_IN_CPYTHON
-            if (unlikely(Py_SIZE(x) < 0)) {
-                goto raise_neg_overflow;
-            }
-#else
-            {
-                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
-                if (unlikely(result < 0))
-                    return (unsigned int) -1;
-                if (unlikely(result == 1))
-                    goto raise_neg_overflow;
-            }
-#endif
-            if (sizeof(unsigned int) <= sizeof(unsigned long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, unsigned long, PyLong_AsUnsignedLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(unsigned int) <= sizeof(unsigned PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
-#endif
-            }
-        } else {
-#if CYTHON_USE_PYLONG_INTERNALS
-            const digit* digits = ((PyLongObject*)x)->ob_digit;
-            switch (Py_SIZE(x)) {
-                case  0: return (unsigned int) 0;
-                case -1: __PYX_VERIFY_RETURN_INT(unsigned int, sdigit, (sdigit) (-(sdigit)digits[0]))
-                case  1: __PYX_VERIFY_RETURN_INT(unsigned int,  digit, +digits[0])
-                case -2:
-                    if (8 * sizeof(unsigned int) - 1 > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
-                            return (unsigned int) (((unsigned int)-1)*(((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-                case 2:
-                    if (8 * sizeof(unsigned int) > 1 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
-                            return (unsigned int) ((((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-                case -3:
-                    if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
-                            return (unsigned int) (((unsigned int)-1)*(((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-                case 3:
-                    if (8 * sizeof(unsigned int) > 2 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
-                            return (unsigned int) ((((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-                case -4:
-                    if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 4 * PyLong_SHIFT) {
-                            return (unsigned int) (((unsigned int)-1)*(((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-                case 4:
-                    if (8 * sizeof(unsigned int) > 3 * PyLong_SHIFT) {
-                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
-                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
-                        } else if (8 * sizeof(unsigned int) - 1 > 4 * PyLong_SHIFT) {
-                            return (unsigned int) ((((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
-                        }
-                    }
-                    break;
-            }
-#endif
-            if (sizeof(unsigned int) <= sizeof(long)) {
-                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, long, PyLong_AsLong(x))
-#ifdef HAVE_LONG_LONG
-            } else if (sizeof(unsigned int) <= sizeof(PY_LONG_LONG)) {
-                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, PY_LONG_LONG, PyLong_AsLongLong(x))
-#endif
-            }
-        }
-        {
-#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
-            PyErr_SetString(PyExc_RuntimeError,
-                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
-#else
-            unsigned int val;
-            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
- #if PY_MAJOR_VERSION < 3
-            if (likely(v) && !PyLong_Check(v)) {
-                PyObject *tmp = v;
-                v = PyNumber_Long(tmp);
-                Py_DECREF(tmp);
-            }
- #endif
-            if (likely(v)) {
-                int one = 1; int is_little = (int)*(unsigned char *)&one;
-                unsigned char *bytes = (unsigned char *)&val;
-                int ret = _PyLong_AsByteArray((PyLongObject *)v,
-                                              bytes, sizeof(val),
-                                              is_little, !is_unsigned);
-                Py_DECREF(v);
-                if (likely(!ret))
-                    return val;
-            }
-#endif
-            return (unsigned int) -1;
-        }
-    } else {
-        unsigned int val;
-        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
-        if (!tmp) return (unsigned int) -1;
-        val = __Pyx_PyInt_As_unsigned_int(tmp);
-        Py_DECREF(tmp);
-        return val;
-    }
-raise_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "value too large to convert to unsigned int");
-    return (unsigned int) -1;
-raise_neg_overflow:
-    PyErr_SetString(PyExc_OverflowError,
-        "can't convert negative value to unsigned int");
-    return (unsigned int) -1;
-}
-
-/* CIntFromPy */
 static CYTHON_INLINE long __Pyx_PyInt_As_long(PyObject *x) {
     const long neg_one = (long) ((long) 0 - (long) 1), const_zero = (long) 0;
     const int is_unsigned = neg_one > const_zero;
@@ -7672,6 +7601,195 @@ raise_neg_overflow:
     PyErr_SetString(PyExc_OverflowError,
         "can't convert negative value to long");
     return (long) -1;
+}
+
+/* CIntFromPy */
+static CYTHON_INLINE unsigned int __Pyx_PyInt_As_unsigned_int(PyObject *x) {
+    const unsigned int neg_one = (unsigned int) ((unsigned int) 0 - (unsigned int) 1), const_zero = (unsigned int) 0;
+    const int is_unsigned = neg_one > const_zero;
+#if PY_MAJOR_VERSION < 3
+    if (likely(PyInt_Check(x))) {
+        if (sizeof(unsigned int) < sizeof(long)) {
+            __PYX_VERIFY_RETURN_INT(unsigned int, long, PyInt_AS_LONG(x))
+        } else {
+            long val = PyInt_AS_LONG(x);
+            if (is_unsigned && unlikely(val < 0)) {
+                goto raise_neg_overflow;
+            }
+            return (unsigned int) val;
+        }
+    } else
+#endif
+    if (likely(PyLong_Check(x))) {
+        if (is_unsigned) {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (unsigned int) 0;
+                case  1: __PYX_VERIFY_RETURN_INT(unsigned int, digit, digits[0])
+                case 2:
+                    if (8 * sizeof(unsigned int) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) >= 2 * PyLong_SHIFT) {
+                            return (unsigned int) (((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(unsigned int) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) >= 3 * PyLong_SHIFT) {
+                            return (unsigned int) (((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(unsigned int) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) >= 4 * PyLong_SHIFT) {
+                            return (unsigned int) (((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0]));
+                        }
+                    }
+                    break;
+            }
+#endif
+#if CYTHON_COMPILING_IN_CPYTHON
+            if (unlikely(Py_SIZE(x) < 0)) {
+                goto raise_neg_overflow;
+            }
+#else
+            {
+                int result = PyObject_RichCompareBool(x, Py_False, Py_LT);
+                if (unlikely(result < 0))
+                    return (unsigned int) -1;
+                if (unlikely(result == 1))
+                    goto raise_neg_overflow;
+            }
+#endif
+            if (sizeof(unsigned int) <= sizeof(unsigned long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, unsigned long, PyLong_AsUnsignedLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(unsigned int) <= sizeof(unsigned PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, unsigned PY_LONG_LONG, PyLong_AsUnsignedLongLong(x))
+#endif
+            }
+        } else {
+#if CYTHON_USE_PYLONG_INTERNALS
+            const digit* digits = ((PyLongObject*)x)->ob_digit;
+            switch (Py_SIZE(x)) {
+                case  0: return (unsigned int) 0;
+                case -1: __PYX_VERIFY_RETURN_INT(unsigned int, sdigit, (sdigit) (-(sdigit)digits[0]))
+                case  1: __PYX_VERIFY_RETURN_INT(unsigned int,  digit, +digits[0])
+                case -2:
+                    if (8 * sizeof(unsigned int) - 1 > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
+                            return (unsigned int) (((unsigned int)-1)*(((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+                case 2:
+                    if (8 * sizeof(unsigned int) > 1 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 2 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
+                            return (unsigned int) ((((((unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+                case -3:
+                    if (8 * sizeof(unsigned int) - 1 > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
+                            return (unsigned int) (((unsigned int)-1)*(((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+                case 3:
+                    if (8 * sizeof(unsigned int) > 2 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 3 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
+                            return (unsigned int) ((((((((unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+                case -4:
+                    if (8 * sizeof(unsigned int) - 1 > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, long, -(long) (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 4 * PyLong_SHIFT) {
+                            return (unsigned int) (((unsigned int)-1)*(((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+                case 4:
+                    if (8 * sizeof(unsigned int) > 3 * PyLong_SHIFT) {
+                        if (8 * sizeof(unsigned long) > 4 * PyLong_SHIFT) {
+                            __PYX_VERIFY_RETURN_INT(unsigned int, unsigned long, (((((((((unsigned long)digits[3]) << PyLong_SHIFT) | (unsigned long)digits[2]) << PyLong_SHIFT) | (unsigned long)digits[1]) << PyLong_SHIFT) | (unsigned long)digits[0])))
+                        } else if (8 * sizeof(unsigned int) - 1 > 4 * PyLong_SHIFT) {
+                            return (unsigned int) ((((((((((unsigned int)digits[3]) << PyLong_SHIFT) | (unsigned int)digits[2]) << PyLong_SHIFT) | (unsigned int)digits[1]) << PyLong_SHIFT) | (unsigned int)digits[0])));
+                        }
+                    }
+                    break;
+            }
+#endif
+            if (sizeof(unsigned int) <= sizeof(long)) {
+                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, long, PyLong_AsLong(x))
+#ifdef HAVE_LONG_LONG
+            } else if (sizeof(unsigned int) <= sizeof(PY_LONG_LONG)) {
+                __PYX_VERIFY_RETURN_INT_EXC(unsigned int, PY_LONG_LONG, PyLong_AsLongLong(x))
+#endif
+            }
+        }
+        {
+#if CYTHON_COMPILING_IN_PYPY && !defined(_PyLong_AsByteArray)
+            PyErr_SetString(PyExc_RuntimeError,
+                            "_PyLong_AsByteArray() not available in PyPy, cannot convert large numbers");
+#else
+            unsigned int val;
+            PyObject *v = __Pyx_PyNumber_IntOrLong(x);
+ #if PY_MAJOR_VERSION < 3
+            if (likely(v) && !PyLong_Check(v)) {
+                PyObject *tmp = v;
+                v = PyNumber_Long(tmp);
+                Py_DECREF(tmp);
+            }
+ #endif
+            if (likely(v)) {
+                int one = 1; int is_little = (int)*(unsigned char *)&one;
+                unsigned char *bytes = (unsigned char *)&val;
+                int ret = _PyLong_AsByteArray((PyLongObject *)v,
+                                              bytes, sizeof(val),
+                                              is_little, !is_unsigned);
+                Py_DECREF(v);
+                if (likely(!ret))
+                    return val;
+            }
+#endif
+            return (unsigned int) -1;
+        }
+    } else {
+        unsigned int val;
+        PyObject *tmp = __Pyx_PyNumber_IntOrLong(x);
+        if (!tmp) return (unsigned int) -1;
+        val = __Pyx_PyInt_As_unsigned_int(tmp);
+        Py_DECREF(tmp);
+        return val;
+    }
+raise_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "value too large to convert to unsigned int");
+    return (unsigned int) -1;
+raise_neg_overflow:
+    PyErr_SetString(PyExc_OverflowError,
+        "can't convert negative value to unsigned int");
+    return (unsigned int) -1;
 }
 
 /* CIntFromPy */

@@ -97,7 +97,7 @@ def test_knn_search(n_rows: int, tolerance=0.0001):
     k_max = int(n_cols ** 0.5)
     test_cases = get_test_cases(n_rows, n_cols)
     mat_py = {k: set(v) for k, v in test_cases.items()}
-    mat_cpp = SparseMatrixBinary(test_cases, [], 0)
+    mat_cpp = SparseMatrixBinary(test_cases)
     runtime_expected = runtime_actual = 0.0
     for i, key in enumerate(test_cases):
         print("第%d次测试！" % (i + 1))
@@ -107,7 +107,7 @@ def test_knn_search(n_rows: int, tolerance=0.0001):
         end = time()
         runtime_expected += end - start
         start = time()
-        actual = mat_cpp.knn_search_py(key, k)
+        actual = mat_cpp.knn_search(key, k)
         end = time()
         # actual是top k，但不保证顺序，需要排序再与expected进行比较
         actual.sort(key=lambda x: x[1], reverse=True)
@@ -130,13 +130,15 @@ def test_knn_search_cache(n_rows: int, tolerance=0.0001):
     n_cols = int(n_rows ** 0.5)
     test_cases = get_test_cases(n_rows, n_cols)
     mat_py = {k: set(v) for k, v in test_cases.items()}
+    # 固定k值
+    k = int(n_cols ** 0.5)
+    mat_cpp = SparseMatrixBinary(test_cases)
+    runtime_expected = runtime_actual = 0.0
     # 缓存10%的高频物品
     n_pop = int(0.1 * n_rows)
     popular_element = get_top_popular_element(n_pop, mat_py)
-    # 固定k值
-    k = int(n_cols ** 0.5)
-    mat_cpp = SparseMatrixBinary(test_cases, popular_element, k)
-    runtime_expected = runtime_actual = 0.0
+    cache = {x: mat_cpp.knn_search(x, k) for x in popular_element}
+    mat_cpp.cache = cache
     # 增加高频物品的测试次数
     ite = chain(*(list(repeat(k, len(v))) for k, v in mat_py.items()))
     for i, key in enumerate(ite):
@@ -146,7 +148,7 @@ def test_knn_search_cache(n_rows: int, tolerance=0.0001):
         end = time()
         runtime_expected += end - start
         start = time()
-        actual = mat_cpp.knn_search_py(key, k)
+        actual = mat_cpp.knn_search(key, k)
         end = time()
         # actual是top k，但不保证顺序，需要排序再与expected进行比较
         actual.sort(key=lambda x: x[1], reverse=True)

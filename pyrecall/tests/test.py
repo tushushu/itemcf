@@ -18,7 +18,7 @@ if __name__ == "__main__":
     # 测试Jaccard相似度计算函数是否正确。
     test_sim_metrics(10000)
     # 测试SparseMetrixBinary类的方法是否正确。
-    test_sparse_matrix_binary(10000)
+    test_sparse_matrix_binary(100)
     # 测试小顶堆的heappush函数是否正确。
     test_min_heap(100)
     # 测试agg_score函数是否正确。

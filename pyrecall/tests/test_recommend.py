@@ -55,12 +55,15 @@ def test_recommend(n_rows: int):
     print("原矩阵为:\n", MAT, "\n")
     mat_t = transpose(MAT)
     print("转置后的矩阵为:\n", mat_t, "\n")
-    sparse_mat = SparseMatrixBinary(mat_t, [2, 5], k)
+    sparse_mat = SparseMatrixBinary(mat_t)
+    cache = {x: sparse_mat.knn_search(x, k) for x in [2, 5]}
+    sparse_mat.cache = cache
+    print("sparse_mat.cache", sparse_mat.cache)
     for key, val in MAT.items():
-        actual = sparse_mat.recommend_py(val, k)
-        expected = RECOMMENDATION[key]
         print("key:", key, "val:", val)
+        expected = RECOMMENDATION[key]
         print("expected", expected)
+        actual = sparse_mat.recommend(val, k)
         print("actual", actual)
         print()
         cond1 = len(actual) == len(expected)
@@ -71,12 +74,12 @@ def test_recommend(n_rows: int):
     n_cols = n_rows * 10
     k = int(n_cols ** 0.5)
     test_cases = get_test_cases(n_rows, n_cols)
-    mat = SparseMatrixBinary(test_cases, [], 0)
+    mat = SparseMatrixBinary(test_cases)
     mat_trans = transpose(test_cases)
     for i, key in enumerate(mat_trans):
         print("第%d次测试！" % (i + 1))
         rated = mat_trans[key]
-        recommendation = mat.recommend_py(rated, k)
+        recommendation = mat.recommend(rated, k)
         print("rated", rated)
         print("recommendation", recommendation)
         print()
