@@ -100,3 +100,7 @@ def test_sparse_matrix_binary(n_test: int):
     mat.cache = cache
     assert cmp_cache(mat.cache, cache), "cache属性测试不通过!\n"
     print("cache属性测试通过!\n")
+
+
+if __name__ == "__main__":
+    test_sparse_matrix_binary(100)

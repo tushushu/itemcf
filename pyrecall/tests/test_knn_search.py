@@ -34,7 +34,7 @@ def jaccard_sim(set1: Set[int], set2: Set[int]) -> float:
     return numerator / denominator
 
 
-def _knn_search(key: int, mat: Dict[int, List[int]]):
+def _knn_search(key: int, mat: Dict[int, Set[int]]):
     set1 = mat[key]
     for key2, set2 in mat.items():
         if key2 == key:
@@ -45,13 +45,13 @@ def _knn_search(key: int, mat: Dict[int, List[int]]):
         yield (key2, sim)
 
 
-def knn_search(key: int, k: int, mat: Dict[int, List[int]]) -> list:
+def knn_search(key: int, k: int, mat: Dict[int, Set[int]]) -> list:
     """TOP K相似度最大的向量查找， 用于测试SparseMatrixBinary类的knn_search方法。
 
     Arguments:
         key {int} -- 向量名称。
         k {int} -- 返回结果的数量。
-        mat {Dict[int, List[int]]} -- 稀疏矩阵。
+        mat {Dict[int, Set[int]]} -- 稀疏矩阵。
 
     Returns:
         list -- TOP K相似度最大的向量。
@@ -76,12 +76,12 @@ def get_test_cases(n_rows: int, n_cols: int) -> Dict[int, List[int]]:
     return ret
 
 
-def get_top_popular_element(k: int, mat: Dict[int, List[int]]) -> List[int]:
+def get_top_popular_element(k: int, mat: Dict[int, Set[int]]) -> List[int]:
     """取出最热门的物品。
 
     Arguments:
         k {int} -- 取出热门物品的个数。
-        mat {Dict[int, List[int]]} -- 稀疏矩阵。
+        mat {Dict[int, Set[int]]} -- 稀疏矩阵。
 
     Returns:
         List[int]
@@ -162,3 +162,10 @@ def test_knn_search_cache(n_rows: int, tolerance=0.0001):
     print("未优化版本的运行时间为%.3f秒!" % runtime_expected)
     print("优化版本的运行时间为%.3f秒!" % runtime_actual)
     print("性能提升了%.1f倍!" % (runtime_expected / runtime_actual))
+
+
+if __name__ == "__main__":
+    # 测试SparseMatrixBinary类的knn_search方法是否正确。
+    test_knn_search(3000)
+    # test_knn_search函数的基础上加入缓存，且增加高频物品的测试次数。
+    test_knn_search_cache(1000)

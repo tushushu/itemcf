@@ -9,8 +9,9 @@ os.chdir(os.path.split(os.path.realpath(__file__))[0])
 import sys
 sys.path.append(os.path.abspath(".."))
 
+from typing import List, Tuple
 from random import shuffle
-from utils.heap import heappush_py
+from utils.heap import min_heappush_py
 
 
 def test_min_heap(n_test: int):
@@ -28,9 +29,9 @@ def test_min_heap(n_test: int):
         for j in range(n_elements):
             max_size = j + 1
             print("寻找top %d个元素" % max_size)
-            heap = []
+            heap = []  # type: List[Tuple[int, float]]
             for element in arr:
-                heap = heappush_py(heap, max_size, element)
+                heap = min_heappush_py(heap, max_size, element)
             expected = sorted(arr, reverse=True)[:max_size]
             actual = sorted(heap, reverse=True)
             print("expected", expected)
@@ -39,3 +40,7 @@ def test_min_heap(n_test: int):
             assert str(expected) == str(actual), "测试不通过!\n"
             heap = []
     print("共计测试%d次, " % n_test, "测试通过!\n")
+
+
+if __name__ == "__main__":
+    test_min_heap(100)

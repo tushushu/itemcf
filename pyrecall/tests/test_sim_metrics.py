@@ -32,7 +32,7 @@ def jaccard_sim(list1: List[int], list2: List[int]) -> float:
     return numerator / denominator
 
 
-def gen_test_cases(n_cases: int, low: int, high: int) -> List[List[int]]:
+def gen_test_cases(n_cases: int, low: int, high: int) -> List[List[List[int]]]:
     """随机生成n_cases个List作为测试用例，满足如下条件：
     1. 元素大小介于low和high之间；
     2. 元素个数不超过high-low；
@@ -44,7 +44,7 @@ def gen_test_cases(n_cases: int, low: int, high: int) -> List[List[int]]:
         high {int} -- 测试用例中元素大小、个数的上界。
 
     Returns:
-        List[List[int]] -- 测试用例。
+        List[List[List[int]]] -- 测试用例。
     """
     test_cases = []
     for _ in range(n_cases):
@@ -75,3 +75,7 @@ def test_sim_metrics(n_test: int):
         print("预期结果: %.3f" % sim2, "实际结果: %.3f" % sim1)
         assert abs(sim1 - sim2) < tolerance, "测试不通过!\n"
     print("共计测试%d次, " % n_test, "测试通过!\n")
+
+
+if __name__ == "__main__":
+    test_sim_metrics(10000)

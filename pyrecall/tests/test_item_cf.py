@@ -9,20 +9,19 @@ import sys
 sys.path.append(os.path.abspath(".."))
 
 from collections import defaultdict
-from time import time
 from typing import Dict, List, Tuple, DefaultDict
 from random import randint, random, sample
 from utils.item_cf import agg_score_py, top_k_map_py
 
 
-def gen_random_list(n_elements: int) -> List[Tuple]:
+def gen_random_list(n_elements: int) -> List[Tuple[int, float]]:
     """随机生成列表，满足列表的元素值随机，且有可能存在元素的第一个值相同的元素。
 
     Arguments:
         n_elements {int} -- 元素数量。
 
     Returns:
-        List[Tuple] -- [(int, float)]
+        List[Tuple[int, float]]
     """
     return [(randint(1, n_elements), random()) for _ in range(n_elements)]
 
@@ -39,16 +38,17 @@ def gen_random_dict(n_elements: int) -> Dict[int, float]:
     return {key: random() for key in range(n_elements)}
 
 
-def agg_score(random_list: List[Tuple], exclude_elements: List[int]) -> DefaultDict[int, float]:
+def agg_score(random_list: List[Tuple[int, float]], exclude_elements: List[int]) -> DefaultDict[int, float]:
     """对相同的Item的Score进行求和，用于校验agg_score_py的函数。
 
     Arguments:
-        random_list {List[Tuple]} -- 将Item, Score成对存储的列表。
+        random_list {List[Tuple[int, float]]} -- 将Item, Score成对存储的列表。
+        exclude_elements {List[int]} -- 需要剔除的元素列表。
 
     Returns:
         DefaultDict[int, float]
     """
-    ret = defaultdict(float)
+    ret = defaultdict(float)  # type: DefaultDict[int, float]
     for key, val in random_list:
         if key not in exclude_elements:
             ret[key] += val
@@ -77,15 +77,8 @@ def cmp_dict(dict1: DefaultDict[int, float], dict2: Dict[int, float]) -> bool:
     return True
 
 
-def cmp_list(list1: List[Tuple], list2: List[Tuple]) -> bool:
+def cmp_list(list1: List[Tuple[int, float]], list2: List[Tuple[int, float]]) -> bool:
     """比较两个列表是否相同。
-
-    Arguments:
-        list1 {List[Tuple]}
-        list2 {List[Tuple]}
-
-    Returns:
-        bool
     """
     if len(list1) != len(list2):
         return False
@@ -101,7 +94,7 @@ def print_dict(name: str, my_dict: Dict[int, float]):
     print(name, [(k, round(v, 3)) for k, v in my_dict.items()])
 
 
-def print_list(name: str, my_list: List[Tuple]):
+def print_list(name: str, my_list: List[Tuple[int, float]]):
     """打印列表，value保留三位小数。
     """
     print(name, [(k, round(v, 3)) for k, v in my_list])
@@ -142,3 +135,10 @@ def test_top_k_map(n_test: int):
         print()
         assert cmp_list(expected, actual), "测试不通过!\n"
     print("共计测试%d次, " % n_test, "测试通过!\n")
+
+
+if __name__ == "__main__":
+    # 测试agg_score函数是否正确。
+    test_agg_score(1000)
+    # 测试top_k_map函数是否正确。
+    test_top_k_map(1000)
