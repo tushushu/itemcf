@@ -12,7 +12,7 @@ from libcpp.unordered_set cimport unordered_set as cpp_set
 from libcpp.vector cimport vector
 from libcpp.utility cimport pair
 from libcpp.algorithm cimport sort_heap
-from .heap cimport heappush, cmp
+from .heap cimport min_heappush, min_cmp
 
 
 cdef void agg_score(cpp_map[int, float]& score_map, vector[pair[int, float]]& top_k, cpp_set[int]& exclude_elements) except *:
@@ -38,9 +38,9 @@ cdef vector[pair[int, float]] top_k_map(cpp_map[int, float]& score_map, unsigned
         cpp_map[int, float].iterator it = score_map.begin()
         cpp_map[int, float].iterator end = score_map.end()
     while it != end:
-        heappush(heap, k, deref(it))
+        min_heappush(heap, k, deref(it))
         inc(it)
-    sort_heap(heap.begin(), heap.end(), cmp)
+    sort_heap(heap.begin(), heap.end(), min_cmp)
     return heap
 
 
