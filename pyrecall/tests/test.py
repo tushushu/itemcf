@@ -9,7 +9,7 @@ from test_sparse_matrix_binary import test_sparse_matrix_binary
 from test_min_heap import test_min_heap
 from test_knn_search import test_knn_search, test_knn_search_cache
 from test_item_cf import test_agg_score, test_top_k_map
-from test_recommend import test_recommend
+from test_recommend import test_recommend_accuracy, test_recommend_checklist
 
 
 if __name__ == "__main__":
@@ -29,5 +29,7 @@ if __name__ == "__main__":
     test_knn_search(3000)
     # test_knn_search函数的基础上加入缓存，且增加高频物品的测试次数。
     test_knn_search_cache(1000)
-    # 测试SparseMatrixBinary类的recommend方法是否正确。
-    test_recommend(100)
+    # 测试SparseMatrixBinary类的recommend方法推出内容是否与手动计算结果一致。
+    test_recommend_accuracy(100)
+    # 测试SparseMatrixBinary类的recommend方法中合法非法清单是否生效。
+    test_recommend_checklist()

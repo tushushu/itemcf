@@ -3,7 +3,7 @@
 @Author: tushushu
 @Date: 2019-06-06 12:21:13
 """
-from typing import List, Tuple, Optional
+from typing import List, Tuple, Optional, Set
 from pyspark.sql import DataFrame
 from pyspark.sql.functions import udf, col  # pylint: disable=no-name-in-module
 from pyspark.sql.types import StructField, StructType, LongType, FloatType, ArrayType
@@ -26,7 +26,8 @@ class JaccardItemCF:
         self.return_type = None
 
     def fit(self, data: DataFrame, user_col: str, item_col: str, mat_size: int,
-            threshold: Optional[int] = None, show_coverage: bool = False):
+            threshold: Optional[int] = None, show_coverage: bool = False,
+            valid_list: Optional[Set[int]] = None, blacklist: Optional[Set[int]] = None):
         """训练Jaccard Item CF模型。
 
         Arguments:
@@ -38,6 +39,8 @@ class JaccardItemCF:
         Keyword Arguments:
             threshold {Optional[int]} -- 物品最低出现的频次。(default: {None})
             show_coverage {bool} -- 是否打印热门物品的覆盖度。(default: {False})
+            valid_list {Optional[Set[int]]} -- 合法的element清单。(default: {None})
+            blacklist {Optional[Set[int]]} -- 非法的element清单。(default: {None})
         """
         # 模型推荐物品的数量。
         self.mat_size = mat_size
@@ -51,7 +54,7 @@ class JaccardItemCF:
         # 获取物品及评分过该物品的用户。
         item_vectors = get_item_vectors(data, user_col, item_col)
         # 初始化物品矩阵。
-        self.mat = SparseMatrixBinary(item_vectors)
+        self.mat = SparseMatrixBinary(item_vectors, valid_list, blacklist)
         # 计算最热门物品的相似物品，并缓存到mat中。
         popular_items = get_popular_items(data, user_col, item_col, threshold, show_coverage)
         self.mat.cache = get_similar_elements(popular_items, self.mat.knn_search, mat_size)
@@ -82,5 +85,5 @@ class JaccardItemCF:
         user_vectors = get_user_vectors(data, user_col, item_col)
         _predict = udf(lambda x: self.predict_one(x, n_recommend), self.return_type)
         ret = user_vectors.select(col(user_col), _predict(
-            item_col).alias("recommendation"))
+            item_col).alias("recommendations"))
         return ret

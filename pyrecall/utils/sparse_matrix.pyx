@@ -13,7 +13,7 @@ from libcpp.unordered_map cimport unordered_map as cpp_map
 from libcpp.unordered_set cimport unordered_set as cpp_set
 from libcpp.vector cimport vector
 from libcpp.utility cimport pair
-from .heap cimport heappush
+from .heap cimport min_heappush
 from .sim_metrics cimport jaccard_sim
 from .item_cf cimport agg_score, top_k_map
 
@@ -22,15 +22,34 @@ cdef class SparseMatrixBinary:
     """稀疏矩阵的C++实现(离散值)。
     如长度为5的稠密向量[0, 1, 0, 0, 1]，其稀疏向量表示为[1, 4]。
 
+    合法清单和非法清单同时存在时，合法清单对非法清单取差集，只保留合法清单。
+
     Arguments:
         data {Dict[int, List[int]]} -- 以Python对象存储的稀疏矩阵。
+        valid_list {Optional[Set[int]]} -- 合法的element清单。(default: {None})
+        blacklist {Optional[Set[int]]} -- 非法的element清单。(default: {None})
 
     Attributes:
         _data {cpp_map[int, vector[int]]} -- 以C++对象存储的稀疏矩阵。
+        _valid_list {cpp_set[int]} -- 以C++对象存储的合法的element清单。
+        _blacklist {cpp_set[int]} -- 以C++对象存储的非法的element清单。
         _cache {cpp_map[int, vector[pair[int, float]]]} -- 热门Key的KNN查找结果。
     """
 
-    def __init__(self, dict data):
+    def __init__(self, dict data, valid_list=None, blacklist=None):
+        assert valid_list != set(), "valid_list不可以为空！"
+        assert blacklist != set(), "blacklist不可以为空！"
+        if valid_list is not None:
+            if blacklist is not None:
+                assert not blacklist.issubset(valid_list), "valid_list不可以是blacklist的子集！"
+                self._valid_list = valid_list - blacklist
+            else:
+                self._valid_list = valid_list
+        else:
+            if blacklist is not None:
+                self._blacklist = blacklist
+            else:
+                pass
         self._data = data
 
     def __len__(self):
@@ -56,6 +75,16 @@ cdef class SparseMatrixBinary:
         return self._data
 
     @property
+    def valid_list(self):
+        """访问Cython的_valid_list属性。"""
+        return self._valid_list
+
+    @property
+    def blacklist(self):
+        """访问Cython的_blacklist属性。"""
+        return self._blacklist
+
+    @property
     def cache(self):
         """访问Cython的_cache属性。"""
         return self._cache
@@ -73,7 +102,10 @@ cdef class SparseMatrixBinary:
         return deref(it).second
 
     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:
-        """线性查找与key对应的向量相似度最大的k个向量，且这些向量的key不能与被查找的key相同。"""
+        """线性查找与key对应的向量相似度最大的k个向量，且这些向量的key不能与被查找的key相同。
+        合法清单过滤，合法清单存在且元素不在合法清单中，不参与计算；
+        非法清单过滤，非法清单存在且元素在非法清单中，不参与计算。
+        """
         cdef:
             vector[pair[int, float]] heap
             pair[int, float] element
@@ -83,12 +115,18 @@ cdef class SparseMatrixBinary:
         if it1 == end:
             return heap
         while it2 != end:
+            if self._valid_list.size() and self._valid_list.count(deref(it2).first) == 0:
+                inc(it2)
+                continue
+            elif self._blacklist.size() and self._blacklist.count(deref(it2).first):
+                inc(it2)
+                continue
             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
             if element.second == 0.0 or it2 == it1:
                 inc(it2)
                 continue
             element.first = deref(it2).first
-            heappush(heap, k, element)
+            min_heappush(heap, k, element)
             inc(it2)
         return heap
 

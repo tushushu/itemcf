@@ -12,6 +12,10 @@ from libcpp.utility cimport pair
 cdef class SparseMatrixBinary:
     # 以C++对象存储的稀疏矩阵。
     cdef cpp_map[int, vector[int]] _data
+    # 以C++对象存储的合法的element清单。
+    cdef cpp_set[int] _valid_list
+    # 以C++对象存储的非法的element清单。
+    cdef cpp_set[int] _blacklist
     # 热门Key的KNN查找结果。
     cdef cpp_map[int, vector[pair[int, float]]] _cache
     # 访问稀疏矩阵中的稀疏向量。
