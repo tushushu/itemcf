@@ -1138,9 +1138,10 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 /* Module declarations from 'libcpp.algorithm' */
 
 /* Module declarations from 'dwh.pyrecall.pyrecall.utils.heap' */
-static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp(std::pair<int,float>  const &, std::pair<int,float>  const &); /*proto*/
-static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp(std::pair<int,float>  const &, std::pair<int,float>  const &); /*proto*/
-static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &); /*proto*/
+static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp(std::pair<int,float>  const &, std::pair<int,float>  const &); /*proto*/
+static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_cmp(std::pair<int,float>  const &, std::pair<int,float>  const &); /*proto*/
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &, bool (*)(std::pair<int,float>  const &, std::pair<int,float>  const &)); /*proto*/
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &); /*proto*/
 static std::pair<int,float>  __pyx_convert_pair_from_py_int__and_float(PyObject *); /*proto*/
 static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(PyObject *); /*proto*/
 static PyObject *__pyx_convert_pair_to_py_int____float(std::pair<int,float>  const &); /*proto*/
@@ -1160,7 +1161,7 @@ static const char __pyx_k_element[] = "element";
 static const char __pyx_k_heap_cpp[] = "heap_cpp";
 static const char __pyx_k_heap_pyx[] = "heap.pyx";
 static const char __pyx_k_max_size[] = "max_size";
-static const char __pyx_k_heappush_py[] = "heappush_py";
+static const char __pyx_k_min_heappush_py[] = "min_heappush_py";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Author_tushushu_Date_2019_07_09[] = "\n@Author: tushushu\n@Date: 2019-07-09 10:45:25\n";
 static const char __pyx_k_dwh_pyrecall_pyrecall_utils_heap[] = "dwh.pyrecall.pyrecall.utils.heap";
@@ -1170,13 +1171,13 @@ static PyObject *__pyx_n_s_element;
 static PyObject *__pyx_n_s_heap;
 static PyObject *__pyx_n_s_heap_cpp;
 static PyObject *__pyx_kp_s_heap_pyx;
-static PyObject *__pyx_n_s_heappush_py;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_max_size;
+static PyObject *__pyx_n_s_min_heappush_py;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_test;
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_heap, PyObject *__pyx_v_max_size, PyObject *__pyx_v_element); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_heap, PyObject *__pyx_v_max_size, PyObject *__pyx_v_element); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
@@ -1184,22 +1185,22 @@ static PyObject *__pyx_codeobj__2;
 /* "dwh/pyrecall/pyrecall/utils/heap.pyx":16
  * 
  * 
- * cdef bool cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:             # <<<<<<<<<<<<<<
+ * cdef bool min_cmp(const pair[int, float]& element1, const pair[int, float]& element2):             # <<<<<<<<<<<<<<
  *     """.first.second"""
  *     return element1.second > element2.second
  */
 
-static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp(std::pair<int,float>  const &__pyx_v_element1, std::pair<int,float>  const &__pyx_v_element2) {
+static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp(std::pair<int,float>  const &__pyx_v_element1, std::pair<int,float>  const &__pyx_v_element2) {
   bool __pyx_r;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("cmp", 0);
+  __Pyx_RefNannySetupContext("min_cmp", 0);
 
   /* "dwh/pyrecall/pyrecall/utils/heap.pyx":18
- * cdef bool cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:
+ * cdef bool min_cmp(const pair[int, float]& element1, const pair[int, float]& element2):
  *     """.first.second"""
  *     return element1.second > element2.second             # <<<<<<<<<<<<<<
  * 
- * cdef bool _cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:
+ * 
  */
   __pyx_r = (__pyx_v_element1.second > __pyx_v_element2.second);
   goto __pyx_L0;
@@ -1207,7 +1208,7 @@ static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp(std::pair<int,floa
   /* "dwh/pyrecall/pyrecall/utils/heap.pyx":16
  * 
  * 
- * cdef bool cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:             # <<<<<<<<<<<<<<
+ * cdef bool min_cmp(const pair[int, float]& element1, const pair[int, float]& element2):             # <<<<<<<<<<<<<<
  *     """.first.second"""
  *     return element1.second > element2.second
  */
@@ -1218,33 +1219,33 @@ static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp(std::pair<int,floa
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/heap.pyx":20
- *     return element1.second > element2.second
+/* "dwh/pyrecall/pyrecall/utils/heap.pyx":21
  * 
- * cdef bool _cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:             # <<<<<<<<<<<<<<
+ * 
+ * cdef bool max_cmp(const pair[int, float]& element1, const pair[int, float]& element2):             # <<<<<<<<<<<<<<
  *     """.first.second"""
  *     return element1.second < element2.second
  */
 
-static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp(std::pair<int,float>  const &__pyx_v_element1, std::pair<int,float>  const &__pyx_v_element2) {
+static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_cmp(std::pair<int,float>  const &__pyx_v_element1, std::pair<int,float>  const &__pyx_v_element2) {
   bool __pyx_r;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("_cmp", 0);
+  __Pyx_RefNannySetupContext("max_cmp", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":22
- * cdef bool _cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":23
+ * cdef bool max_cmp(const pair[int, float]& element1, const pair[int, float]& element2):
  *     """.first.second"""
  *     return element1.second < element2.second             # <<<<<<<<<<<<<<
  * 
- * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+ * 
  */
   __pyx_r = (__pyx_v_element1.second < __pyx_v_element2.second);
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":20
- *     return element1.second > element2.second
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":21
  * 
- * cdef bool _cmp(const pair[int, float]& element1, const pair[int, float]& element2) except +:             # <<<<<<<<<<<<<<
+ * 
+ * cdef bool max_cmp(const pair[int, float]& element1, const pair[int, float]& element2):             # <<<<<<<<<<<<<<
  *     """.first.second"""
  *     return element1.second < element2.second
  */
@@ -1255,22 +1256,21 @@ static bool __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp(std::pair<int,flo
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/heap.pyx":24
- *     return element1.second < element2.second
+/* "dwh/pyrecall/pyrecall/utils/heap.pyx":26
  * 
- * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ * 
+ * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element             # <<<<<<<<<<<<<<
+ *                    , bool (*cmp)(const pair[int, float]&, const pair[int, float]&)) except *:
  *     """Pushmax_size"""
- *     if heap.size() == max_size:
  */
 
-static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<std::pair<int,float> >  &__pyx_v_heap, unsigned int __pyx_v_max_size, std::pair<int,float>  const &__pyx_v_element) {
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<std::pair<int,float> >  &__pyx_v_heap, unsigned int __pyx_v_max_size, std::pair<int,float>  const &__pyx_v_element, bool (*__pyx_v_cmp)(std::pair<int,float>  const &, std::pair<int,float>  const &)) {
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
-  bool __pyx_t_2;
   __Pyx_RefNannySetupContext("heappush", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":26
- * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":29
+ *                    , bool (*cmp)(const pair[int, float]&, const pair[int, float]&)) except *:
  *     """Pushmax_size"""
  *     if heap.size() == max_size:             # <<<<<<<<<<<<<<
  *         if cmp(element, heap.front()):
@@ -1279,23 +1279,17 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
   __pyx_t_1 = ((__pyx_v_heap.size() == __pyx_v_max_size) != 0);
   if (__pyx_t_1) {
 
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":27
+    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":30
  *     """Pushmax_size"""
  *     if heap.size() == max_size:
  *         if cmp(element, heap.front()):             # <<<<<<<<<<<<<<
  *             heap.push_back(element)
  *             pop_heap(heap.begin(), heap.end(), cmp)
  */
-    try {
-      __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp(__pyx_v_element, __pyx_v_heap.front());
-    } catch(...) {
-      __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 27, __pyx_L1_error)
-    }
-    __pyx_t_1 = (__pyx_t_2 != 0);
+    __pyx_t_1 = (__pyx_v_cmp(__pyx_v_element, __pyx_v_heap.front()) != 0);
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":28
+      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":31
  *     if heap.size() == max_size:
  *         if cmp(element, heap.front()):
  *             heap.push_back(element)             # <<<<<<<<<<<<<<
@@ -1306,19 +1300,19 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
         __pyx_v_heap.push_back(__pyx_v_element);
       } catch(...) {
         __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 28, __pyx_L1_error)
+        __PYX_ERR(0, 31, __pyx_L1_error)
       }
 
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":29
+      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":32
  *         if cmp(element, heap.front()):
  *             heap.push_back(element)
  *             pop_heap(heap.begin(), heap.end(), cmp)             # <<<<<<<<<<<<<<
  *             heap.pop_back()
  *     else:
  */
-      std::pop_heap<std::vector<std::pair<int,float> > ::iterator,bool (std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp);
+      std::pop_heap<std::vector<std::pair<int,float> > ::iterator,bool (*)(std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_v_cmp);
 
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":30
+      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":33
  *             heap.push_back(element)
  *             pop_heap(heap.begin(), heap.end(), cmp)
  *             heap.pop_back()             # <<<<<<<<<<<<<<
@@ -1327,7 +1321,7 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
  */
       __pyx_v_heap.pop_back();
 
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":27
+      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":30
  *     """Pushmax_size"""
  *     if heap.size() == max_size:
  *         if cmp(element, heap.front()):             # <<<<<<<<<<<<<<
@@ -1336,8 +1330,8 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
  */
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":26
- * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":29
+ *                    , bool (*cmp)(const pair[int, float]&, const pair[int, float]&)) except *:
  *     """Pushmax_size"""
  *     if heap.size() == max_size:             # <<<<<<<<<<<<<<
  *         if cmp(element, heap.front()):
@@ -1346,7 +1340,7 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
     goto __pyx_L3;
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":32
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":35
  *             heap.pop_back()
  *     else:
  *         heap.push_back(element)             # <<<<<<<<<<<<<<
@@ -1358,26 +1352,26 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
       __pyx_v_heap.push_back(__pyx_v_element);
     } catch(...) {
       __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 32, __pyx_L1_error)
+      __PYX_ERR(0, 35, __pyx_L1_error)
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":33
+    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":36
  *     else:
  *         heap.push_back(element)
  *         push_heap(heap.begin(), heap.end(), cmp)             # <<<<<<<<<<<<<<
  * 
- * cdef void _heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+ * 
  */
-    std::push_heap<std::vector<std::pair<int,float> > ::iterator,bool (std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp);
+    std::push_heap<std::vector<std::pair<int,float> > ::iterator,bool (*)(std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_v_cmp);
   }
   __pyx_L3:;
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":24
- *     return element1.second < element2.second
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":26
  * 
- * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ * 
+ * cdef void heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element             # <<<<<<<<<<<<<<
+ *                    , bool (*cmp)(const pair[int, float]&, const pair[int, float]&)) except *:
  *     """Pushmax_size"""
- *     if heap.size() == max_size:
  */
 
   /* function exit code */
@@ -1388,158 +1382,99 @@ static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(std::vector<s
   __Pyx_RefNannyFinishContext();
 }
 
-/* "dwh/pyrecall/pyrecall/utils/heap.pyx":35
- *         push_heap(heap.begin(), heap.end(), cmp)
+/* "dwh/pyrecall/pyrecall/utils/heap.pyx":39
  * 
- * cdef void _heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ * 
+ * cdef void min_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
  *     """Pushmax_size"""
- *     if heap.size() == max_size:
+ *     heappush(heap, max_size, element, min_cmp)
  */
 
-static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__heappush(std::vector<std::pair<int,float> >  &__pyx_v_heap, unsigned int __pyx_v_max_size, std::pair<int,float>  const &__pyx_v_element) {
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush(std::vector<std::pair<int,float> >  &__pyx_v_heap, unsigned int __pyx_v_max_size, std::pair<int,float>  const &__pyx_v_element) {
   __Pyx_RefNannyDeclarations
-  int __pyx_t_1;
-  bool __pyx_t_2;
-  __Pyx_RefNannySetupContext("_heappush", 0);
+  __Pyx_RefNannySetupContext("min_heappush", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":37
- * cdef void _heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":41
+ * cdef void min_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
  *     """Pushmax_size"""
- *     if heap.size() == max_size:             # <<<<<<<<<<<<<<
- *         if _cmp(element, heap.front()):
- *             heap.push_back(element)
- */
-  __pyx_t_1 = ((__pyx_v_heap.size() == __pyx_v_max_size) != 0);
-  if (__pyx_t_1) {
-
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":38
- *     """Pushmax_size"""
- *     if heap.size() == max_size:
- *         if _cmp(element, heap.front()):             # <<<<<<<<<<<<<<
- *             heap.push_back(element)
- *             pop_heap(heap.begin(), heap.end(), _cmp)
- */
-    try {
-      __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp(__pyx_v_element, __pyx_v_heap.front());
-    } catch(...) {
-      __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 38, __pyx_L1_error)
-    }
-    __pyx_t_1 = (__pyx_t_2 != 0);
-    if (__pyx_t_1) {
-
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":39
- *     if heap.size() == max_size:
- *         if _cmp(element, heap.front()):
- *             heap.push_back(element)             # <<<<<<<<<<<<<<
- *             pop_heap(heap.begin(), heap.end(), _cmp)
- *             heap.pop_back()
- */
-      try {
-        __pyx_v_heap.push_back(__pyx_v_element);
-      } catch(...) {
-        __Pyx_CppExn2PyErr();
-        __PYX_ERR(0, 39, __pyx_L1_error)
-      }
-
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":40
- *         if _cmp(element, heap.front()):
- *             heap.push_back(element)
- *             pop_heap(heap.begin(), heap.end(), _cmp)             # <<<<<<<<<<<<<<
- *             heap.pop_back()
- *     else:
- */
-      std::pop_heap<std::vector<std::pair<int,float> > ::iterator,bool (std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp);
-
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":41
- *             heap.push_back(element)
- *             pop_heap(heap.begin(), heap.end(), _cmp)
- *             heap.pop_back()             # <<<<<<<<<<<<<<
- *     else:
- *         heap.push_back(element)
- */
-      __pyx_v_heap.pop_back();
-
-      /* "dwh/pyrecall/pyrecall/utils/heap.pyx":38
- *     """Pushmax_size"""
- *     if heap.size() == max_size:
- *         if _cmp(element, heap.front()):             # <<<<<<<<<<<<<<
- *             heap.push_back(element)
- *             pop_heap(heap.begin(), heap.end(), _cmp)
- */
-    }
-
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":37
- * cdef void _heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
- *     """Pushmax_size"""
- *     if heap.size() == max_size:             # <<<<<<<<<<<<<<
- *         if _cmp(element, heap.front()):
- *             heap.push_back(element)
- */
-    goto __pyx_L3;
-  }
-
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":43
- *             heap.pop_back()
- *     else:
- *         heap.push_back(element)             # <<<<<<<<<<<<<<
- *         push_heap(heap.begin(), heap.end(), _cmp)
+ *     heappush(heap, max_size, element, min_cmp)             # <<<<<<<<<<<<<<
+ * 
  * 
  */
-  /*else*/ {
-    try {
-      __pyx_v_heap.push_back(__pyx_v_element);
-    } catch(...) {
-      __Pyx_CppExn2PyErr();
-      __PYX_ERR(0, 43, __pyx_L1_error)
-    }
+  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(__pyx_v_heap, __pyx_v_max_size, __pyx_v_element, __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 41, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/heap.pyx":44
- *     else:
- *         heap.push_back(element)
- *         push_heap(heap.begin(), heap.end(), _cmp)             # <<<<<<<<<<<<<<
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":39
  * 
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:
- */
-    std::push_heap<std::vector<std::pair<int,float> > ::iterator,bool (std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp);
-  }
-  __pyx_L3:;
-
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":35
- *         push_heap(heap.begin(), heap.end(), cmp)
  * 
- * cdef void _heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ * cdef void min_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
  *     """Pushmax_size"""
- *     if heap.size() == max_size:
+ *     heappush(heap, max_size, element, min_cmp)
  */
 
   /* function exit code */
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap._heappush", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.min_heappush", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
 }
 
-/* "dwh/pyrecall/pyrecall/utils/heap.pyx":46
- *         push_heap(heap.begin(), heap.end(), _cmp)
+/* "dwh/pyrecall/pyrecall/utils/heap.pyx":44
  * 
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
- *     """heappushPython"""
+ * 
+ * cdef void max_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ *     """Pushmax_size"""
+ *     heappush(heap, max_size, element, max_cmp)
+ */
+
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_heappush(std::vector<std::pair<int,float> >  &__pyx_v_heap, unsigned int __pyx_v_max_size, std::pair<int,float>  const &__pyx_v_element) {
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("max_heappush", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":46
+ * cdef void max_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:
+ *     """Pushmax_size"""
+ *     heappush(heap, max_size, element, max_cmp)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(__pyx_v_heap, __pyx_v_max_size, __pyx_v_element, __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_cmp); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
+
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":44
+ * 
+ * 
+ * cdef void max_heappush(vector[pair[int, float]]& heap, unsigned int max_size, const pair[int, float]& element) except *:             # <<<<<<<<<<<<<<
+ *     """Pushmax_size"""
+ *     heappush(heap, max_size, element, max_cmp)
+ */
+
+  /* function exit code */
+  goto __pyx_L0;
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.max_heappush", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+}
+
+/* "dwh/pyrecall/pyrecall/utils/heap.pyx":49
+ * 
+ * 
+ * def min_heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py[] = "\345\214\205\350\243\205heappush\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py = {"heappush_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py};
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1min_heappush_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush_py[] = "\345\214\205\350\243\205min_heappush\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_4heap_1min_heappush_py = {"min_heappush_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1min_heappush_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush_py};
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1min_heappush_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_heap = 0;
   PyObject *__pyx_v_max_size = 0;
   PyObject *__pyx_v_element = 0;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
-  __Pyx_RefNannySetupContext("heappush_py (wrapper)", 0);
+  __Pyx_RefNannySetupContext("min_heappush_py (wrapper)", 0);
   {
     static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_heap,&__pyx_n_s_max_size,&__pyx_n_s_element,0};
     PyObject* values[3] = {0,0,0};
@@ -1565,17 +1500,17 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py(PyO
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_max_size)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("heappush_py", 1, 3, 3, 1); __PYX_ERR(0, 46, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("min_heappush_py", 1, 3, 3, 1); __PYX_ERR(0, 49, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_element)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("heappush_py", 1, 3, 3, 2); __PYX_ERR(0, 46, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("min_heappush_py", 1, 3, 3, 2); __PYX_ERR(0, 49, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "heappush_py") < 0)) __PYX_ERR(0, 46, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "min_heappush_py") < 0)) __PYX_ERR(0, 49, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1590,15 +1525,15 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py(PyO
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("heappush_py", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 46, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("min_heappush_py", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 49, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.heappush_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.min_heappush_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_heap), (&PyList_Type), 1, "heap", 1))) __PYX_ERR(0, 46, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_element), (&PyTuple_Type), 1, "element", 1))) __PYX_ERR(0, 46, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py(__pyx_self, __pyx_v_heap, __pyx_v_max_size, __pyx_v_element);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_heap), (&PyList_Type), 1, "heap", 1))) __PYX_ERR(0, 49, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_element), (&PyTuple_Type), 1, "element", 1))) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush_py(__pyx_self, __pyx_v_heap, __pyx_v_max_size, __pyx_v_element);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1609,7 +1544,7 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py(PyO
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_heap, PyObject *__pyx_v_max_size, PyObject *__pyx_v_element) {
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_heap, PyObject *__pyx_v_max_size, PyObject *__pyx_v_element) {
   std::vector<std::pair<int,float> >  __pyx_v_heap_cpp;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -1617,53 +1552,53 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush_py(CYTH
   unsigned int __pyx_t_2;
   std::pair<int,float>  __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
-  __Pyx_RefNannySetupContext("heappush_py", 0);
+  __Pyx_RefNannySetupContext("min_heappush_py", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":48
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:
- *     """heappushPython"""
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":51
+ * def min_heappush_py(heap: list, max_size: int, element: tuple)->list:
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap             # <<<<<<<<<<<<<<
- *     heappush(heap_cpp, max_size, element)
+ *     min_heappush(heap_cpp, max_size, element)
  *     return heap_cpp
  */
-  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_v_heap); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 48, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_v_heap); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 51, __pyx_L1_error)
   __pyx_v_heap_cpp = __pyx_t_1;
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":49
- *     """heappushPython"""
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":52
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap
- *     heappush(heap_cpp, max_size, element)             # <<<<<<<<<<<<<<
+ *     min_heappush(heap_cpp, max_size, element)             # <<<<<<<<<<<<<<
  *     return heap_cpp
  */
-  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_max_size); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_pair_from_py_int__and_float(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
-  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush(__pyx_v_heap_cpp, __pyx_t_2, __pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_max_size); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_pair_from_py_int__and_float(__pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L1_error)
+  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush(__pyx_v_heap_cpp, __pyx_t_2, __pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 52, __pyx_L1_error)
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":50
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":53
  *     cdef vector[pair[int, float]] heap_cpp = heap
- *     heappush(heap_cpp, max_size, element)
+ *     min_heappush(heap_cpp, max_size, element)
  *     return heap_cpp             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_v_heap_cpp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_v_heap_cpp); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 50, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 53, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":46
- *         push_heap(heap.begin(), heap.end(), _cmp)
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":49
  * 
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
- *     """heappushPython"""
+ * 
+ * def min_heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.heappush_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.heap.min_heappush_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2076,9 +2011,9 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_heap, __pyx_k_heap, sizeof(__pyx_k_heap), 0, 0, 1, 1},
   {&__pyx_n_s_heap_cpp, __pyx_k_heap_cpp, sizeof(__pyx_k_heap_cpp), 0, 0, 1, 1},
   {&__pyx_kp_s_heap_pyx, __pyx_k_heap_pyx, sizeof(__pyx_k_heap_pyx), 0, 0, 1, 0},
-  {&__pyx_n_s_heappush_py, __pyx_k_heappush_py, sizeof(__pyx_k_heappush_py), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_max_size, __pyx_k_max_size, sizeof(__pyx_k_max_size), 0, 0, 1, 1},
+  {&__pyx_n_s_min_heappush_py, __pyx_k_min_heappush_py, sizeof(__pyx_k_min_heappush_py), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
@@ -2095,17 +2030,17 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":46
- *         push_heap(heap.begin(), heap.end(), _cmp)
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":49
  * 
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
- *     """heappushPython"""
+ * 
+ * def min_heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap
  */
-  __pyx_tuple_ = PyTuple_Pack(4, __pyx_n_s_heap, __pyx_n_s_max_size, __pyx_n_s_element, __pyx_n_s_heap_cpp); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(4, __pyx_n_s_heap, __pyx_n_s_max_size, __pyx_n_s_element, __pyx_n_s_heap_cpp); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_heap_pyx, __pyx_n_s_heappush_py, 46, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_heap_pyx, __pyx_n_s_min_heappush_py, 49, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2148,10 +2083,11 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("cmp", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_cmp, "bool (std::pair<int,float>  const &, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ExportFunction("_cmp", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__cmp, "bool (std::pair<int,float>  const &, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ExportFunction("heappush", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ExportFunction("_heappush", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap__heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("min_cmp", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp, "bool (std::pair<int,float>  const &, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("max_cmp", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_cmp, "bool (std::pair<int,float>  const &, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("heappush", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &, bool (*)(std::pair<int,float>  const &, std::pair<int,float>  const &))") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("min_heappush", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("max_heappush", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_max_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2389,22 +2325,22 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":46
- *         push_heap(heap.begin(), heap.end(), _cmp)
+  /* "dwh/pyrecall/pyrecall/utils/heap.pyx":49
  * 
- * def heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
- *     """heappushPython"""
+ * 
+ * def min_heappush_py(heap: list, max_size: int, element: tuple)->list:             # <<<<<<<<<<<<<<
+ *     """min_heappushPython"""
  *     cdef vector[pair[int, float]] heap_cpp = heap
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_4heap_1heappush_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_heap); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_4heap_1min_heappush_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_heap); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_heappush_py, __pyx_t_1) < 0) __PYX_ERR(0, 46, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_min_heappush_py, __pyx_t_1) < 0) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
   /* "dwh/pyrecall/pyrecall/utils/heap.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
- * #cython: boundscheck=False
- * #cython: wraparound=False
+ * # cython: boundscheck=False
+ * # cython: wraparound=False
  */
   __pyx_t_1 = __Pyx_PyDict_NewPresized(0); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
