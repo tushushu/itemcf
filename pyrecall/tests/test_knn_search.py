@@ -8,6 +8,7 @@ os.chdir(os.path.split(os.path.realpath(__file__))[0])
 import sys
 sys.path.append(os.path.abspath(".."))
 
+from math import isclose
 from collections import Counter
 from itertools import chain, repeat
 from heapq import nlargest
@@ -40,7 +41,7 @@ def _knn_search(key: int, mat: Dict[int, Set[int]]):
         if key2 == key:
             continue
         sim = jaccard_sim(set1, set2)
-        if sim == 0.0:
+        if isclose(sim, 0.0, abs_tol=1e-8):
             continue
         yield (key2, sim)
 
