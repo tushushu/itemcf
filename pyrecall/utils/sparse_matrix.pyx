@@ -122,7 +122,7 @@ cdef class SparseMatrixBinary:
                 inc(it2)
                 continue
             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
-            if element.second == 0.0 or it2 == it1:
+            if (element.second >= -0.000001 and element.second <= 0.000001) or it2 == it1:
                 inc(it2)
                 continue
             element.first = deref(it2).first
