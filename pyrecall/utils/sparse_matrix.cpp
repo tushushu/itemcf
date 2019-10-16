@@ -5,12 +5,12 @@
     "distutils": {
         "depends": [],
         "language": "c++",
-        "name": "dwh.pyrecall.pyrecall.utils.sparse_matrix",
+        "name": "pyrecall.pyrecall.utils.sparse_matrix",
         "sources": [
             "sparse_matrix.pyx"
         ]
     },
-    "module_name": "dwh.pyrecall.pyrecall.utils.sparse_matrix"
+    "module_name": "pyrecall.pyrecall.utils.sparse_matrix"
 }
 END: Cython Metadata */
 
@@ -613,8 +613,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__dwh__pyrecall__pyrecall__utils__sparse_matrix
-#define __PYX_HAVE_API__dwh__pyrecall__pyrecall__utils__sparse_matrix
+#define __PYX_HAVE__pyrecall__pyrecall__utils__sparse_matrix
+#define __PYX_HAVE_API__pyrecall__pyrecall__utils__sparse_matrix
 /* Early includes */
 #include "ios"
 #include "new"
@@ -837,19 +837,19 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
-struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__;
+struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__;
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pxd":12
+/* "pyrecall/pyrecall/utils/sparse_matrix.pxd":12
  * 
  * 
  * cdef class SparseMatrixBinary:             # <<<<<<<<<<<<<<
  *     # C++
  *     cdef cpp_map[int, vector[int]] _data
  */
-struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
+struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
   PyObject_HEAD
-  struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtab;
+  struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtab;
   std::unordered_map<int,std::vector<int> >  _data;
   std::unordered_set<int>  _valid_list;
   std::unordered_set<int>  _blacklist;
@@ -857,23 +857,23 @@ struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBin
 };
 
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":64
  *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
  *         cdef:
  *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  */
-struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ {
+struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ {
   PyObject_HEAD
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_end;
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_it;
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self;
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self;
 };
 
 
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":21
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":21
  * 
  * 
  * cdef class SparseMatrixBinary:             # <<<<<<<<<<<<<<
@@ -881,12 +881,12 @@ struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_str
  *     5[0, 1, 0, 0, 1][1, 4]
  */
 
-struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
-  std::vector<int>  (*_get)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int);
-  std::vector<std::pair<int,float> >  (*_knn_search)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int);
-  std::vector<std::pair<int,float> >  (*_recommend)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int);
+struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary {
+  std::vector<int>  (*_get)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int);
+  std::vector<std::pair<int,float> >  (*_knn_search)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int);
+  std::vector<std::pair<int,float> >  (*_recommend)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int);
 };
-static struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+static struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_vtabptr_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1447,9 +1447,9 @@ static int __Pyx_ImportFunction(PyObject *module, const char *funcname, void (**
 /* InitStrings.proto */
 static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
-static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto*/
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k); /* proto*/
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k); /* proto*/
+static std::vector<int>  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto*/
+static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k); /* proto*/
+static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k); /* proto*/
 
 /* Module declarations from 'libcpp.utility' */
 
@@ -1461,20 +1461,20 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
 
 /* Module declarations from 'libcpp' */
 
-/* Module declarations from 'dwh.pyrecall.pyrecall.utils.heap' */
-static void (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush)(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &); /*proto*/
+/* Module declarations from 'pyrecall.pyrecall.utils.heap' */
+static void (*__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush)(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &); /*proto*/
 
-/* Module declarations from 'dwh.pyrecall.pyrecall.utils.sim_metrics' */
-static float (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim)(std::vector<int>  &, std::vector<int>  &); /*proto*/
+/* Module declarations from 'pyrecall.pyrecall.utils.sim_metrics' */
+static float (*__pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim)(std::vector<int>  &, std::vector<int>  &); /*proto*/
 
-/* Module declarations from 'dwh.pyrecall.pyrecall.utils.item_cf' */
-static void (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score)(std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &); /*proto*/
-static std::vector<std::pair<int,float> >  (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map)(std::unordered_map<int,float>  &, unsigned int); /*proto*/
+/* Module declarations from 'pyrecall.pyrecall.utils.item_cf' */
+static void (*__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score)(std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &); /*proto*/
+static std::vector<std::pair<int,float> >  (*__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map)(std::unordered_map<int,float>  &, unsigned int); /*proto*/
 
-/* Module declarations from 'dwh.pyrecall.pyrecall.utils.sparse_matrix' */
-static PyTypeObject *__pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = 0;
-static PyTypeObject *__pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = 0;
-static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, PyObject *); /*proto*/
+/* Module declarations from 'pyrecall.pyrecall.utils.sparse_matrix' */
+static PyTypeObject *__pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = 0;
+static PyTypeObject *__pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = 0;
+static PyObject *__pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, PyObject *); /*proto*/
 static PyObject *__pyx_convert_unordered_set_to_py_int(std::unordered_set<int>  const &); /*proto*/
 static std::unordered_set<int>  __pyx_convert_unordered_set_from_py_int(PyObject *); /*proto*/
 static PyObject *__pyx_convert_pair_to_py_int____float(std::pair<int,float>  const &); /*proto*/
@@ -1487,11 +1487,11 @@ static PyObject *__pyx_convert_vector_to_py_int(const std::vector<int>  &); /*pr
 static PyObject *__pyx_convert_unordered_map_to_py_int____std_3a__3a_vector_3c_int_3e___(std::unordered_map<int,std::vector<int> >  const &); /*proto*/
 static std::vector<int>  __pyx_convert_vector_from_py_int(PyObject *); /*proto*/
 static std::unordered_map<int,std::vector<int> >  __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_int_3e___(PyObject *); /*proto*/
-#define __Pyx_MODULE_NAME "dwh.pyrecall.pyrecall.utils.sparse_matrix"
-extern int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sparse_matrix;
-int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sparse_matrix = 0;
+#define __Pyx_MODULE_NAME "pyrecall.pyrecall.utils.sparse_matrix"
+extern int __pyx_module_is_main_pyrecall__pyrecall__utils__sparse_matrix;
+int __pyx_module_is_main_pyrecall__pyrecall__utils__sparse_matrix = 0;
 
-/* Implementation of 'dwh.pyrecall.pyrecall.utils.sparse_matrix' */
+/* Implementation of 'pyrecall.pyrecall.utils.sparse_matrix' */
 static PyObject *__pyx_builtin_KeyError;
 static PyObject *__pyx_builtin_range;
 static const char __pyx_k_i[] = "%i";
@@ -1541,7 +1541,7 @@ static const char __pyx_k_SparseMatrixBinary___iter[] = "SparseMatrixBinary.__it
 static const char __pyx_k_pyx_unpickle_SparseMatrixBinar[] = "__pyx_unpickle_SparseMatrixBinary";
 static const char __pyx_k_Author_tushushu_Date_2019_07_03[] = "\n@Author: tushushu\n@Date: 2019-07-03 14:52:49\n";
 static const char __pyx_k_Incompatible_checksums_s_vs_0x9d[] = "Incompatible checksums (%s vs 0x9da6c1c = (_blacklist, _cache, _data, _valid_list))";
-static const char __pyx_k_dwh_pyrecall_pyrecall_utils_spar[] = "dwh.pyrecall.pyrecall.utils.sparse_matrix";
+static const char __pyx_k_pyrecall_pyrecall_utils_sparse_m[] = "pyrecall.pyrecall.utils.sparse_matrix";
 static PyObject *__pyx_kp_s_Incompatible_checksums_s_vs_0x9d;
 static PyObject *__pyx_n_s_KeyError;
 static PyObject *__pyx_n_s_PickleError;
@@ -1554,7 +1554,6 @@ static PyObject *__pyx_n_s_cline_in_traceback;
 static PyObject *__pyx_n_s_close;
 static PyObject *__pyx_n_s_data;
 static PyObject *__pyx_n_s_dict;
-static PyObject *__pyx_n_s_dwh_pyrecall_pyrecall_utils_spar;
 static PyObject *__pyx_n_s_getstate;
 static PyObject *__pyx_kp_s_i;
 static PyObject *__pyx_n_s_import;
@@ -1568,6 +1567,7 @@ static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
 static PyObject *__pyx_n_s_new;
 static PyObject *__pyx_n_s_pickle;
+static PyObject *__pyx_n_s_pyrecall_pyrecall_utils_sparse_m;
 static PyObject *__pyx_n_s_pyx_PickleError;
 static PyObject *__pyx_n_s_pyx_checksum;
 static PyObject *__pyx_n_s_pyx_result;
@@ -1589,29 +1589,29 @@ static PyObject *__pyx_n_s_update;
 static PyObject *__pyx_n_s_valid_list;
 static PyObject *__pyx_kp_s_valid_list_2;
 static PyObject *__pyx_kp_s_valid_listblacklist;
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_valid_list, PyObject *__pyx_v_blacklist); /* proto */
-static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto */
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, std::vector<int>  __pyx_v_value); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
-static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
-static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_valid_list, PyObject *__pyx_v_blacklist); /* proto */
+static Py_ssize_t __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key); /* proto */
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, std::vector<int>  __pyx_v_value); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state); /* proto */
+static PyObject *__pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
+static PyObject *__pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyTypeObject *t, PyObject *a, PyObject *k); /*proto*/
 static PyObject *__pyx_int_165309468;
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_codeobj__2;
 /* Late includes */
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":39
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":39
  *     """
  * 
  *     def __init__(self, dict data, valid_list=None, blacklist=None):             # <<<<<<<<<<<<<<
@@ -1620,8 +1620,8 @@ static PyObject *__pyx_codeobj__2;
  */
 
 /* Python wrapper */
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_data = 0;
   PyObject *__pyx_v_valid_list = 0;
   PyObject *__pyx_v_blacklist = 0;
@@ -1686,12 +1686,12 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__init__", 0, 1, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 39, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_data), (&PyDict_Type), 1, "data", 1))) __PYX_ERR(0, 39, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_data, __pyx_v_valid_list, __pyx_v_blacklist);
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_data, __pyx_v_valid_list, __pyx_v_blacklist);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1702,7 +1702,7 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   return __pyx_r;
 }
 
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_valid_list, PyObject *__pyx_v_blacklist) {
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary___init__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data, PyObject *__pyx_v_valid_list, PyObject *__pyx_v_blacklist) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -1714,7 +1714,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   std::unordered_map<int,std::vector<int> >  __pyx_t_7;
   __Pyx_RefNannySetupContext("__init__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":40
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":40
  * 
  *     def __init__(self, dict data, valid_list=None, blacklist=None):
  *         assert valid_list != set(), "valid_list"             # <<<<<<<<<<<<<<
@@ -1736,7 +1736,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   }
   #endif
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":41
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":41
  *     def __init__(self, dict data, valid_list=None, blacklist=None):
  *         assert valid_list != set(), "valid_list"
  *         assert blacklist != set(), "blacklist"             # <<<<<<<<<<<<<<
@@ -1758,7 +1758,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   }
   #endif
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":42
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":42
  *         assert valid_list != set(), "valid_list"
  *         assert blacklist != set(), "blacklist"
  *         if valid_list is not None:             # <<<<<<<<<<<<<<
@@ -1769,7 +1769,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __pyx_t_4 = (__pyx_t_3 != 0);
   if (__pyx_t_4) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":43
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":43
  *         assert blacklist != set(), "blacklist"
  *         if valid_list is not None:
  *             if blacklist is not None:             # <<<<<<<<<<<<<<
@@ -1780,7 +1780,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
     __pyx_t_3 = (__pyx_t_4 != 0);
     if (__pyx_t_3) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":44
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":44
  *         if valid_list is not None:
  *             if blacklist is not None:
  *                 assert not blacklist.issubset(valid_list), "valid_listblacklist"             # <<<<<<<<<<<<<<
@@ -1815,7 +1815,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
       }
       #endif
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":45
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":45
  *             if blacklist is not None:
  *                 assert not blacklist.issubset(valid_list), "valid_listblacklist"
  *                 self._valid_list = valid_list - blacklist             # <<<<<<<<<<<<<<
@@ -1828,7 +1828,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
       __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
       __pyx_v_self->_valid_list = __pyx_t_6;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":43
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":43
  *         assert blacklist != set(), "blacklist"
  *         if valid_list is not None:
  *             if blacklist is not None:             # <<<<<<<<<<<<<<
@@ -1838,7 +1838,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
       goto __pyx_L4;
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":47
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":47
  *                 self._valid_list = valid_list - blacklist
  *             else:
  *                 self._valid_list = valid_list             # <<<<<<<<<<<<<<
@@ -1851,7 +1851,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
     }
     __pyx_L4:;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":42
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":42
  *         assert valid_list != set(), "valid_list"
  *         assert blacklist != set(), "blacklist"
  *         if valid_list is not None:             # <<<<<<<<<<<<<<
@@ -1861,7 +1861,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
     goto __pyx_L3;
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":49
  *                 self._valid_list = valid_list
  *         else:
  *             if blacklist is not None:             # <<<<<<<<<<<<<<
@@ -1873,7 +1873,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
     __pyx_t_4 = (__pyx_t_3 != 0);
     if (__pyx_t_4) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":50
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":50
  *         else:
  *             if blacklist is not None:
  *                 self._blacklist = blacklist             # <<<<<<<<<<<<<<
@@ -1883,7 +1883,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
       __pyx_t_6 = __pyx_convert_unordered_set_from_py_int(__pyx_v_blacklist); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L1_error)
       __pyx_v_self->_blacklist = __pyx_t_6;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":49
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":49
  *                 self._valid_list = valid_list
  *         else:
  *             if blacklist is not None:             # <<<<<<<<<<<<<<
@@ -1893,7 +1893,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
       goto __pyx_L5;
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":52
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":52
  *                 self._blacklist = blacklist
  *             else:
  *                 pass             # <<<<<<<<<<<<<<
@@ -1906,7 +1906,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   }
   __pyx_L3:;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":53
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":53
  *             else:
  *                 pass
  *         self._data = data             # <<<<<<<<<<<<<<
@@ -1916,7 +1916,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __pyx_t_7 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_int_3e___(__pyx_v_data); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 53, __pyx_L1_error)
   __pyx_v_self->_data = __pyx_t_7;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":39
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":39
  *     """
  * 
  *     def __init__(self, dict data, valid_list=None, blacklist=None):             # <<<<<<<<<<<<<<
@@ -1931,14 +1931,14 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__init__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":55
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":55
  *         self._data = data
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -1947,24 +1947,24 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
  */
 
 /* Python wrapper */
-static Py_ssize_t __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__(PyObject *__pyx_v_self); /*proto*/
-static Py_ssize_t __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__(PyObject *__pyx_v_self) {
+static Py_ssize_t __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__(PyObject *__pyx_v_self); /*proto*/
+static Py_ssize_t __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__(PyObject *__pyx_v_self) {
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static Py_ssize_t __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_2__len__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   Py_ssize_t __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__len__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":56
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":56
  * 
  *     def __len__(self):
  *         return self._data.size()             # <<<<<<<<<<<<<<
@@ -1974,7 +1974,7 @@ static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spa
   __pyx_r = __pyx_v_self->_data.size();
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":55
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":55
  *         self._data = data
  * 
  *     def __len__(self):             # <<<<<<<<<<<<<<
@@ -1988,7 +1988,7 @@ static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spa
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":58
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":58
  *         return self._data.size()
  * 
  *     def __getitem__(self, int key):             # <<<<<<<<<<<<<<
@@ -1997,8 +1997,8 @@ static Py_ssize_t __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spa
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key) {
   int __pyx_v_key;
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
@@ -2008,24 +2008,24 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((int)__pyx_v_key));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((int)__pyx_v_key));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4__getitem__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__getitem__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":59
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":59
  * 
  *     def __getitem__(self, int key):
  *         return self._get(key)             # <<<<<<<<<<<<<<
@@ -2033,13 +2033,13 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *     def __setitem__(self, int key, vector[int] value):
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_to_py_int(((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_get(__pyx_v_self, __pyx_v_key)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_to_py_int(((struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_get(__pyx_v_self, __pyx_v_key)); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 59, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_r = __pyx_t_1;
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":58
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":58
  *         return self._data.size()
  * 
  *     def __getitem__(self, int key):             # <<<<<<<<<<<<<<
@@ -2050,7 +2050,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__getitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2058,7 +2058,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":61
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":61
  *         return self._get(key)
  * 
  *     def __setitem__(self, int key, vector[int] value):             # <<<<<<<<<<<<<<
@@ -2067,8 +2067,8 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key, PyObject *__pyx_arg_value); /*proto*/
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key, PyObject *__pyx_arg_value) {
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key, PyObject *__pyx_arg_value); /*proto*/
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(PyObject *__pyx_v_self, PyObject *__pyx_arg_key, PyObject *__pyx_arg_value) {
   int __pyx_v_key;
   std::vector<int>  __pyx_v_value;
   int __pyx_r;
@@ -2082,23 +2082,23 @@ static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__setitem__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return -1;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((int)__pyx_v_key), ((std::vector<int> )__pyx_v_value));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((int)__pyx_v_key), ((std::vector<int> )__pyx_v_value));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, std::vector<int>  __pyx_v_value) {
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_6__setitem__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, std::vector<int>  __pyx_v_value) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setitem__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":62
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":62
  * 
  *     def __setitem__(self, int key, vector[int] value):
  *         self._data[key] = value             # <<<<<<<<<<<<<<
@@ -2107,7 +2107,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
  */
   (__pyx_v_self->_data[__pyx_v_key]) = __pyx_v_value;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":61
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":61
  *         return self._get(key)
  * 
  *     def __setitem__(self, int key, vector[int] value):             # <<<<<<<<<<<<<<
@@ -2120,9 +2120,9 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
+static PyObject *__pyx_gb_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value); /* proto */
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":64
  *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -2131,26 +2131,26 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iter__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_cur_scope;
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_8__iter__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_cur_scope;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__iter__", 0);
-  __pyx_cur_scope = (struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(__pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, __pyx_empty_tuple, NULL);
+  __pyx_cur_scope = (struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)__pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(__pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, __pyx_empty_tuple, NULL);
   if (unlikely(!__pyx_cur_scope)) {
-    __pyx_cur_scope = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)Py_None);
+    __pyx_cur_scope = ((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)Py_None);
     __Pyx_INCREF(Py_None);
     __PYX_ERR(0, 64, __pyx_L1_error)
   } else {
@@ -2160,7 +2160,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __Pyx_INCREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   __Pyx_GIVEREF((PyObject *)__pyx_cur_scope->__pyx_v_self);
   {
-    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_SparseMatrixBinary___iter, __pyx_n_s_dwh_pyrecall_pyrecall_utils_spar); if (unlikely(!gen)) __PYX_ERR(0, 64, __pyx_L1_error)
+    __pyx_CoroutineObject *gen = __Pyx_Generator_New((__pyx_coroutine_body_t) __pyx_gb_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator, NULL, (PyObject *) __pyx_cur_scope, __pyx_n_s_iter, __pyx_n_s_SparseMatrixBinary___iter, __pyx_n_s_pyrecall_pyrecall_utils_sparse_m); if (unlikely(!gen)) __PYX_ERR(0, 64, __pyx_L1_error)
     __Pyx_DECREF(__pyx_cur_scope);
     __Pyx_RefNannyFinishContext();
     return (PyObject *) gen;
@@ -2168,7 +2168,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__iter__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __Pyx_DECREF(((PyObject *)__pyx_cur_scope));
   __Pyx_XGIVEREF(__pyx_r);
@@ -2176,9 +2176,9 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
+static PyObject *__pyx_gb_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10generator(__pyx_CoroutineObject *__pyx_generator, CYTHON_UNUSED PyThreadState *__pyx_tstate, PyObject *__pyx_sent_value) /* generator body */
 {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_cur_scope = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)__pyx_generator->closure);
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_cur_scope = ((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)__pyx_generator->closure);
   PyObject *__pyx_r = NULL;
   int __pyx_t_1;
   PyObject *__pyx_t_2 = NULL;
@@ -2196,7 +2196,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_L3_first_run:;
   if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 64, __pyx_L1_error)
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":66
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":66
  *     def __iter__(self):
  *         cdef:
  *             cpp_map[int, vector[int]].iterator it = self._data.begin()             # <<<<<<<<<<<<<<
@@ -2205,7 +2205,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
   __pyx_cur_scope->__pyx_v_it = __pyx_cur_scope->__pyx_v_self->_data.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":67
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":67
  *         cdef:
  *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  *             cpp_map[int, vector[int]].iterator end = self._data.end()             # <<<<<<<<<<<<<<
@@ -2214,7 +2214,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
   __pyx_cur_scope->__pyx_v_end = __pyx_cur_scope->__pyx_v_self->_data.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":68
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":68
  *             cpp_map[int, vector[int]].iterator it = self._data.begin()
  *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         while it != end:             # <<<<<<<<<<<<<<
@@ -2225,7 +2225,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_t_1 = ((__pyx_cur_scope->__pyx_v_it != __pyx_cur_scope->__pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":69
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":69
  *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         while it != end:
  *             yield deref(it).first, deref(it).second             # <<<<<<<<<<<<<<
@@ -2255,7 +2255,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_L6_resume_from_yield:;
     if (unlikely(!__pyx_sent_value)) __PYX_ERR(0, 69, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":70
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":70
  *         while it != end:
  *             yield deref(it).first, deref(it).second
  *             inc(it)             # <<<<<<<<<<<<<<
@@ -2266,7 +2266,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   }
   CYTHON_MAYBE_UNUSED_VAR(__pyx_cur_scope);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":64
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":64
  *         self._data[key] = value
  * 
  *     def __iter__(self):             # <<<<<<<<<<<<<<
@@ -2293,7 +2293,7 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":73
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":73
  * 
  *     @property
  *     def data(self):             # <<<<<<<<<<<<<<
@@ -2302,25 +2302,25 @@ static PyObject *__pyx_gb_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":75
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":75
  *     def data(self):
  *         """Cython_data"""
  *         return self._data             # <<<<<<<<<<<<<<
@@ -2334,7 +2334,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":73
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":73
  * 
  *     @property
  *     def data(self):             # <<<<<<<<<<<<<<
@@ -2345,7 +2345,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.data.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2353,7 +2353,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":78
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":78
  * 
  *     @property
  *     def valid_list(self):             # <<<<<<<<<<<<<<
@@ -2362,25 +2362,25 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":80
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":80
  *     def valid_list(self):
  *         """Cython_valid_list"""
  *         return self._valid_list             # <<<<<<<<<<<<<<
@@ -2394,7 +2394,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":78
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":78
  * 
  *     @property
  *     def valid_list(self):             # <<<<<<<<<<<<<<
@@ -2405,7 +2405,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.valid_list.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.valid_list.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2413,7 +2413,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":83
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":83
  * 
  *     @property
  *     def blacklist(self):             # <<<<<<<<<<<<<<
@@ -2422,25 +2422,25 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":85
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":85
  *     def blacklist(self):
  *         """Cython_blacklist"""
  *         return self._blacklist             # <<<<<<<<<<<<<<
@@ -2454,7 +2454,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":83
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":83
  * 
  *     @property
  *     def blacklist(self):             # <<<<<<<<<<<<<<
@@ -2465,7 +2465,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.blacklist.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.blacklist.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2473,7 +2473,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":88
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":88
  * 
  *     @property
  *     def cache(self):             # <<<<<<<<<<<<<<
@@ -2482,25 +2482,25 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(PyObject *__pyx_v_self) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__get__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache___get__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__get__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":90
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":90
  *     def cache(self):
  *         """Cython_cache"""
  *         return self._cache             # <<<<<<<<<<<<<<
@@ -2514,7 +2514,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":88
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":88
  * 
  *     @property
  *     def cache(self):             # <<<<<<<<<<<<<<
@@ -2525,7 +2525,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__get__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2533,7 +2533,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":93
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":93
  * 
  *     @cache.setter
  *     def cache(self, data):             # <<<<<<<<<<<<<<
@@ -2542,25 +2542,25 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data); /*proto*/
-static int __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data) {
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data); /*proto*/
+static int __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(PyObject *__pyx_v_self, PyObject *__pyx_v_data) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__set__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((PyObject *)__pyx_v_data));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((PyObject *)__pyx_v_data));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data) {
+static int __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_2__set__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_data) {
   int __pyx_r;
   __Pyx_RefNannyDeclarations
   std::unordered_map<int,std::vector<std::pair<int,float> > >  __pyx_t_1;
   __Pyx_RefNannySetupContext("__set__", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":95
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":95
  *     def cache(self, data):
  *         """Cython_cache"""
  *         self._cache = data             # <<<<<<<<<<<<<<
@@ -2570,7 +2570,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_std_3a__3a_vector_3c_std_3a__3a_pair_3c_int_2c_float_3e____3e___(__pyx_v_data); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 95, __pyx_L1_error)
   __pyx_v_self->_cache = __pyx_t_1;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":93
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":93
  * 
  *     @cache.setter
  *     def cache(self, data):             # <<<<<<<<<<<<<<
@@ -2582,14 +2582,14 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
   __pyx_r = 0;
   goto __pyx_L0;
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.cache.__set__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = -1;
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":97
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":97
  *         self._cache = data
  * 
  *     cdef vector[int] _get(self, int key):             # <<<<<<<<<<<<<<
@@ -2597,7 +2597,7 @@ static int __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatr
  *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
  */
 
-static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
+static std::vector<int>  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key) {
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_it;
   std::vector<int>  __pyx_r;
   __Pyx_RefNannyDeclarations
@@ -2606,7 +2606,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("_get", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":99
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":99
  *     cdef vector[int] _get(self, int key):
  *         """"""
  *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)             # <<<<<<<<<<<<<<
@@ -2615,7 +2615,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
  */
   __pyx_v_it = __pyx_v_self->_data.find(__pyx_v_key);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":100
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":100
  *         """"""
  *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
  *         if it == self._data.end():             # <<<<<<<<<<<<<<
@@ -2625,7 +2625,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
   __pyx_t_1 = ((__pyx_v_it == __pyx_v_self->_data.end()) != 0);
   if (unlikely(__pyx_t_1)) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":101
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":101
  *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
  *         if it == self._data.end():
  *             raise KeyError('%i' % key)             # <<<<<<<<<<<<<<
@@ -2644,7 +2644,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
     __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
     __PYX_ERR(0, 101, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":100
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":100
  *         """"""
  *         cdef cpp_map[int, vector[int]].iterator it = self._data.find(key)
  *         if it == self._data.end():             # <<<<<<<<<<<<<<
@@ -2653,7 +2653,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":102
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":102
  *         if it == self._data.end():
  *             raise KeyError('%i' % key)
  *         return deref(it).second             # <<<<<<<<<<<<<<
@@ -2663,7 +2663,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
   __pyx_r = (*__pyx_v_it).second;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":97
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":97
  *         self._cache = data
  * 
  *     cdef vector[int] _get(self, int key):             # <<<<<<<<<<<<<<
@@ -2675,14 +2675,14 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_2);
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_WriteUnraisable("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._get", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
+  __Pyx_WriteUnraisable("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._get", __pyx_clineno, __pyx_lineno, __pyx_filename, 1, 0);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":104
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":104
  *         return deref(it).second
  * 
  *     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
@@ -2690,7 +2690,7 @@ static std::vector<int>  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix
  * 
  */
 
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k) {
+static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, int __pyx_v_key, unsigned int __pyx_v_k) {
   std::vector<std::pair<int,float> >  __pyx_v_heap;
   std::pair<int,float>  __pyx_v_element;
   std::unordered_map<int,std::vector<int> > ::iterator __pyx_v_it1;
@@ -2704,7 +2704,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   int __pyx_t_4;
   __Pyx_RefNannySetupContext("_knn_search", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":112
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":112
  *             vector[pair[int, float]] heap
  *             pair[int, float] element
  *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)             # <<<<<<<<<<<<<<
@@ -2713,7 +2713,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_it1 = __pyx_v_self->_data.find(__pyx_v_key);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":113
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":113
  *             pair[int, float] element
  *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)
  *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()             # <<<<<<<<<<<<<<
@@ -2722,7 +2722,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_it2 = __pyx_v_self->_data.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":114
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":114
  *             cpp_map[int, vector[int]].iterator it1 = self._data.find(key)
  *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
  *             cpp_map[int, vector[int]].iterator end = self._data.end()             # <<<<<<<<<<<<<<
@@ -2731,7 +2731,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_end = __pyx_v_self->_data.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":115
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":115
  *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
  *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:             # <<<<<<<<<<<<<<
@@ -2741,7 +2741,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   __pyx_t_1 = ((__pyx_v_it1 == __pyx_v_end) != 0);
   if (__pyx_t_1) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":116
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":116
  *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:
  *             return heap             # <<<<<<<<<<<<<<
@@ -2751,7 +2751,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_r = __pyx_v_heap;
     goto __pyx_L0;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":115
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":115
  *             cpp_map[int, vector[int]].iterator it2 = self._data.begin()
  *             cpp_map[int, vector[int]].iterator end = self._data.end()
  *         if it1 == end:             # <<<<<<<<<<<<<<
@@ -2760,7 +2760,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":117
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":117
  *         if it1 == end:
  *             return heap
  *         while it2 != end:             # <<<<<<<<<<<<<<
@@ -2771,7 +2771,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_1 = ((__pyx_v_it2 != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":118
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":118
  *             return heap
  *         while it2 != end:
  *             if self._valid_list.size() and self._valid_list.count(deref(it2).first) == 0:             # <<<<<<<<<<<<<<
@@ -2789,7 +2789,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_L7_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":119
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":119
  *         while it2 != end:
  *             if self._valid_list.size() and self._valid_list.count(deref(it2).first) == 0:
  *                 inc(it2)             # <<<<<<<<<<<<<<
@@ -2798,7 +2798,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       (void)((++__pyx_v_it2));
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":120
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":120
  *             if self._valid_list.size() and self._valid_list.count(deref(it2).first) == 0:
  *                 inc(it2)
  *                 continue             # <<<<<<<<<<<<<<
@@ -2807,7 +2807,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       goto __pyx_L4_continue;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":118
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":118
  *             return heap
  *         while it2 != end:
  *             if self._valid_list.size() and self._valid_list.count(deref(it2).first) == 0:             # <<<<<<<<<<<<<<
@@ -2816,7 +2816,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":121
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":121
  *                 inc(it2)
  *                 continue
  *             elif self._blacklist.size() and self._blacklist.count(deref(it2).first):             # <<<<<<<<<<<<<<
@@ -2834,7 +2834,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_L9_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":122
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":122
  *                 continue
  *             elif self._blacklist.size() and self._blacklist.count(deref(it2).first):
  *                 inc(it2)             # <<<<<<<<<<<<<<
@@ -2843,16 +2843,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       (void)((++__pyx_v_it2));
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":123
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":123
  *             elif self._blacklist.size() and self._blacklist.count(deref(it2).first):
  *                 inc(it2)
  *                 continue             # <<<<<<<<<<<<<<
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
- *             if element.second == 0.0 or it2 == it1:
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:
  */
       goto __pyx_L4_continue;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":121
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":121
  *                 inc(it2)
  *                 continue
  *             elif self._blacklist.size() and self._blacklist.count(deref(it2).first):             # <<<<<<<<<<<<<<
@@ -2861,50 +2861,56 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":124
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":124
  *                 inc(it2)
  *                 continue
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)             # <<<<<<<<<<<<<<
- *             if element.second == 0.0 or it2 == it1:
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:
  *                 inc(it2)
  */
     try {
-      __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim((*__pyx_v_it1).second, (*__pyx_v_it2).second);
+      __pyx_t_3 = __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim((*__pyx_v_it1).second, (*__pyx_v_it2).second);
     } catch(...) {
       __Pyx_CppExn2PyErr();
       __PYX_ERR(0, 124, __pyx_L1_error)
     }
     __pyx_v_element.second = __pyx_t_3;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":125
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":125
  *                 continue
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
- *             if element.second == 0.0 or it2 == it1:             # <<<<<<<<<<<<<<
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:             # <<<<<<<<<<<<<<
  *                 inc(it2)
  *                 continue
  */
-    __pyx_t_2 = ((__pyx_v_element.second == 0.0) != 0);
+    __pyx_t_2 = ((__pyx_v_element.second > -0.000001) != 0);
+    if (!__pyx_t_2) {
+      goto __pyx_L13_next_or;
+    } else {
+    }
+    __pyx_t_2 = ((__pyx_v_element.second < 0.000001) != 0);
     if (!__pyx_t_2) {
     } else {
       __pyx_t_1 = __pyx_t_2;
       goto __pyx_L12_bool_binop_done;
     }
+    __pyx_L13_next_or:;
     __pyx_t_2 = ((__pyx_v_it2 == __pyx_v_it1) != 0);
     __pyx_t_1 = __pyx_t_2;
     __pyx_L12_bool_binop_done:;
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":126
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":126
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
- *             if element.second == 0.0 or it2 == it1:
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:
  *                 inc(it2)             # <<<<<<<<<<<<<<
  *                 continue
  *             element.first = deref(it2).first
  */
       (void)((++__pyx_v_it2));
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":127
- *             if element.second == 0.0 or it2 == it1:
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":127
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:
  *                 inc(it2)
  *                 continue             # <<<<<<<<<<<<<<
  *             element.first = deref(it2).first
@@ -2912,16 +2918,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
       goto __pyx_L4_continue;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":125
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":125
  *                 continue
  *             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
- *             if element.second == 0.0 or it2 == it1:             # <<<<<<<<<<<<<<
+ *             if (element.second > -0.000001 and element.second < 0.000001) or it2 == it1:             # <<<<<<<<<<<<<<
  *                 inc(it2)
  *                 continue
  */
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":128
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":128
  *                 inc(it2)
  *                 continue
  *             element.first = deref(it2).first             # <<<<<<<<<<<<<<
@@ -2931,16 +2937,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_4 = (*__pyx_v_it2).first;
     __pyx_v_element.first = __pyx_t_4;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":129
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":129
  *                 continue
  *             element.first = deref(it2).first
  *             min_heappush(heap, k, element)             # <<<<<<<<<<<<<<
  *             inc(it2)
  *         return heap
  */
-    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush(__pyx_v_heap, __pyx_v_k, __pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
+    __pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush(__pyx_v_heap, __pyx_v_k, __pyx_v_element); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 129, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":130
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":130
  *             element.first = deref(it2).first
  *             min_heappush(heap, k, element)
  *             inc(it2)             # <<<<<<<<<<<<<<
@@ -2951,7 +2957,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_L4_continue:;
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":131
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":131
  *             min_heappush(heap, k, element)
  *             inc(it2)
  *         return heap             # <<<<<<<<<<<<<<
@@ -2961,7 +2967,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   __pyx_r = __pyx_v_heap;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":104
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":104
  *         return deref(it).second
  * 
  *     cdef vector[pair[int, float]] _knn_search(self, int key, unsigned int k) except +:             # <<<<<<<<<<<<<<
@@ -2971,14 +2977,14 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":133
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":133
  *         return heap
  * 
  *     def knn_search(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
@@ -2987,9 +2993,9 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search[] = "\345\214\205\350\243\205knn_search\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search[] = "\345\214\205\350\243\205knn_search\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_key = 0;
   PyObject *__pyx_v_k = 0;
   PyObject *__pyx_r = 0;
@@ -3037,18 +3043,18 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("knn_search", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 133, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_key, __pyx_v_k);
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_key, __pyx_v_k);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_key, PyObject *__pyx_v_k) {
   std::unordered_map<int,std::vector<std::pair<int,float> > > ::iterator __pyx_v_it;
   std::unordered_map<int,std::vector<std::pair<int,float> > > ::iterator __pyx_v_end;
   PyObject *__pyx_r = NULL;
@@ -3060,7 +3066,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   std::vector<std::pair<int,float> >  __pyx_t_5;
   __Pyx_RefNannySetupContext("knn_search", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":137
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":137
  *         cdef:
  *             cpp_map[int, vector[pair[int, float]]].iterator it
  *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()             # <<<<<<<<<<<<<<
@@ -3069,7 +3075,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
   __pyx_v_end = __pyx_v_self->_cache.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":138
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":138
  *             cpp_map[int, vector[pair[int, float]]].iterator it
  *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
  *         it = self._cache.find(key)             # <<<<<<<<<<<<<<
@@ -3079,7 +3085,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 138, __pyx_L1_error)
   __pyx_v_it = __pyx_v_self->_cache.find(__pyx_t_1);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":139
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":139
  *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
  *         it = self._cache.find(key)
  *         if it != end:             # <<<<<<<<<<<<<<
@@ -3089,7 +3095,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_2 = ((__pyx_v_it != __pyx_v_end) != 0);
   if (__pyx_t_2) {
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":140
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":140
  *         it = self._cache.find(key)
  *         if it != end:
  *             return deref(it).second             # <<<<<<<<<<<<<<
@@ -3104,7 +3110,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
     __pyx_t_3 = 0;
     goto __pyx_L0;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":139
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":139
  *             cpp_map[int, vector[pair[int, float]]].iterator end = self._cache.end()
  *         it = self._cache.find(key)
  *         if it != end:             # <<<<<<<<<<<<<<
@@ -3113,7 +3119,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":141
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":141
  *         if it != end:
  *             return deref(it).second
  *         return self._knn_search(key, k)             # <<<<<<<<<<<<<<
@@ -3124,7 +3130,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = __Pyx_PyInt_As_int(__pyx_v_key); if (unlikely((__pyx_t_1 == (int)-1) && PyErr_Occurred())) __PYX_ERR(0, 141, __pyx_L1_error)
   __pyx_t_4 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_4 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 141, __pyx_L1_error)
   try {
-    __pyx_t_5 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, __pyx_t_1, __pyx_t_4);
+    __pyx_t_5 = ((struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, __pyx_t_1, __pyx_t_4);
   } catch(...) {
     __Pyx_CppExn2PyErr();
     __PYX_ERR(0, 141, __pyx_L1_error)
@@ -3136,7 +3142,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_3 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":133
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":133
  *         return heap
  * 
  *     def knn_search(self, key: int, k: int) -> list:             # <<<<<<<<<<<<<<
@@ -3147,7 +3153,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_3);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.knn_search", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3155,7 +3161,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":143
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":143
  *         return self._knn_search(key, k)
  * 
  *     cdef vector[pair[int, float]] _recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
@@ -3163,7 +3169,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *         cdef:
  */
 
-static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k) {
+static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, std::unordered_set<int>  &__pyx_v_items, unsigned int __pyx_v_k) {
   std::unordered_set<int> ::iterator __pyx_v_it;
   std::unordered_set<int> ::iterator __pyx_v_end;
   std::unordered_map<int,float>  __pyx_v_score_map;
@@ -3176,7 +3182,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   std::vector<std::pair<int,float> >  __pyx_t_2;
   __Pyx_RefNannySetupContext("_recommend", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":146
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":146
  *         """"""
  *         cdef:
  *             cpp_set[int].iterator it = items.begin()             # <<<<<<<<<<<<<<
@@ -3185,7 +3191,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_it = __pyx_v_items.begin();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":147
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":147
  *         cdef:
  *             cpp_set[int].iterator it = items.begin()
  *             cpp_set[int].iterator end = items.end()             # <<<<<<<<<<<<<<
@@ -3194,7 +3200,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_end = __pyx_v_items.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":150
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":150
  *             cpp_map[int, float] score_map
  *             cpp_map[int, vector[pair[int, float]]].iterator it_cache
  *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()             # <<<<<<<<<<<<<<
@@ -3203,7 +3209,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
   __pyx_v_end_cache = __pyx_v_self->_cache.end();
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":151
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":151
  *             cpp_map[int, vector[pair[int, float]]].iterator it_cache
  *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()
  *         while it != end:             # <<<<<<<<<<<<<<
@@ -3214,7 +3220,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_1 = ((__pyx_v_it != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":152
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":152
  *             cpp_map[int, vector[pair[int, float]]].iterator end_cache = self._cache.end()
  *         while it != end:
  *             it_cache = self._cache.find(deref(it))             # <<<<<<<<<<<<<<
@@ -3223,7 +3229,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
     __pyx_v_it_cache = __pyx_v_self->_cache.find((*__pyx_v_it));
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":153
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":153
  *         while it != end:
  *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:             # <<<<<<<<<<<<<<
@@ -3233,7 +3239,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     __pyx_t_1 = ((__pyx_v_it_cache != __pyx_v_end_cache) != 0);
     if (__pyx_t_1) {
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":154
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":154
  *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:
  *                 top_k = deref(it_cache).second             # <<<<<<<<<<<<<<
@@ -3243,7 +3249,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
       __pyx_t_2 = (*__pyx_v_it_cache).second;
       __pyx_v_top_k = __pyx_t_2;
 
-      /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":153
+      /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":153
  *         while it != end:
  *             it_cache = self._cache.find(deref(it))
  *             if it_cache != end_cache:             # <<<<<<<<<<<<<<
@@ -3253,7 +3259,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
       goto __pyx_L5;
     }
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":156
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":156
  *                 top_k = deref(it_cache).second
  *             else:
  *                 top_k = self._knn_search(deref(it), k)             # <<<<<<<<<<<<<<
@@ -3262,7 +3268,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
     /*else*/ {
       try {
-        __pyx_t_2 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, (*__pyx_v_it), __pyx_v_k);
+        __pyx_t_2 = ((struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_knn_search(__pyx_v_self, (*__pyx_v_it), __pyx_v_k);
       } catch(...) {
         __Pyx_CppExn2PyErr();
         __PYX_ERR(0, 156, __pyx_L1_error)
@@ -3271,16 +3277,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     }
     __pyx_L5:;
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":157
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":157
  *             else:
  *                 top_k = self._knn_search(deref(it), k)
  *             agg_score(score_map, top_k, items)             # <<<<<<<<<<<<<<
  *             inc(it)
  *         return top_k_map(score_map, k)
  */
-    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v_score_map, __pyx_v_top_k, __pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 157, __pyx_L1_error)
+    __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v_score_map, __pyx_v_top_k, __pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 157, __pyx_L1_error)
 
-    /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":158
+    /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":158
  *                 top_k = self._knn_search(deref(it), k)
  *             agg_score(score_map, top_k, items)
  *             inc(it)             # <<<<<<<<<<<<<<
@@ -3290,7 +3296,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
     (void)((++__pyx_v_it));
   }
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":159
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":159
  *             agg_score(score_map, top_k, items)
  *             inc(it)
  *         return top_k_map(score_map, k)             # <<<<<<<<<<<<<<
@@ -3298,7 +3304,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  *     def recommend(self, items: list, k: int):
  */
   try {
-    __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_v_score_map, __pyx_v_k);
+    __pyx_t_2 = __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_v_score_map, __pyx_v_k);
   } catch(...) {
     __Pyx_CppExn2PyErr();
     __PYX_ERR(0, 159, __pyx_L1_error)
@@ -3306,7 +3312,7 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
   __pyx_r = __pyx_t_2;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":143
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":143
  *         return self._knn_search(key, k)
  * 
  *     cdef vector[pair[int, float]] _recommend(self, cpp_set[int]& items, unsigned int k) except +:             # <<<<<<<<<<<<<<
@@ -3316,14 +3322,14 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary._recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":161
+/* "pyrecall/pyrecall/utils/sparse_matrix.pyx":161
  *         return top_k_map(score_map, k)
  * 
  *     def recommend(self, items: list, k: int):             # <<<<<<<<<<<<<<
@@ -3332,9 +3338,9 @@ static std::vector<std::pair<int,float> >  __pyx_f_3dwh_8pyrecall_8pyrecall_5uti
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend[] = "\345\214\205\350\243\205recommend\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend[] = "\345\214\205\350\243\205recommend\346\226\271\346\263\225\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend(PyObject *__pyx_v_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_items = 0;
   PyObject *__pyx_v_k = 0;
   PyObject *__pyx_r = 0;
@@ -3382,12 +3388,12 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("recommend", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 161, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
   if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_items), (&PyList_Type), 1, "items", 1))) __PYX_ERR(0, 161, __pyx_L1_error)
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_items, __pyx_v_k);
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), __pyx_v_items, __pyx_v_k);
 
   /* function exit code */
   goto __pyx_L0;
@@ -3398,7 +3404,7 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v_items, PyObject *__pyx_v_k) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::unordered_set<int>  __pyx_t_1;
@@ -3407,7 +3413,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("recommend", 0);
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":163
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":163
  *     def recommend(self, items: list, k: int):
  *         """recommendPython"""
  *         return self._recommend(items, k)             # <<<<<<<<<<<<<<
@@ -3416,7 +3422,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_1 = __pyx_convert_unordered_set_from_py_int(__pyx_v_items); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
   __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 163, __pyx_L1_error)
   try {
-    __pyx_t_3 = ((struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_recommend(__pyx_v_self, __pyx_t_1, __pyx_t_2);
+    __pyx_t_3 = ((struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self->__pyx_vtab)->_recommend(__pyx_v_self, __pyx_t_1, __pyx_t_2);
   } catch(...) {
     __Pyx_CppExn2PyErr();
     __PYX_ERR(0, 163, __pyx_L1_error)
@@ -3427,7 +3433,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":161
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":161
  *         return top_k_map(score_map, k)
  * 
  *     def recommend(self, items: list, k: int):             # <<<<<<<<<<<<<<
@@ -3438,7 +3444,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.recommend", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3453,19 +3459,19 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__(PyObject *__pyx_v_self, CYTHON_UNUSED PyObject *unused) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__reduce_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_15__reduce_cython__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self) {
   PyObject *__pyx_v_state = 0;
   PyObject *__pyx_v__dict = 0;
   int __pyx_v_use_setstate;
@@ -3687,7 +3693,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__reduce_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_state);
@@ -3705,19 +3711,19 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state); /*proto*/
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__(PyObject *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = 0;
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__setstate_cython__ (wrapper)", 0);
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v_self), ((PyObject *)__pyx_v___pyx_state));
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_17__setstate_cython__(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v_self, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
@@ -3729,7 +3735,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  *     __pyx_unpickle_SparseMatrixBinary__set_state(self, __pyx_state)             # <<<<<<<<<<<<<<
  */
   if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 17, __pyx_L1_error)
-  __pyx_t_1 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
+  __pyx_t_1 = __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(__pyx_v_self, ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 17, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
@@ -3745,7 +3751,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
   goto __pyx_L0;
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary.__setstate_cython__", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -3760,9 +3766,9 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spar
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary = {"__pyx_unpickle_SparseMatrixBinary", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary, METH_VARARGS|METH_KEYWORDS, 0};
-static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static PyMethodDef __pyx_mdef_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary = {"__pyx_unpickle_SparseMatrixBinary", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary, METH_VARARGS|METH_KEYWORDS, 0};
+static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v___pyx_type = 0;
   long __pyx_v___pyx_checksum;
   PyObject *__pyx_v___pyx_state = 0;
@@ -3821,18 +3827,18 @@ static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx
   __pyx_L5_argtuple_error:;
   __Pyx_RaiseArgtupleInvalid("__pyx_unpickle_SparseMatrixBinary", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(1, 1, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
+  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(__pyx_self, __pyx_v___pyx_type, __pyx_v___pyx_checksum, __pyx_v___pyx_state);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v___pyx_type, long __pyx_v___pyx_checksum, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_v___pyx_PickleError = 0;
   PyObject *__pyx_v___pyx_result = 0;
   PyObject *__pyx_r = NULL;
@@ -3926,7 +3932,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
  *     if __pyx_state is not None:
  *         __pyx_unpickle_SparseMatrixBinary__set_state(<SparseMatrixBinary> __pyx_result, __pyx_state)
  */
-  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyObject_GetAttrStr(((PyObject *)__pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary), __pyx_n_s_new); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 7, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __pyx_t_4 = NULL;
   if (CYTHON_UNPACK_METHODS && likely(PyMethod_Check(__pyx_t_2))) {
@@ -3965,7 +3971,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
  * cdef __pyx_unpickle_SparseMatrixBinary__set_state(SparseMatrixBinary __pyx_result, tuple __pyx_state):
  */
     if (!(likely(PyTuple_CheckExact(__pyx_v___pyx_state))||((__pyx_v___pyx_state) == Py_None)||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "tuple", Py_TYPE(__pyx_v___pyx_state)->tp_name), 0))) __PYX_ERR(1, 9, __pyx_L1_error)
-    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
+    __pyx_t_3 = __pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)__pyx_v___pyx_result), ((PyObject*)__pyx_v___pyx_state)); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 9, __pyx_L1_error)
     __Pyx_GOTREF(__pyx_t_3);
     __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
 
@@ -4002,7 +4008,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
   __Pyx_XDECREF(__pyx_t_3);
   __Pyx_XDECREF(__pyx_t_4);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v___pyx_PickleError);
@@ -4020,7 +4026,7 @@ static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_
  *     if len(__pyx_state) > 4 and hasattr(__pyx_result, '__dict__'):
  */
 
-static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
+static PyObject *__pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_unpickle_SparseMatrixBinary__set_state(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *__pyx_v___pyx_result, PyObject *__pyx_v___pyx_state) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
   std::unordered_set<int>  __pyx_t_1;
@@ -4144,7 +4150,7 @@ static PyObject *__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_u
   __Pyx_XDECREF(__pyx_t_8);
   __Pyx_XDECREF(__pyx_t_9);
   __Pyx_XDECREF(__pyx_t_10);
-  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sparse_matrix.__pyx_unpickle_SparseMatrixBinary__set_state", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -5367,10 +5373,10 @@ static std::unordered_map<int,std::vector<int> >  __pyx_convert_unordered_map_fr
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
-static struct __pyx_vtabstruct_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+static struct __pyx_vtabstruct_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary __pyx_vtable_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
 
-static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *p;
+static PyObject *__pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *p;
   PyObject *o;
   if (likely((t->tp_flags & Py_TPFLAGS_IS_ABSTRACT) == 0)) {
     o = (*t->tp_alloc)(t, 0);
@@ -5378,8 +5384,8 @@ static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_Sp
     o = (PyObject *) PyBaseObject_Type.tp_new(t, __pyx_empty_tuple, 0);
   }
   if (unlikely(!o)) return 0;
-  p = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)o);
-  p->__pyx_vtab = __pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+  p = ((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)o);
+  p->__pyx_vtab = __pyx_vtabptr_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
   new((void*)&(p->_data)) std::unordered_map<int,std::vector<int> > ();
   new((void*)&(p->_valid_list)) std::unordered_set<int> ();
   new((void*)&(p->_blacklist)) std::unordered_set<int> ();
@@ -5387,8 +5393,8 @@ static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_Sp
   return o;
 }
 
-static void __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o) {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *p = (struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)o;
+static void __pyx_tp_dealloc_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o) {
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *p = (struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *)o;
   #if CYTHON_USE_TP_FINALIZE
   if (unlikely(PyType_HasFeature(Py_TYPE(o), Py_TPFLAGS_HAVE_FINALIZE) && Py_TYPE(o)->tp_finalize) && (!PyType_IS_GC(Py_TYPE(o)) || !_PyGC_FINALIZED(o))) {
     if (PyObject_CallFinalizerFromDealloc(o)) return;
@@ -5400,7 +5406,7 @@ static void __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_Spa
   __Pyx_call_destructor(p->_cache);
   (*Py_TYPE(o)->tp_free)(o);
 }
-static PyObject *__pyx_sq_item_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o, Py_ssize_t i) {
+static PyObject *__pyx_sq_item_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o, Py_ssize_t i) {
   PyObject *r;
   PyObject *x = PyInt_FromSsize_t(i); if(!x) return 0;
   r = Py_TYPE(o)->tp_as_mapping->mp_subscript(o, x);
@@ -5408,9 +5414,9 @@ static PyObject *__pyx_sq_item_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_S
   return r;
 }
 
-static int __pyx_mp_ass_subscript_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o, PyObject *i, PyObject *v) {
+static int __pyx_mp_ass_subscript_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary(PyObject *o, PyObject *i, PyObject *v) {
   if (v) {
-    return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(o, i, v);
+    return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_7__setitem__(o, i, v);
   }
   else {
     PyErr_Format(PyExc_NotImplementedError,
@@ -5419,25 +5425,25 @@ static int __pyx_mp_ass_subscript_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matri
   }
 }
 
-static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(o);
+static PyObject *__pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_4data_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_valid_list(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(o);
+static PyObject *__pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_valid_list(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_10valid_list_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_blacklist(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(o);
+static PyObject *__pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_blacklist(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9blacklist_1__get__(o);
 }
 
-static PyObject *__pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, CYTHON_UNUSED void *x) {
-  return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(o);
+static PyObject *__pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, CYTHON_UNUSED void *x) {
+  return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_1__get__(o);
 }
 
-static int __pyx_setprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
+static int __pyx_setprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache(PyObject *o, PyObject *v, CYTHON_UNUSED void *x) {
   if (v) {
-    return __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(o, v);
+    return __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5cache_3__set__(o, v);
   }
   else {
     PyErr_SetString(PyExc_NotImplementedError, "__del__");
@@ -5445,27 +5451,27 @@ static int __pyx_setprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18Spars
   }
 }
 
-static PyMethodDef __pyx_methods_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
-  {"knn_search", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search},
-  {"recommend", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend},
-  {"__reduce_cython__", (PyCFunction)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__, METH_NOARGS, 0},
-  {"__setstate_cython__", (PyCFunction)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__, METH_O, 0},
+static PyMethodDef __pyx_methods_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
+  {"knn_search", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_12knn_search, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_11knn_search},
+  {"recommend", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_14recommend, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_13recommend},
+  {"__reduce_cython__", (PyCFunction)__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_16__reduce_cython__, METH_NOARGS, 0},
+  {"__setstate_cython__", (PyCFunction)__pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_18__setstate_cython__, METH_O, 0},
   {0, 0, 0, 0}
 };
 
-static struct PyGetSetDef __pyx_getsets_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
-  {(char *)"data", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_data\345\261\236\346\200\247\343\200\202", 0},
-  {(char *)"valid_list", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_valid_list, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_valid_list\345\261\236\346\200\247\343\200\202", 0},
-  {(char *)"blacklist", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_blacklist, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_blacklist\345\261\236\346\200\247\343\200\202", 0},
-  {(char *)"cache", __pyx_getprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, __pyx_setprop_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, (char *)"\350\256\277\351\227\256Cython\347\232\204_cache\345\261\236\346\200\247\343\200\202", 0},
+static struct PyGetSetDef __pyx_getsets_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary[] = {
+  {(char *)"data", __pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_data, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_data\345\261\236\346\200\247\343\200\202", 0},
+  {(char *)"valid_list", __pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_valid_list, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_valid_list\345\261\236\346\200\247\343\200\202", 0},
+  {(char *)"blacklist", __pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_blacklist, 0, (char *)"\350\256\277\351\227\256Cython\347\232\204_blacklist\345\261\236\346\200\247\343\200\202", 0},
+  {(char *)"cache", __pyx_getprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, __pyx_setprop_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_cache, (char *)"\350\256\277\351\227\256Cython\347\232\204_cache\345\261\236\346\200\247\343\200\202", 0},
   {0, 0, 0, 0, 0}
 };
 
 static PySequenceMethods __pyx_tp_as_sequence_SparseMatrixBinary = {
-  __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__, /*sq_length*/
+  __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__, /*sq_length*/
   0, /*sq_concat*/
   0, /*sq_repeat*/
-  __pyx_sq_item_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*sq_item*/
+  __pyx_sq_item_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*sq_item*/
   0, /*sq_slice*/
   0, /*sq_ass_item*/
   0, /*sq_ass_slice*/
@@ -5475,17 +5481,17 @@ static PySequenceMethods __pyx_tp_as_sequence_SparseMatrixBinary = {
 };
 
 static PyMappingMethods __pyx_tp_as_mapping_SparseMatrixBinary = {
-  __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__, /*mp_length*/
-  __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__, /*mp_subscript*/
-  __pyx_mp_ass_subscript_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*mp_ass_subscript*/
+  __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_3__len__, /*mp_length*/
+  __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_5__getitem__, /*mp_subscript*/
+  __pyx_mp_ass_subscript_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*mp_ass_subscript*/
 };
 
-static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = {
+static PyTypeObject __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = {
   PyVarObject_HEAD_INIT(0, 0)
-  "dwh.pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary", /*tp_name*/
-  sizeof(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary), /*tp_basicsize*/
+  "pyrecall.pyrecall.utils.sparse_matrix.SparseMatrixBinary", /*tp_name*/
+  sizeof(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_dealloc*/
+  __pyx_tp_dealloc_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -5511,19 +5517,19 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_S
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
-  __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__, /*tp_iter*/
+  __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_9__iter__, /*tp_iter*/
   0, /*tp_iternext*/
-  __pyx_methods_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_methods*/
+  __pyx_methods_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_methods*/
   0, /*tp_members*/
-  __pyx_getsets_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_getset*/
+  __pyx_getsets_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_getset*/
   0, /*tp_base*/
   0, /*tp_dict*/
   0, /*tp_descr_get*/
   0, /*tp_descr_set*/
   0, /*tp_dictoffset*/
-  __pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__, /*tp_init*/
+  __pyx_pw_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary_1__init__, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_new*/
+  __pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5538,55 +5544,55 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_S
   #endif
 };
 
-static struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_freelist_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[8];
-static int __pyx_freecount_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = 0;
+static struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *__pyx_freelist_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[8];
+static int __pyx_freecount_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = 0;
 
-static PyObject *__pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p;
+static PyObject *__pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyTypeObject *t, CYTHON_UNUSED PyObject *a, CYTHON_UNUSED PyObject *k) {
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p;
   PyObject *o;
-  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__)))) {
-    o = (PyObject*)__pyx_freelist_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[--__pyx_freecount_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__];
-    memset(o, 0, sizeof(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__));
+  if (CYTHON_COMPILING_IN_CPYTHON && likely((__pyx_freecount_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ > 0) & (t->tp_basicsize == sizeof(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__)))) {
+    o = (PyObject*)__pyx_freelist_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[--__pyx_freecount_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__];
+    memset(o, 0, sizeof(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__));
     (void) PyObject_INIT(o, t);
     PyObject_GC_Track(o);
   } else {
     o = (*t->tp_alloc)(t, 0);
     if (unlikely(!o)) return 0;
   }
-  p = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o);
+  p = ((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o);
   new((void*)&(p->__pyx_v_end)) std::unordered_map<int,std::vector<int> > ::iterator();
   new((void*)&(p->__pyx_v_it)) std::unordered_map<int,std::vector<int> > ::iterator();
   return o;
 }
 
-static void __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyObject *o) {
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p = (struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o;
+static void __pyx_tp_dealloc_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyObject *o) {
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p = (struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o;
   PyObject_GC_UnTrack(o);
   __Pyx_call_destructor(p->__pyx_v_end);
   __Pyx_call_destructor(p->__pyx_v_it);
   Py_CLEAR(p->__pyx_v_self);
-  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__)))) {
-    __pyx_freelist_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[__pyx_freecount_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__++] = ((struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o);
+  if (CYTHON_COMPILING_IN_CPYTHON && ((__pyx_freecount_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ < 8) & (Py_TYPE(o)->tp_basicsize == sizeof(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__)))) {
+    __pyx_freelist_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__[__pyx_freecount_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__++] = ((struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o);
   } else {
     (*Py_TYPE(o)->tp_free)(o);
   }
 }
 
-static int __pyx_tp_traverse_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyObject *o, visitproc v, void *a) {
+static int __pyx_tp_traverse_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__(PyObject *o, visitproc v, void *a) {
   int e;
-  struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p = (struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o;
+  struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *p = (struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ *)o;
   if (p->__pyx_v_self) {
     e = (*v)(((PyObject *)p->__pyx_v_self), a); if (e) return e;
   }
   return 0;
 }
 
-static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = {
+static PyTypeObject __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = {
   PyVarObject_HEAD_INIT(0, 0)
-  "dwh.pyrecall.pyrecall.utils.sparse_matrix.__pyx_scope_struct____iter__", /*tp_name*/
-  sizeof(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__), /*tp_basicsize*/
+  "pyrecall.pyrecall.utils.sparse_matrix.__pyx_scope_struct____iter__", /*tp_name*/
+  sizeof(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__), /*tp_basicsize*/
   0, /*tp_itemsize*/
-  __pyx_tp_dealloc_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_dealloc*/
+  __pyx_tp_dealloc_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_dealloc*/
   0, /*tp_print*/
   0, /*tp_getattr*/
   0, /*tp_setattr*/
@@ -5608,7 +5614,7 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix__
   0, /*tp_as_buffer*/
   Py_TPFLAGS_DEFAULT|Py_TPFLAGS_HAVE_VERSION_TAG|Py_TPFLAGS_CHECKTYPES|Py_TPFLAGS_HAVE_NEWBUFFER|Py_TPFLAGS_HAVE_GC, /*tp_flags*/
   0, /*tp_doc*/
-  __pyx_tp_traverse_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_traverse*/
+  __pyx_tp_traverse_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_traverse*/
   0, /*tp_clear*/
   0, /*tp_richcompare*/
   0, /*tp_weaklistoffset*/
@@ -5624,7 +5630,7 @@ static PyTypeObject __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix__
   0, /*tp_dictoffset*/
   0, /*tp_init*/
   0, /*tp_alloc*/
-  __pyx_tp_new_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_new*/
+  __pyx_tp_new_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__, /*tp_new*/
   0, /*tp_free*/
   0, /*tp_is_gc*/
   0, /*tp_bases*/
@@ -5697,7 +5703,6 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_close, __pyx_k_close, sizeof(__pyx_k_close), 0, 0, 1, 1},
   {&__pyx_n_s_data, __pyx_k_data, sizeof(__pyx_k_data), 0, 0, 1, 1},
   {&__pyx_n_s_dict, __pyx_k_dict, sizeof(__pyx_k_dict), 0, 0, 1, 1},
-  {&__pyx_n_s_dwh_pyrecall_pyrecall_utils_spar, __pyx_k_dwh_pyrecall_pyrecall_utils_spar, sizeof(__pyx_k_dwh_pyrecall_pyrecall_utils_spar), 0, 0, 1, 1},
   {&__pyx_n_s_getstate, __pyx_k_getstate, sizeof(__pyx_k_getstate), 0, 0, 1, 1},
   {&__pyx_kp_s_i, __pyx_k_i, sizeof(__pyx_k_i), 0, 0, 1, 0},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
@@ -5711,6 +5716,7 @@ static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
   {&__pyx_n_s_new, __pyx_k_new, sizeof(__pyx_k_new), 0, 0, 1, 1},
   {&__pyx_n_s_pickle, __pyx_k_pickle, sizeof(__pyx_k_pickle), 0, 0, 1, 1},
+  {&__pyx_n_s_pyrecall_pyrecall_utils_sparse_m, __pyx_k_pyrecall_pyrecall_utils_sparse_m, sizeof(__pyx_k_pyrecall_pyrecall_utils_sparse_m), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_PickleError, __pyx_k_pyx_PickleError, sizeof(__pyx_k_pyx_PickleError), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_checksum, __pyx_k_pyx_checksum, sizeof(__pyx_k_pyx_checksum), 0, 0, 1, 1},
   {&__pyx_n_s_pyx_result, __pyx_k_pyx_result, sizeof(__pyx_k_pyx_result), 0, 0, 1, 1},
@@ -5806,25 +5812,25 @@ static int __Pyx_modinit_type_init_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_type_init_code", 0);
   /*--- Type init code ---*/
-  __pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._get = (std::vector<int>  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._knn_search = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search;
-  __pyx_vtable_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._recommend = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend;
-  if (PyType_Ready(&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_dictoffset && __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_getattro = __Pyx_PyObject_GenericGetAttr;
+  __pyx_vtabptr_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_vtable_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+  __pyx_vtable_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._get = (std::vector<int>  (*)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int))__pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__get;
+  __pyx_vtable_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._knn_search = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, int, unsigned int))__pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__knn_search;
+  __pyx_vtable_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary._recommend = (std::vector<std::pair<int,float> >  (*)(struct __pyx_obj_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary *, std::unordered_set<int>  &, unsigned int))__pyx_f_8pyrecall_8pyrecall_5utils_13sparse_matrix_18SparseMatrixBinary__recommend;
+  if (PyType_Ready(&__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_dictoffset && __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_getattro = __Pyx_PyObject_GenericGetAttr;
   }
-  if (__Pyx_SetVtable(__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_dict, __pyx_vtabptr_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SparseMatrixBinary, (PyObject *)&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
-  __pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
-  if (PyType_Ready(&__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
-  __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_print = 0;
-  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_dictoffset && __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro == PyObject_GenericGetAttr)) {
-    __pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
+  if (__Pyx_SetVtable(__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary.tp_dict, __pyx_vtabptr_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (PyObject_SetAttr(__pyx_m, __pyx_n_s_SparseMatrixBinary, (PyObject *)&__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  if (__Pyx_setup_reduce((PyObject*)&__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary) < 0) __PYX_ERR(0, 21, __pyx_L1_error)
+  __pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary = &__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix_SparseMatrixBinary;
+  if (PyType_Ready(&__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__) < 0) __PYX_ERR(0, 64, __pyx_L1_error)
+  __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_print = 0;
+  if ((CYTHON_USE_TYPE_SLOTS && CYTHON_USE_PYTYPE_LOOKUP) && likely(!__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_dictoffset && __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro == PyObject_GenericGetAttr)) {
+    __pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__.tp_getattro = __Pyx_PyObject_GenericGetAttrNoDict;
   }
-  __pyx_ptype_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = &__pyx_type_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__;
+  __pyx_ptype_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__ = &__pyx_type_8pyrecall_8pyrecall_5utils_13sparse_matrix___pyx_scope_struct____iter__;
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -5855,15 +5861,15 @@ static int __Pyx_modinit_function_import_code(void) {
   PyObject *__pyx_t_3 = NULL;
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_import_code", 0);
   /*--- Function import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("dwh.pyrecall.pyrecall.utils.heap"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_1, "min_heappush", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("pyrecall.pyrecall.utils.heap"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "min_heappush", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_2 = PyImport_ImportModule("dwh.pyrecall.pyrecall.utils.sim_metrics"); if (!__pyx_t_2) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_2, "jaccard_sim", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim, "float (std::vector<int>  &, std::vector<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_2 = PyImport_ImportModule("pyrecall.pyrecall.utils.sim_metrics"); if (!__pyx_t_2) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_2, "jaccard_sim", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim, "float (std::vector<int>  &, std::vector<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_2); __pyx_t_2 = 0;
-  __pyx_t_3 = PyImport_ImportModule("dwh.pyrecall.pyrecall.utils.item_cf"); if (!__pyx_t_3) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_3, "agg_score", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score, "void (std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_3, "top_k_map", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map, "std::vector<std::pair<int,float> >  (std::unordered_map<int,float>  &, unsigned int)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_3 = PyImport_ImportModule("pyrecall.pyrecall.utils.item_cf"); if (!__pyx_t_3) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_3, "agg_score", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score, "void (std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_3, "top_k_map", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map, "std::vector<std::pair<int,float> >  (std::unordered_map<int,float>  &, unsigned int)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_3); __pyx_t_3 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -6045,14 +6051,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sparse_matrix) {
+  if (__pyx_module_is_main_pyrecall__pyrecall__utils__sparse_matrix) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "dwh.pyrecall.pyrecall.utils.sparse_matrix")) {
-      if (unlikely(PyDict_SetItemString(modules, "dwh.pyrecall.pyrecall.utils.sparse_matrix", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "pyrecall.pyrecall.utils.sparse_matrix")) {
+      if (unlikely(PyDict_SetItemString(modules, "pyrecall.pyrecall.utils.sparse_matrix", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -6078,12 +6084,12 @@ if (!__Pyx_RefNanny) {
  *     cdef object __pyx_PickleError
  *     cdef object __pyx_result
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_spar); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8pyrecall_8pyrecall_5utils_13sparse_matrix_1__pyx_unpickle_SparseMatrixBinary, NULL, __pyx_n_s_pyrecall_pyrecall_utils_sparse_m); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_pyx_unpickle_SparseMatrixBinar, __pyx_t_1) < 0) __PYX_ERR(1, 1, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "dwh/pyrecall/pyrecall/utils/sparse_matrix.pyx":1
+  /* "pyrecall/pyrecall/utils/sparse_matrix.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
  * #cython: boundscheck=False
  * #cython: wraparound=False
@@ -6108,11 +6114,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init dwh.pyrecall.pyrecall.utils.sparse_matrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init pyrecall.pyrecall.utils.sparse_matrix", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init dwh.pyrecall.pyrecall.utils.sparse_matrix");
+    PyErr_SetString(PyExc_ImportError, "init pyrecall.pyrecall.utils.sparse_matrix");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();

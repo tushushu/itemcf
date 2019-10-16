@@ -2,16 +2,10 @@
 @Author: tushushu
 @Date: 2019-07-16 19:39:46
 """
-import os
-os.chdir(os.path.split(os.path.realpath(__file__))[0])
-
-import sys
-sys.path.append(os.path.abspath(".."))
-
 from collections import defaultdict
 from typing import Dict, List, Tuple, DefaultDict
 from random import randint, random, sample
-from utils.item_cf import agg_score_py, top_k_map_py
+from pyrecall.utils.item_cf import agg_score_py, top_k_map_py
 
 
 def gen_random_list(n_elements: int) -> List[Tuple[int, float]]:

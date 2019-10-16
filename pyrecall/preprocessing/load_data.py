@@ -2,9 +2,16 @@
 @Author: tushushu
 @Date: 2019-10-15 15:21:17
 """
-import os
 import pandas as pd
 from pandas import DataFrame
+
+import os
+os.chdir(os.path.split(os.path.realpath(__file__))[0])
+
+import sys
+sys.path.append(os.path.abspath(".."))
+
+
 
 
 os.chdir(os.path.split(os.path.realpath(__file__))[0])

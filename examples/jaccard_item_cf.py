@@ -1,27 +1,37 @@
 """
 @Author: tushushu
 @Date: 2019-07-26 17:39:47
+vi /usr/lib/anaconda3/lib/python3.6/site-packages/sitecustomize.py 
+import site
+site.addsitedir("pyrecall文件夹的上级目录")
 """
+import os
+os.chdir(os.path.split(os.path.realpath(__file__))[0])
+
+import sys
+sys.path.append(os.path.abspath(".."))
+sys.path.append(os.path.abspath("../.."))
+print(os.path.abspath("../.."))
 
 from typing import Optional
-from pyspark.sql import DataFrame
-from pyrecall.item_cf.jaccard import JaccardItemCF  # 需要将pyrecall文件夹拷贝到Python三方库的路径下。
+from pyrecall.item_cf.jaccard import JaccardItemCF
+from pyrecall.preprocessing.load_data import MovieRatingsData
 
-
-def load_data() -> DataFrame:
-    """用户需要自定义一个读取数据的函数，得到一个Spark DataFrame。
-
-    Returns:
-        DataFrame -- ["uid", "item_id"]
-    """
-    pass
 
 def main(threshold: Optional[int], show_coverage: bool):
+    """[summary]
+
+    Arguments:
+        threshold {Optional[int]} -- [description]
+        show_coverage {bool} -- [description]
+    """
     print("开始执行!")
     # 读取数据
-    user_col = "uid"  # 用户可自定义该参数
-    item_col = "item_id"  # 用户可自定义该参数
-    data = load_data()
+    movie_ratings = MovieRatingsData()
+    user_col = movie_ratings.user_col
+    item_col = movie_ratings.item_col
+    data = movie_ratings.data
+
     # 训练模型
     mat_size = 100  # 用户可自定义该参数
     model = JaccardItemCF()
