@@ -6,19 +6,25 @@
 """
 @Author: tushushu
 @Date: 2019-07-03 14:52:49
-由于Cython类的属性不可以是泛型，不方便做类的继承，所以Copy粘贴了SparseMatrixBinary类的代码，请见谅。
 """
 
+from libcpp cimport bool
+from libcpp.algorithm cimport sort_heap
 from cython.operator cimport dereference as deref, preincrement as inc
-from .heap cimport min_heappush
+from .heap cimport min_heappush, min_cmp
 from .sim_metrics cimport jaccard_sim
 from .item_cf cimport agg_score, top_k_map
 from .typedefs cimport BINMAT_IT, CONMAT_IT, ISET_IT, BINVEC, CONVEC, IFPAIR, IFMAP, ISET
 
 
-cdef class SparseMatrix:
-    """稀疏矩阵的C++实现(连续值)。
-    如长度为5的稠密向量[0, 0.25, 0, 0, 0.5]，其稀疏向量表示为[(1, 0.25), (4, 0.5)]。
+cdef inline bool iszero(float x):
+    """内联函数，判断一个浮点数是否等于0.0。"""
+    return x < 0.000001 and x > -0.000001
+
+
+cdef class SparseMatrixBinary:
+    """稀疏矩阵的C++实现(离散值)。
+    如长度为5的稠密向量[0, 1, 0, 0, 1]，其稀疏向量表示为[1, 4]。
 
     合法清单和非法清单同时存在时，合法清单对非法清单取差集，只保留合法清单。
 
@@ -39,7 +45,7 @@ cdef class SparseMatrix:
         assert blacklist != set(), "blacklist不可以为空！"
         if valid_list is not None:
             if blacklist is not None:
-                assert not blacklist.issubset(valid_list), "valid_list不可以是blacklist的子集！"
+                assert not valid_list.issubset(blacklist), "valid_list不可以是blacklist的子集！"
                 self._valid_list = valid_list - blacklist
             else:
                 self._valid_list = valid_list
@@ -99,7 +105,7 @@ cdef class SparseMatrix:
             raise KeyError('%i' % key)
         return deref(it).second
 
-    cdef CONVEC _knn_search(self, int key, unsigned int k) except +:
+    cdef CONVEC _knn_search(self, int key, unsigned int k, bool is_sorted=False) except +:
         """线性查找与key对应的向量相似度最大的k个向量，且这些向量的key不能与被查找的key相同。
         合法清单过滤，合法清单存在且元素不在合法清单中，不参与计算；
         非法清单过滤，非法清单存在且元素在非法清单中，不参与计算。
@@ -120,15 +126,17 @@ cdef class SparseMatrix:
                 inc(it2)
                 continue
             element.second = jaccard_sim(deref(it1).second, deref(it2).second)
-            if element.second == 0.0 or it2 == it1:
+            if iszero(element.second) or it2 == it1:
                 inc(it2)
                 continue
             element.first = deref(it2).first
             min_heappush(heap, k, element)
             inc(it2)
+        if is_sorted:
+            sort_heap(heap.begin(), heap.end(), min_cmp)
         return heap
 
-    def knn_search(self, key: int, k: int) -> list:
+    def knn_search(self, key: int, k: int, is_sorted=False) -> list:
         """包装knn_search方法给Python程序调用。"""
         cdef:
             CONMAT_IT it
@@ -136,7 +144,7 @@ cdef class SparseMatrix:
         it = self._cache.find(key)
         if it != end:
             return deref(it).second
-        return self._knn_search(key, k)
+        return self._knn_search(key, k, is_sorted)
 
     cdef CONVEC _recommend(self, ISET& items, unsigned int k) except +:
         """根据用户的评分过的物品列表推荐物品，不推荐用户已经评分过的物品。"""

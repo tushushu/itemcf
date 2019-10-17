@@ -10,8 +10,6 @@ os.chdir(os.path.split(os.path.realpath(__file__))[0])
 
 import sys
 sys.path.append(os.path.abspath(".."))
-sys.path.append(os.path.abspath("../.."))
-print(os.path.abspath("../.."))
 
 from typing import Optional
 from pyrecall.item_cf.jaccard import JaccardItemCF
@@ -31,6 +29,9 @@ def main(threshold: Optional[int], show_coverage: bool):
     user_col = movie_ratings.user_col
     item_col = movie_ratings.item_col
     data = movie_ratings.data
+    print("user_col", user_col)
+    print("item_col", item_col)
+    print("data", data.head(3))
 
     # 训练模型
     mat_size = 100  # 用户可自定义该参数

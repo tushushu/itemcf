@@ -2,6 +2,12 @@
 @Author: tushushu
 @Date: 2019-07-16 19:39:46
 """
+import os
+os.chdir(os.path.split(os.path.realpath(__file__))[0])
+
+import sys
+sys.path.append(os.path.abspath(".."))
+
 from collections import defaultdict
 from typing import Dict, List, Tuple, DefaultDict
 from random import randint, random, sample

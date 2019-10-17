@@ -10,7 +10,7 @@ sys.path.append(os.path.abspath(".."))
 
 from typing import Dict, List, Tuple
 from random import randint, sample
-from utils.sparse_matrix import SparseMatrixBinary
+from utils.sparse_matrix_bin import SparseMatrixBinary
 
 
 def gen_rand_dict(low: int, high: int) -> Dict[int, List[int]]:

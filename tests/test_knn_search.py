@@ -8,6 +8,7 @@ os.chdir(os.path.split(os.path.realpath(__file__))[0])
 import sys
 sys.path.append(os.path.abspath(".."))
 
+
 from math import isclose
 from collections import Counter
 from itertools import chain, repeat
@@ -15,7 +16,7 @@ from heapq import nlargest
 from time import time
 from typing import Dict, List, Set
 from random import randint, sample
-from utils.sparse_matrix import SparseMatrixBinary
+from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary
 
 
 def jaccard_sim(set1: Set[int], set2: Set[int]) -> float:

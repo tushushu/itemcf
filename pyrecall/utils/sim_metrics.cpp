@@ -5,12 +5,12 @@
     "distutils": {
         "depends": [],
         "language": "c++",
-        "name": "pyrecall.pyrecall.utils.sim_metrics",
+        "name": "dwh.pyrecall.pyrecall.utils.sim_metrics",
         "sources": [
             "sim_metrics.pyx"
         ]
     },
-    "module_name": "pyrecall.pyrecall.utils.sim_metrics"
+    "module_name": "dwh.pyrecall.pyrecall.utils.sim_metrics"
 }
 END: Cython Metadata */
 
@@ -613,14 +613,18 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyrecall__pyrecall__utils__sim_metrics
-#define __PYX_HAVE_API__pyrecall__pyrecall__utils__sim_metrics
+#define __PYX_HAVE__dwh__pyrecall__pyrecall__utils__sim_metrics
+#define __PYX_HAVE_API__dwh__pyrecall__pyrecall__utils__sim_metrics
 /* Early includes */
 #include "ios"
 #include "new"
 #include "stdexcept"
 #include "typeinfo"
 #include <vector>
+#include <utility>
+#include <unordered_map>
+#include <unordered_set>
+#include <math.h>
 #ifdef _OPENMP
 #include <omp.h>
 #endif /* _OPENMP */
@@ -835,6 +839,120 @@ static const char *__pyx_f[] = {
 
 /*--- Type declarations ---*/
 
+/* "typedefs.pxd":12
+ * 
+ * # Element
+ * ctypedef pair[int, float] IFPAIR             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef vector[int] BINVEC
+ */
+typedef std::pair<int,float>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR;
+
+/* "typedefs.pxd":14
+ * ctypedef pair[int, float] IFPAIR
+ * #
+ * ctypedef vector[int] BINVEC             # <<<<<<<<<<<<<<
+ * ctypedef vector[int].iterator BINVEC_IT
+ * #
+ */
+typedef std::vector<int>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC;
+
+/* "typedefs.pxd":15
+ * #
+ * ctypedef vector[int] BINVEC
+ * ctypedef vector[int].iterator BINVEC_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef vector[IFPAIR] CONVEC
+ */
+typedef std::vector<int> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC_IT;
+
+/* "typedefs.pxd":17
+ * ctypedef vector[int].iterator BINVEC_IT
+ * #
+ * ctypedef vector[IFPAIR] CONVEC             # <<<<<<<<<<<<<<
+ * ctypedef vector[IFPAIR].iterator CONVEC_IT
+ * #
+ */
+typedef std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC;
+
+/* "typedefs.pxd":18
+ * #
+ * ctypedef vector[IFPAIR] CONVEC
+ * ctypedef vector[IFPAIR].iterator CONVEC_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef fused VEC:
+ */
+typedef std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC_IT;
+
+/* "typedefs.pxd":24
+ *     CONVEC
+ * #
+ * ctypedef cpp_map[int, BINVEC] BINMAT             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT
+ * #
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINMAT;
+
+/* "typedefs.pxd":25
+ * #
+ * ctypedef cpp_map[int, BINVEC] BINMAT
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINMAT_IT;
+
+/* "typedefs.pxd":27
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, CONVEC].iterator CONMAT_IT
+ * #
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONMAT;
+
+/* "typedefs.pxd":28
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT
+ * ctypedef cpp_map[int, CONVEC].iterator CONMAT_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef fused MAT:
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONMAT_IT;
+
+/* "typedefs.pxd":34
+ *     CONMAT
+ * # SetElement
+ * ctypedef cpp_set[int] ISET             # <<<<<<<<<<<<<<
+ * ctypedef cpp_set[int].iterator ISET_IT
+ * # KeyValueMapElement
+ */
+typedef std::unordered_set<int>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET;
+
+/* "typedefs.pxd":35
+ * # SetElement
+ * ctypedef cpp_set[int] ISET
+ * ctypedef cpp_set[int].iterator ISET_IT             # <<<<<<<<<<<<<<
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP
+ */
+typedef std::unordered_set<int> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET_IT;
+
+/* "typedefs.pxd":37
+ * ctypedef cpp_set[int].iterator ISET_IT
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, float].iterator IFMAP_IT
+ */
+typedef std::unordered_map<int,float>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP;
+
+/* "typedefs.pxd":38
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP
+ * ctypedef cpp_map[int, float].iterator IFMAP_IT             # <<<<<<<<<<<<<<
+ */
+typedef std::unordered_map<int,float> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP_IT;
+
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
 #ifndef CYTHON_REFNANNY
@@ -910,6 +1028,18 @@ static void __Pyx_RaiseDoubleKeywordsError(const char* func_name, PyObject* kw_n
 static int __Pyx_ParseOptionalKeywords(PyObject *kwds, PyObject **argnames[],\
     PyObject *kwds2, PyObject *values[], Py_ssize_t num_pos_args,\
     const char* function_name);
+
+/* RaiseTooManyValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected);
+
+/* RaiseNeedMoreValuesToUnpack.proto */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index);
+
+/* IterFinish.proto */
+static CYTHON_INLINE int __Pyx_IterFinish(void);
+
+/* UnpackItemEndCheck.proto */
+static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected);
 
 /* PyObjectGetAttrStr.proto */
 #if CYTHON_USE_TYPE_SLOTS
@@ -1088,53 +1218,77 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
-/* Module declarations from 'pyrecall.pyrecall.utils.sim_metrics' */
-static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::vector<int>  &, std::vector<int>  &); /*proto*/
-static std::vector<int>  __pyx_convert_vector_from_py_int(PyObject *); /*proto*/
-#define __Pyx_MODULE_NAME "pyrecall.pyrecall.utils.sim_metrics"
-extern int __pyx_module_is_main_pyrecall__pyrecall__utils__sim_metrics;
-int __pyx_module_is_main_pyrecall__pyrecall__utils__sim_metrics = 0;
+/* Module declarations from 'libcpp.utility' */
 
-/* Implementation of 'pyrecall.pyrecall.utils.sim_metrics' */
+/* Module declarations from 'libcpp.unordered_map' */
+
+/* Module declarations from 'libcpp.unordered_set' */
+
+/* Module declarations from 'dwh.pyrecall.pyrecall.utils.typedefs' */
+
+/* Module declarations from 'libc.math' */
+
+/* Module declarations from 'dwh.pyrecall.pyrecall.utils.sim_metrics' */
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &); /*proto*/
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_dot(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &); /*proto*/
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_module(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &); /*proto*/
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_cosine_sim(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &); /*proto*/
+static CYTHON_INLINE float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_fast_cosine_sim(float, float, float); /*proto*/
+static CYTHON_INLINE float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_pow2(float); /*proto*/
+static std::vector<int>  __pyx_convert_vector_from_py_int(PyObject *); /*proto*/
+static std::pair<int,float>  __pyx_convert_pair_from_py_int__and_float(PyObject *); /*proto*/
+static std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(PyObject *); /*proto*/
+#define __Pyx_MODULE_NAME "dwh.pyrecall.pyrecall.utils.sim_metrics"
+extern int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sim_metrics;
+int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sim_metrics = 0;
+
+/* Implementation of 'dwh.pyrecall.pyrecall.utils.sim_metrics' */
 static const char __pyx_k_l1[] = "l1";
 static const char __pyx_k_l2[] = "l2";
 static const char __pyx_k_List[] = "List";
 static const char __pyx_k_main[] = "__main__";
 static const char __pyx_k_name[] = "__name__";
 static const char __pyx_k_test[] = "__test__";
+static const char __pyx_k_Tuple[] = "Tuple";
 static const char __pyx_k_import[] = "__import__";
 static const char __pyx_k_typing[] = "typing";
+static const char __pyx_k_cosine_sim_py[] = "cosine_sim_py";
 static const char __pyx_k_jaccard_sim_py[] = "jaccard_sim_py";
 static const char __pyx_k_sim_metrics_pyx[] = "sim_metrics.pyx";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Author_tushushu_Date_2019_07_03[] = "\n@Author: tushushu\n@Date: 2019-07-03 14:35:36\n";
-static const char __pyx_k_pyrecall_pyrecall_utils_sim_metr[] = "pyrecall.pyrecall.utils.sim_metrics";
+static const char __pyx_k_dwh_pyrecall_pyrecall_utils_sim[] = "dwh.pyrecall.pyrecall.utils.sim_metrics";
 static PyObject *__pyx_n_s_List;
+static PyObject *__pyx_n_s_Tuple;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_cosine_sim_py;
+static PyObject *__pyx_n_s_dwh_pyrecall_pyrecall_utils_sim;
 static PyObject *__pyx_n_s_import;
 static PyObject *__pyx_n_s_jaccard_sim_py;
 static PyObject *__pyx_n_s_l1;
 static PyObject *__pyx_n_s_l2;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_pyrecall_pyrecall_utils_sim_metr;
 static PyObject *__pyx_kp_s_sim_metrics_pyx;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_typing;
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_2cosine_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2); /* proto */
 static PyObject *__pyx_tuple_;
+static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_codeobj__2;
+static PyObject *__pyx_codeobj__4;
 /* Late includes */
 
-/* "pyrecall/pyrecall/utils/sim_metrics.pyx":14
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":17
  * 
  * 
- * cdef float jaccard_sim(vector[int]& v1, vector[int]& v2) except +:             # <<<<<<<<<<<<<<
+ * cdef float jaccard_sim(BINVEC& v1, BINVEC& v2) except +:             # <<<<<<<<<<<<<<
  *     """ABJaccardSimilarity = A  B / A  B"""
  *     cdef:
  */
 
-static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::vector<int>  &__pyx_v_v1, std::vector<int>  &__pyx_v_v2) {
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &__pyx_v_v1, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &__pyx_v_v2) {
   int __pyx_v_numerator;
   int __pyx_v_denominator;
   int __pyx_v_m;
@@ -1147,7 +1301,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("jaccard_sim", 0);
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":17
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":20
  *     """ABJaccardSimilarity = A  B / A  B"""
  *     cdef:
  *         int numerator = 0             # <<<<<<<<<<<<<<
@@ -1156,7 +1310,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_numerator = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":18
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":21
  *     cdef:
  *         int numerator = 0
  *         int denominator = 0             # <<<<<<<<<<<<<<
@@ -1165,7 +1319,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_denominator = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":19
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":22
  *         int numerator = 0
  *         int denominator = 0
  *         int m = v1.size()             # <<<<<<<<<<<<<<
@@ -1174,7 +1328,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_m = __pyx_v_v1.size();
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":20
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":23
  *         int denominator = 0
  *         int m = v1.size()
  *         int n = v2.size()             # <<<<<<<<<<<<<<
@@ -1183,7 +1337,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_n = __pyx_v_v2.size();
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":21
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":24
  *         int m = v1.size()
  *         int n = v2.size()
  *         int i = 0             # <<<<<<<<<<<<<<
@@ -1192,7 +1346,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_i = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":22
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":25
  *         int n = v2.size()
  *         int i = 0
  *         int j = 0             # <<<<<<<<<<<<<<
@@ -1201,7 +1355,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_j = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":23
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":26
  *         int i = 0
  *         int j = 0
  *     if m == 0 or n == 0:             # <<<<<<<<<<<<<<
@@ -1219,7 +1373,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   __pyx_L4_bool_binop_done:;
   if (__pyx_t_1) {
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":24
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":27
  *         int j = 0
  *     if m == 0 or n == 0:
  *         return 0.0             # <<<<<<<<<<<<<<
@@ -1229,7 +1383,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_r = 0.0;
     goto __pyx_L0;
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":23
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":26
  *         int i = 0
  *         int j = 0
  *     if m == 0 or n == 0:             # <<<<<<<<<<<<<<
@@ -1238,7 +1392,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   }
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":25
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":28
  *     if m == 0 or n == 0:
  *         return 0.0
  *     if v1[m - 1] < v2[0]:             # <<<<<<<<<<<<<<
@@ -1248,7 +1402,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   __pyx_t_1 = (((__pyx_v_v1[(__pyx_v_m - 1)]) < (__pyx_v_v2[0])) != 0);
   if (__pyx_t_1) {
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":26
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":29
  *         return 0.0
  *     if v1[m - 1] < v2[0]:
  *         return 0.0             # <<<<<<<<<<<<<<
@@ -1258,7 +1412,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_r = 0.0;
     goto __pyx_L0;
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":25
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":28
  *     if m == 0 or n == 0:
  *         return 0.0
  *     if v1[m - 1] < v2[0]:             # <<<<<<<<<<<<<<
@@ -1267,7 +1421,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   }
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":27
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":30
  *     if v1[m - 1] < v2[0]:
  *         return 0.0
  *     if v2[n - 1] < v1[0]:             # <<<<<<<<<<<<<<
@@ -1277,7 +1431,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   __pyx_t_1 = (((__pyx_v_v2[(__pyx_v_n - 1)]) < (__pyx_v_v1[0])) != 0);
   if (__pyx_t_1) {
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":28
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":31
  *         return 0.0
  *     if v2[n - 1] < v1[0]:
  *         return 0.0             # <<<<<<<<<<<<<<
@@ -1287,7 +1441,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_r = 0.0;
     goto __pyx_L0;
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":27
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":30
  *     if v1[m - 1] < v2[0]:
  *         return 0.0
  *     if v2[n - 1] < v1[0]:             # <<<<<<<<<<<<<<
@@ -1296,12 +1450,12 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   }
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":29
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":32
  *     if v2[n - 1] < v1[0]:
  *         return 0.0
  *     while i < m and j < n:             # <<<<<<<<<<<<<<
  *         if v1[i] == v2[j]:
- *             i += 1
+ *             numerator += 1
  */
   while (1) {
     __pyx_t_2 = ((__pyx_v_i < __pyx_v_m) != 0);
@@ -1315,56 +1469,56 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_L10_bool_binop_done:;
     if (!__pyx_t_1) break;
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":30
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":33
  *         return 0.0
  *     while i < m and j < n:
  *         if v1[i] == v2[j]:             # <<<<<<<<<<<<<<
+ *             numerator += 1
  *             i += 1
- *             j += 1
  */
     __pyx_t_1 = (((__pyx_v_v1[__pyx_v_i]) == (__pyx_v_v2[__pyx_v_j])) != 0);
     if (__pyx_t_1) {
 
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":31
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":34
  *     while i < m and j < n:
  *         if v1[i] == v2[j]:
- *             i += 1             # <<<<<<<<<<<<<<
- *             j += 1
- *             numerator += 1
- */
-      __pyx_v_i = (__pyx_v_i + 1);
-
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":32
- *         if v1[i] == v2[j]:
- *             i += 1
- *             j += 1             # <<<<<<<<<<<<<<
- *             numerator += 1
- *         elif v1[i] > v2[j]:
- */
-      __pyx_v_j = (__pyx_v_j + 1);
-
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":33
- *             i += 1
- *             j += 1
  *             numerator += 1             # <<<<<<<<<<<<<<
- *         elif v1[i] > v2[j]:
+ *             i += 1
  *             j += 1
  */
       __pyx_v_numerator = (__pyx_v_numerator + 1);
 
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":30
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":35
+ *         if v1[i] == v2[j]:
+ *             numerator += 1
+ *             i += 1             # <<<<<<<<<<<<<<
+ *             j += 1
+ *         elif v1[i] > v2[j]:
+ */
+      __pyx_v_i = (__pyx_v_i + 1);
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":36
+ *             numerator += 1
+ *             i += 1
+ *             j += 1             # <<<<<<<<<<<<<<
+ *         elif v1[i] > v2[j]:
+ *             j += 1
+ */
+      __pyx_v_j = (__pyx_v_j + 1);
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":33
  *         return 0.0
  *     while i < m and j < n:
  *         if v1[i] == v2[j]:             # <<<<<<<<<<<<<<
+ *             numerator += 1
  *             i += 1
- *             j += 1
  */
       goto __pyx_L12;
     }
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":34
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":37
+ *             i += 1
  *             j += 1
- *             numerator += 1
  *         elif v1[i] > v2[j]:             # <<<<<<<<<<<<<<
  *             j += 1
  *         else:
@@ -1372,8 +1526,8 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_t_1 = (((__pyx_v_v1[__pyx_v_i]) > (__pyx_v_v2[__pyx_v_j])) != 0);
     if (__pyx_t_1) {
 
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":35
- *             numerator += 1
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":38
+ *             j += 1
  *         elif v1[i] > v2[j]:
  *             j += 1             # <<<<<<<<<<<<<<
  *         else:
@@ -1381,9 +1535,9 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
       __pyx_v_j = (__pyx_v_j + 1);
 
-      /* "pyrecall/pyrecall/utils/sim_metrics.pyx":34
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":37
+ *             i += 1
  *             j += 1
- *             numerator += 1
  *         elif v1[i] > v2[j]:             # <<<<<<<<<<<<<<
  *             j += 1
  *         else:
@@ -1391,7 +1545,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
       goto __pyx_L12;
     }
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":37
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":40
  *             j += 1
  *         else:
  *             i += 1             # <<<<<<<<<<<<<<
@@ -1404,7 +1558,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_L12:;
   }
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":38
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":41
  *         else:
  *             i += 1
  *     if numerator == 0:             # <<<<<<<<<<<<<<
@@ -1414,7 +1568,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   __pyx_t_1 = ((__pyx_v_numerator == 0) != 0);
   if (__pyx_t_1) {
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":39
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":42
  *             i += 1
  *     if numerator == 0:
  *         return 0.0             # <<<<<<<<<<<<<<
@@ -1424,7 +1578,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
     __pyx_r = 0.0;
     goto __pyx_L0;
 
-    /* "pyrecall/pyrecall/utils/sim_metrics.pyx":38
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":41
  *         else:
  *             i += 1
  *     if numerator == 0:             # <<<<<<<<<<<<<<
@@ -1433,7 +1587,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   }
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":40
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":43
  *     if numerator == 0:
  *         return 0.0
  *     denominator = m + n - numerator             # <<<<<<<<<<<<<<
@@ -1442,7 +1596,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
   __pyx_v_denominator = ((__pyx_v_m + __pyx_v_n) - __pyx_v_numerator);
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":41
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":44
  *         return 0.0
  *     denominator = m + n - numerator
  *     return numerator * 1.0 / denominator             # <<<<<<<<<<<<<<
@@ -1452,10 +1606,10 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   __pyx_r = ((__pyx_v_numerator * 1.0) / __pyx_v_denominator);
   goto __pyx_L0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":14
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":17
  * 
  * 
- * cdef float jaccard_sim(vector[int]& v1, vector[int]& v2) except +:             # <<<<<<<<<<<<<<
+ * cdef float jaccard_sim(BINVEC& v1, BINVEC& v2) except +:             # <<<<<<<<<<<<<<
  *     """ABJaccardSimilarity = A  B / A  B"""
  *     cdef:
  */
@@ -1466,7 +1620,7 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
   return __pyx_r;
 }
 
-/* "pyrecall/pyrecall/utils/sim_metrics.pyx":44
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":47
  * 
  * 
  * def jaccard_sim_py(l1: List[int], l2: List[int])->float:             # <<<<<<<<<<<<<<
@@ -1475,10 +1629,10 @@ static float __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(std::v
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py[] = "\345\214\205\350\243\205jaccard_sim\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyMethodDef __pyx_mdef_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py = {"jaccard_sim_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py};
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py[] = "\345\214\205\350\243\205jaccard_sim\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py = {"jaccard_sim_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py};
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_l1 = 0;
   PyObject *__pyx_v_l2 = 0;
   PyObject *__pyx_r = 0;
@@ -1507,11 +1661,11 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_l2)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("jaccard_sim_py", 1, 2, 2, 1); __PYX_ERR(0, 44, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("jaccard_sim_py", 1, 2, 2, 1); __PYX_ERR(0, 47, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "jaccard_sim_py") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "jaccard_sim_py") < 0)) __PYX_ERR(0, 47, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1524,49 +1678,51 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("jaccard_sim_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 44, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("jaccard_sim_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 47, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sim_metrics.jaccard_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.jaccard_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(__pyx_self, __pyx_v_l1, __pyx_v_l2);
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(__pyx_self, __pyx_v_l1, __pyx_v_l2);
 
   /* function exit code */
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2) {
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  std::vector<int>  __pyx_t_1;
-  std::vector<int>  __pyx_t_2;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC __pyx_t_1;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC __pyx_t_2;
   float __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("jaccard_sim_py", 0);
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":46
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":49
  * def jaccard_sim_py(l1: List[int], l2: List[int])->float:
  *     """jaccard_simPython"""
  *     return jaccard_sim(l1, l2)             # <<<<<<<<<<<<<<
+ * 
+ * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_vector_from_py_int(__pyx_v_l1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
-  __pyx_t_2 = __pyx_convert_vector_from_py_int(__pyx_v_l2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_vector_from_py_int(__pyx_v_l1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py_int(__pyx_v_l2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
   try {
-    __pyx_t_3 = __pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(__pyx_t_1, __pyx_t_2);
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim(__pyx_t_1, __pyx_t_2);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 46, __pyx_L1_error)
+    __PYX_ERR(0, 49, __pyx_L1_error)
   }
-  __pyx_t_4 = PyFloat_FromDouble(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 46, __pyx_L1_error)
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 49, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
   __pyx_r = __pyx_t_4;
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":44
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":47
  * 
  * 
  * def jaccard_sim_py(l1: List[int], l2: List[int])->float:             # <<<<<<<<<<<<<<
@@ -1577,7 +1733,799 @@ static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim_p
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.sim_metrics.jaccard_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.jaccard_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = NULL;
+  __pyx_L0:;
+  __Pyx_XGIVEREF(__pyx_r);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":52
+ * 
+ * 
+ * cdef float vector_dot(CONVEC& v1, CONVEC& v2) except +:             # <<<<<<<<<<<<<<
+ *     """AB"""
+ *     cdef:
+ */
+
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_dot(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_v1, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_v2) {
+  float __pyx_v_ret;
+  int __pyx_v_m;
+  int __pyx_v_n;
+  int __pyx_v_i;
+  int __pyx_v_j;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR __pyx_v_p1;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR __pyx_v_p2;
+  float __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  __Pyx_RefNannySetupContext("vector_dot", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":55
+ *     """AB"""
+ *     cdef:
+ *         float ret = 0.0             # <<<<<<<<<<<<<<
+ *         int m = v1.size()
+ *         int n = v2.size()
+ */
+  __pyx_v_ret = 0.0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":56
+ *     cdef:
+ *         float ret = 0.0
+ *         int m = v1.size()             # <<<<<<<<<<<<<<
+ *         int n = v2.size()
+ *         int i = 0
+ */
+  __pyx_v_m = __pyx_v_v1.size();
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":57
+ *         float ret = 0.0
+ *         int m = v1.size()
+ *         int n = v2.size()             # <<<<<<<<<<<<<<
+ *         int i = 0
+ *         int j = 0
+ */
+  __pyx_v_n = __pyx_v_v2.size();
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":58
+ *         int m = v1.size()
+ *         int n = v2.size()
+ *         int i = 0             # <<<<<<<<<<<<<<
+ *         int j = 0
+ *         IFPAIR p1
+ */
+  __pyx_v_i = 0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":59
+ *         int n = v2.size()
+ *         int i = 0
+ *         int j = 0             # <<<<<<<<<<<<<<
+ *         IFPAIR p1
+ *         IFPAIR p2
+ */
+  __pyx_v_j = 0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":62
+ *         IFPAIR p1
+ *         IFPAIR p2
+ *     if m == 0 or n == 0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     if v1[m - 1].first < v2[0].first:
+ */
+  __pyx_t_2 = ((__pyx_v_m == 0) != 0);
+  if (!__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = ((__pyx_v_n == 0) != 0);
+  __pyx_t_1 = __pyx_t_2;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_1) {
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":63
+ *         IFPAIR p2
+ *     if m == 0 or n == 0:
+ *         return 0.0             # <<<<<<<<<<<<<<
+ *     if v1[m - 1].first < v2[0].first:
+ *         return 0.0
+ */
+    __pyx_r = 0.0;
+    goto __pyx_L0;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":62
+ *         IFPAIR p1
+ *         IFPAIR p2
+ *     if m == 0 or n == 0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     if v1[m - 1].first < v2[0].first:
+ */
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":64
+ *     if m == 0 or n == 0:
+ *         return 0.0
+ *     if v1[m - 1].first < v2[0].first:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     if v2[n - 1].first < v1[0].first:
+ */
+  __pyx_t_1 = (((__pyx_v_v1[(__pyx_v_m - 1)]).first < (__pyx_v_v2[0]).first) != 0);
+  if (__pyx_t_1) {
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":65
+ *         return 0.0
+ *     if v1[m - 1].first < v2[0].first:
+ *         return 0.0             # <<<<<<<<<<<<<<
+ *     if v2[n - 1].first < v1[0].first:
+ *         return 0.0
+ */
+    __pyx_r = 0.0;
+    goto __pyx_L0;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":64
+ *     if m == 0 or n == 0:
+ *         return 0.0
+ *     if v1[m - 1].first < v2[0].first:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     if v2[n - 1].first < v1[0].first:
+ */
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":66
+ *     if v1[m - 1].first < v2[0].first:
+ *         return 0.0
+ *     if v2[n - 1].first < v1[0].first:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     while i < m and j < n:
+ */
+  __pyx_t_1 = (((__pyx_v_v2[(__pyx_v_n - 1)]).first < (__pyx_v_v1[0]).first) != 0);
+  if (__pyx_t_1) {
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":67
+ *         return 0.0
+ *     if v2[n - 1].first < v1[0].first:
+ *         return 0.0             # <<<<<<<<<<<<<<
+ *     while i < m and j < n:
+ *         p1 = v1[i]
+ */
+    __pyx_r = 0.0;
+    goto __pyx_L0;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":66
+ *     if v1[m - 1].first < v2[0].first:
+ *         return 0.0
+ *     if v2[n - 1].first < v1[0].first:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     while i < m and j < n:
+ */
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":68
+ *     if v2[n - 1].first < v1[0].first:
+ *         return 0.0
+ *     while i < m and j < n:             # <<<<<<<<<<<<<<
+ *         p1 = v1[i]
+ *         p2 = v2[j]
+ */
+  while (1) {
+    __pyx_t_2 = ((__pyx_v_i < __pyx_v_m) != 0);
+    if (__pyx_t_2) {
+    } else {
+      __pyx_t_1 = __pyx_t_2;
+      goto __pyx_L10_bool_binop_done;
+    }
+    __pyx_t_2 = ((__pyx_v_j < __pyx_v_n) != 0);
+    __pyx_t_1 = __pyx_t_2;
+    __pyx_L10_bool_binop_done:;
+    if (!__pyx_t_1) break;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":69
+ *         return 0.0
+ *     while i < m and j < n:
+ *         p1 = v1[i]             # <<<<<<<<<<<<<<
+ *         p2 = v2[j]
+ *         if p1.first == p2.first:
+ */
+    __pyx_v_p1 = (__pyx_v_v1[__pyx_v_i]);
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":70
+ *     while i < m and j < n:
+ *         p1 = v1[i]
+ *         p2 = v2[j]             # <<<<<<<<<<<<<<
+ *         if p1.first == p2.first:
+ *             # TODO , float-2^128 ~ +2^128
+ */
+    __pyx_v_p2 = (__pyx_v_v2[__pyx_v_j]);
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":71
+ *         p1 = v1[i]
+ *         p2 = v2[j]
+ *         if p1.first == p2.first:             # <<<<<<<<<<<<<<
+ *             # TODO , float-2^128 ~ +2^128
+ *             ret += p1.second * p2.second
+ */
+    __pyx_t_1 = ((__pyx_v_p1.first == __pyx_v_p2.first) != 0);
+    if (__pyx_t_1) {
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":73
+ *         if p1.first == p2.first:
+ *             # TODO , float-2^128 ~ +2^128
+ *             ret += p1.second * p2.second             # <<<<<<<<<<<<<<
+ *             i += 1
+ *             j += 1
+ */
+      __pyx_v_ret = (__pyx_v_ret + (__pyx_v_p1.second * __pyx_v_p2.second));
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":74
+ *             # TODO , float-2^128 ~ +2^128
+ *             ret += p1.second * p2.second
+ *             i += 1             # <<<<<<<<<<<<<<
+ *             j += 1
+ *         elif p1.first > p2.first:
+ */
+      __pyx_v_i = (__pyx_v_i + 1);
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":75
+ *             ret += p1.second * p2.second
+ *             i += 1
+ *             j += 1             # <<<<<<<<<<<<<<
+ *         elif p1.first > p2.first:
+ *             j += 1
+ */
+      __pyx_v_j = (__pyx_v_j + 1);
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":71
+ *         p1 = v1[i]
+ *         p2 = v2[j]
+ *         if p1.first == p2.first:             # <<<<<<<<<<<<<<
+ *             # TODO , float-2^128 ~ +2^128
+ *             ret += p1.second * p2.second
+ */
+      goto __pyx_L12;
+    }
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":76
+ *             i += 1
+ *             j += 1
+ *         elif p1.first > p2.first:             # <<<<<<<<<<<<<<
+ *             j += 1
+ *         else:
+ */
+    __pyx_t_1 = ((__pyx_v_p1.first > __pyx_v_p2.first) != 0);
+    if (__pyx_t_1) {
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":77
+ *             j += 1
+ *         elif p1.first > p2.first:
+ *             j += 1             # <<<<<<<<<<<<<<
+ *         else:
+ *             i += 1
+ */
+      __pyx_v_j = (__pyx_v_j + 1);
+
+      /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":76
+ *             i += 1
+ *             j += 1
+ *         elif p1.first > p2.first:             # <<<<<<<<<<<<<<
+ *             j += 1
+ *         else:
+ */
+      goto __pyx_L12;
+    }
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":79
+ *             j += 1
+ *         else:
+ *             i += 1             # <<<<<<<<<<<<<<
+ *     return ret
+ * 
+ */
+    /*else*/ {
+      __pyx_v_i = (__pyx_v_i + 1);
+    }
+    __pyx_L12:;
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":80
+ *         else:
+ *             i += 1
+ *     return ret             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = __pyx_v_ret;
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":52
+ * 
+ * 
+ * cdef float vector_dot(CONVEC& v1, CONVEC& v2) except +:             # <<<<<<<<<<<<<<
+ *     """AB"""
+ *     cdef:
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":83
+ * 
+ * 
+ * cdef float vector_module(CONVEC& v) except +:             # <<<<<<<<<<<<<<
+ *     """"""
+ *     cdef:
+ */
+
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_module(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_v) {
+  int __pyx_v_i;
+  int __pyx_v_n;
+  float __pyx_v_ret;
+  float __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  float __pyx_t_2;
+  __Pyx_RefNannySetupContext("vector_module", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":86
+ *     """"""
+ *     cdef:
+ *         int i = 0             # <<<<<<<<<<<<<<
+ *         int n = v.size()
+ *         float ret = 0.0
+ */
+  __pyx_v_i = 0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":87
+ *     cdef:
+ *         int i = 0
+ *         int n = v.size()             # <<<<<<<<<<<<<<
+ *         float ret = 0.0
+ *     while i < n:
+ */
+  __pyx_v_n = __pyx_v_v.size();
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":88
+ *         int i = 0
+ *         int n = v.size()
+ *         float ret = 0.0             # <<<<<<<<<<<<<<
+ *     while i < n:
+ *         ret += pow2(v[i].second)
+ */
+  __pyx_v_ret = 0.0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":89
+ *         int n = v.size()
+ *         float ret = 0.0
+ *     while i < n:             # <<<<<<<<<<<<<<
+ *         ret += pow2(v[i].second)
+ *         i += 1
+ */
+  while (1) {
+    __pyx_t_1 = ((__pyx_v_i < __pyx_v_n) != 0);
+    if (!__pyx_t_1) break;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":90
+ *         float ret = 0.0
+ *     while i < n:
+ *         ret += pow2(v[i].second)             # <<<<<<<<<<<<<<
+ *         i += 1
+ *     return sqrt(ret)
+ */
+    try {
+      __pyx_t_2 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_pow2((__pyx_v_v[__pyx_v_i]).second);
+    } catch(...) {
+      __Pyx_CppExn2PyErr();
+      __PYX_ERR(0, 90, __pyx_L1_error)
+    }
+    __pyx_v_ret = (__pyx_v_ret + __pyx_t_2);
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":91
+ *     while i < n:
+ *         ret += pow2(v[i].second)
+ *         i += 1             # <<<<<<<<<<<<<<
+ *     return sqrt(ret)
+ * 
+ */
+    __pyx_v_i = (__pyx_v_i + 1);
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":92
+ *         ret += pow2(v[i].second)
+ *         i += 1
+ *     return sqrt(ret)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = sqrt(__pyx_v_ret);
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":83
+ * 
+ * 
+ * cdef float vector_module(CONVEC& v) except +:             # <<<<<<<<<<<<<<
+ *     """"""
+ *     cdef:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.vector_module", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":95
+ * 
+ * 
+ * cdef float cosine_sim(CONVEC& v1, CONVEC& v2) except +:             # <<<<<<<<<<<<<<
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if v1.size() == 0 or v2.size() == 0:
+ */
+
+static float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_cosine_sim(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_v1, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_v2) {
+  float __pyx_v_dot_product;
+  float __pyx_v_module1;
+  float __pyx_v_module2;
+  float __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  float __pyx_t_3;
+  __Pyx_RefNannySetupContext("cosine_sim", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":97
+ * cdef float cosine_sim(CONVEC& v1, CONVEC& v2) except +:
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if v1.size() == 0 or v2.size() == 0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     cdef:
+ */
+  __pyx_t_2 = ((__pyx_v_v1.size() == 0) != 0);
+  if (!__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = ((__pyx_v_v2.size() == 0) != 0);
+  __pyx_t_1 = __pyx_t_2;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_1) {
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":98
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if v1.size() == 0 or v2.size() == 0:
+ *         return 0.0             # <<<<<<<<<<<<<<
+ *     cdef:
+ *         float dot_product = vector_dot(v1, v2)
+ */
+    __pyx_r = 0.0;
+    goto __pyx_L0;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":97
+ * cdef float cosine_sim(CONVEC& v1, CONVEC& v2) except +:
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if v1.size() == 0 or v2.size() == 0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     cdef:
+ */
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":100
+ *         return 0.0
+ *     cdef:
+ *         float dot_product = vector_dot(v1, v2)             # <<<<<<<<<<<<<<
+ *         float module1 = vector_module(v1)
+ *         float module2 = vector_module(v2)
+ */
+  try {
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_dot(__pyx_v_v1, __pyx_v_v2);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 100, __pyx_L1_error)
+  }
+  __pyx_v_dot_product = __pyx_t_3;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":101
+ *     cdef:
+ *         float dot_product = vector_dot(v1, v2)
+ *         float module1 = vector_module(v1)             # <<<<<<<<<<<<<<
+ *         float module2 = vector_module(v2)
+ *     return fast_cosine_sim(dot_product, module1, module2)
+ */
+  try {
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_module(__pyx_v_v1);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 101, __pyx_L1_error)
+  }
+  __pyx_v_module1 = __pyx_t_3;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":102
+ *         float dot_product = vector_dot(v1, v2)
+ *         float module1 = vector_module(v1)
+ *         float module2 = vector_module(v2)             # <<<<<<<<<<<<<<
+ *     return fast_cosine_sim(dot_product, module1, module2)
+ * 
+ */
+  try {
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_module(__pyx_v_v2);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 102, __pyx_L1_error)
+  }
+  __pyx_v_module2 = __pyx_t_3;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":103
+ *         float module1 = vector_module(v1)
+ *         float module2 = vector_module(v2)
+ *     return fast_cosine_sim(dot_product, module1, module2)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  try {
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_fast_cosine_sim(__pyx_v_dot_product, __pyx_v_module1, __pyx_v_module2);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 103, __pyx_L1_error)
+  }
+  __pyx_r = __pyx_t_3;
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":95
+ * 
+ * 
+ * cdef float cosine_sim(CONVEC& v1, CONVEC& v2) except +:             # <<<<<<<<<<<<<<
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if v1.size() == 0 or v2.size() == 0:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.cosine_sim", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __pyx_r = 0;
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":106
+ * 
+ * 
+ * cdef inline float fast_cosine_sim(float dot_product, float module1, float module2) except +:             # <<<<<<<<<<<<<<
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:
+ */
+
+static CYTHON_INLINE float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_fast_cosine_sim(float __pyx_v_dot_product, float __pyx_v_module1, float __pyx_v_module2) {
+  float __pyx_r;
+  __Pyx_RefNannyDeclarations
+  int __pyx_t_1;
+  int __pyx_t_2;
+  __Pyx_RefNannySetupContext("fast_cosine_sim", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":108
+ * cdef inline float fast_cosine_sim(float dot_product, float module1, float module2) except +:
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     return dot_product / module1 / module2
+ */
+  __pyx_t_2 = ((__pyx_v_dot_product == 0.0) != 0);
+  if (!__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = ((__pyx_v_module1 == 0.0) != 0);
+  if (!__pyx_t_2) {
+  } else {
+    __pyx_t_1 = __pyx_t_2;
+    goto __pyx_L4_bool_binop_done;
+  }
+  __pyx_t_2 = ((__pyx_v_module2 == 0.0) != 0);
+  __pyx_t_1 = __pyx_t_2;
+  __pyx_L4_bool_binop_done:;
+  if (__pyx_t_1) {
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":109
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:
+ *         return 0.0             # <<<<<<<<<<<<<<
+ *     return dot_product / module1 / module2
+ * 
+ */
+    __pyx_r = 0.0;
+    goto __pyx_L0;
+
+    /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":108
+ * cdef inline float fast_cosine_sim(float dot_product, float module1, float module2) except +:
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:             # <<<<<<<<<<<<<<
+ *         return 0.0
+ *     return dot_product / module1 / module2
+ */
+  }
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":110
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:
+ *         return 0.0
+ *     return dot_product / module1 / module2             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = ((__pyx_v_dot_product / __pyx_v_module1) / __pyx_v_module2);
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":106
+ * 
+ * 
+ * cdef inline float fast_cosine_sim(float dot_product, float module1, float module2) except +:             # <<<<<<<<<<<<<<
+ *     """ABSimilarity = A dot B / A x B"""
+ *     if dot_product == 0.0 or module1 == 0.0 or module2 == 0.0:
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":113
+ * 
+ * 
+ * cdef inline float pow2(float x) except +:             # <<<<<<<<<<<<<<
+ *     """x"""
+ *     return x * x
+ */
+
+static CYTHON_INLINE float __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_pow2(float __pyx_v_x) {
+  float __pyx_r;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("pow2", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":115
+ * cdef inline float pow2(float x) except +:
+ *     """x"""
+ *     return x * x             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = (__pyx_v_x * __pyx_v_x);
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":113
+ * 
+ * 
+ * cdef inline float pow2(float x) except +:             # <<<<<<<<<<<<<<
+ *     """x"""
+ *     return x * x
+ */
+
+  /* function exit code */
+  __pyx_L0:;
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":118
+ * 
+ * 
+ * def cosine_sim_py(l1: List[Tuple[int, float]], l2: List[Tuple[int, float]])->float:             # <<<<<<<<<<<<<<
+ *     """consine_simPython"""
+ *     return cosine_sim(l1, l2)
+ */
+
+/* Python wrapper */
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_3cosine_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_2cosine_sim_py[] = "\345\214\205\350\243\205consine_sim\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_3cosine_sim_py = {"cosine_sim_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_3cosine_sim_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_2cosine_sim_py};
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_3cosine_sim_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+  PyObject *__pyx_v_l1 = 0;
+  PyObject *__pyx_v_l2 = 0;
+  PyObject *__pyx_r = 0;
+  __Pyx_RefNannyDeclarations
+  __Pyx_RefNannySetupContext("cosine_sim_py (wrapper)", 0);
+  {
+    static PyObject **__pyx_pyargnames[] = {&__pyx_n_s_l1,&__pyx_n_s_l2,0};
+    PyObject* values[2] = {0,0};
+    if (unlikely(__pyx_kwds)) {
+      Py_ssize_t kw_args;
+      const Py_ssize_t pos_args = PyTuple_GET_SIZE(__pyx_args);
+      switch (pos_args) {
+        case  2: values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+        CYTHON_FALLTHROUGH;
+        case  1: values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+        CYTHON_FALLTHROUGH;
+        case  0: break;
+        default: goto __pyx_L5_argtuple_error;
+      }
+      kw_args = PyDict_Size(__pyx_kwds);
+      switch (pos_args) {
+        case  0:
+        if (likely((values[0] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_l1)) != 0)) kw_args--;
+        else goto __pyx_L5_argtuple_error;
+        CYTHON_FALLTHROUGH;
+        case  1:
+        if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_l2)) != 0)) kw_args--;
+        else {
+          __Pyx_RaiseArgtupleInvalid("cosine_sim_py", 1, 2, 2, 1); __PYX_ERR(0, 118, __pyx_L3_error)
+        }
+      }
+      if (unlikely(kw_args > 0)) {
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "cosine_sim_py") < 0)) __PYX_ERR(0, 118, __pyx_L3_error)
+      }
+    } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
+      goto __pyx_L5_argtuple_error;
+    } else {
+      values[0] = PyTuple_GET_ITEM(__pyx_args, 0);
+      values[1] = PyTuple_GET_ITEM(__pyx_args, 1);
+    }
+    __pyx_v_l1 = values[0];
+    __pyx_v_l2 = values[1];
+  }
+  goto __pyx_L4_argument_unpacking_done;
+  __pyx_L5_argtuple_error:;
+  __Pyx_RaiseArgtupleInvalid("cosine_sim_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 118, __pyx_L3_error)
+  __pyx_L3_error:;
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.cosine_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_RefNannyFinishContext();
+  return NULL;
+  __pyx_L4_argument_unpacking_done:;
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_2cosine_sim_py(__pyx_self, __pyx_v_l1, __pyx_v_l2);
+
+  /* function exit code */
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_2cosine_sim_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_l1, PyObject *__pyx_v_l2) {
+  PyObject *__pyx_r = NULL;
+  __Pyx_RefNannyDeclarations
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_t_1;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_t_2;
+  float __pyx_t_3;
+  PyObject *__pyx_t_4 = NULL;
+  __Pyx_RefNannySetupContext("cosine_sim_py", 0);
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":120
+ * def cosine_sim_py(l1: List[Tuple[int, float]], l2: List[Tuple[int, float]])->float:
+ *     """consine_simPython"""
+ *     return cosine_sim(l1, l2)             # <<<<<<<<<<<<<<
+ */
+  __Pyx_XDECREF(__pyx_r);
+  __pyx_t_1 = __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(__pyx_v_l1); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 120, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(__pyx_v_l2); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 120, __pyx_L1_error)
+  try {
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_cosine_sim(__pyx_t_1, __pyx_t_2);
+  } catch(...) {
+    __Pyx_CppExn2PyErr();
+    __PYX_ERR(0, 120, __pyx_L1_error)
+  }
+  __pyx_t_4 = PyFloat_FromDouble(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 120, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_4);
+  __pyx_r = __pyx_t_4;
+  __pyx_t_4 = 0;
+  goto __pyx_L0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":118
+ * 
+ * 
+ * def cosine_sim_py(l1: List[Tuple[int, float]], l2: List[Tuple[int, float]])->float:             # <<<<<<<<<<<<<<
+ *     """consine_simPython"""
+ *     return cosine_sim(l1, l2)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.sim_metrics.cosine_sim_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1704,6 +2652,236 @@ static std::vector<int>  __pyx_convert_vector_from_py_int(PyObject *__pyx_v_o) {
   return __pyx_r;
 }
 
+/* "pair.from_py":145
+ * 
+ * @cname("__pyx_convert_pair_from_py_int__and_float")
+ * cdef pair[X,Y] __pyx_convert_pair_from_py_int__and_float(object o) except *:             # <<<<<<<<<<<<<<
+ *     x, y = o
+ *     return pair[X,Y](<X>x, <Y>y)
+ */
+
+static std::pair<int,float>  __pyx_convert_pair_from_py_int__and_float(PyObject *__pyx_v_o) {
+  PyObject *__pyx_v_x = NULL;
+  PyObject *__pyx_v_y = NULL;
+  std::pair<int,float>  __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  PyObject *__pyx_t_2 = NULL;
+  PyObject *__pyx_t_3 = NULL;
+  PyObject *(*__pyx_t_4)(PyObject *);
+  int __pyx_t_5;
+  float __pyx_t_6;
+  __Pyx_RefNannySetupContext("__pyx_convert_pair_from_py_int__and_float", 0);
+
+  /* "pair.from_py":146
+ * @cname("__pyx_convert_pair_from_py_int__and_float")
+ * cdef pair[X,Y] __pyx_convert_pair_from_py_int__and_float(object o) except *:
+ *     x, y = o             # <<<<<<<<<<<<<<
+ *     return pair[X,Y](<X>x, <Y>y)
+ * 
+ */
+  if ((likely(PyTuple_CheckExact(__pyx_v_o))) || (PyList_CheckExact(__pyx_v_o))) {
+    PyObject* sequence = __pyx_v_o;
+    Py_ssize_t size = __Pyx_PySequence_SIZE(sequence);
+    if (unlikely(size != 2)) {
+      if (size > 2) __Pyx_RaiseTooManyValuesError(2);
+      else if (size >= 0) __Pyx_RaiseNeedMoreValuesError(size);
+      __PYX_ERR(1, 146, __pyx_L1_error)
+    }
+    #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+    if (likely(PyTuple_CheckExact(sequence))) {
+      __pyx_t_1 = PyTuple_GET_ITEM(sequence, 0); 
+      __pyx_t_2 = PyTuple_GET_ITEM(sequence, 1); 
+    } else {
+      __pyx_t_1 = PyList_GET_ITEM(sequence, 0); 
+      __pyx_t_2 = PyList_GET_ITEM(sequence, 1); 
+    }
+    __Pyx_INCREF(__pyx_t_1);
+    __Pyx_INCREF(__pyx_t_2);
+    #else
+    __pyx_t_1 = PySequence_ITEM(sequence, 0); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 146, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_2 = PySequence_ITEM(sequence, 1); if (unlikely(!__pyx_t_2)) __PYX_ERR(1, 146, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_2);
+    #endif
+  } else {
+    Py_ssize_t index = -1;
+    __pyx_t_3 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 146, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_3);
+    __pyx_t_4 = Py_TYPE(__pyx_t_3)->tp_iternext;
+    index = 0; __pyx_t_1 = __pyx_t_4(__pyx_t_3); if (unlikely(!__pyx_t_1)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_1);
+    index = 1; __pyx_t_2 = __pyx_t_4(__pyx_t_3); if (unlikely(!__pyx_t_2)) goto __pyx_L3_unpacking_failed;
+    __Pyx_GOTREF(__pyx_t_2);
+    if (__Pyx_IternextUnpackEndCheck(__pyx_t_4(__pyx_t_3), 2) < 0) __PYX_ERR(1, 146, __pyx_L1_error)
+    __pyx_t_4 = NULL;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    goto __pyx_L4_unpacking_done;
+    __pyx_L3_unpacking_failed:;
+    __Pyx_DECREF(__pyx_t_3); __pyx_t_3 = 0;
+    __pyx_t_4 = NULL;
+    if (__Pyx_IterFinish() == 0) __Pyx_RaiseNeedMoreValuesError(index);
+    __PYX_ERR(1, 146, __pyx_L1_error)
+    __pyx_L4_unpacking_done:;
+  }
+  __pyx_v_x = __pyx_t_1;
+  __pyx_t_1 = 0;
+  __pyx_v_y = __pyx_t_2;
+  __pyx_t_2 = 0;
+
+  /* "pair.from_py":147
+ * cdef pair[X,Y] __pyx_convert_pair_from_py_int__and_float(object o) except *:
+ *     x, y = o
+ *     return pair[X,Y](<X>x, <Y>y)             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_t_5 = __Pyx_PyInt_As_int(__pyx_v_x); if (unlikely((__pyx_t_5 == (int)-1) && PyErr_Occurred())) __PYX_ERR(1, 147, __pyx_L1_error)
+  __pyx_t_6 = __pyx_PyFloat_AsFloat(__pyx_v_y); if (unlikely((__pyx_t_6 == (float)-1) && PyErr_Occurred())) __PYX_ERR(1, 147, __pyx_L1_error)
+  __pyx_r = std::pair<int,float> (((int)__pyx_t_5), ((float)__pyx_t_6));
+  goto __pyx_L0;
+
+  /* "pair.from_py":145
+ * 
+ * @cname("__pyx_convert_pair_from_py_int__and_float")
+ * cdef pair[X,Y] __pyx_convert_pair_from_py_int__and_float(object o) except *:             # <<<<<<<<<<<<<<
+ *     x, y = o
+ *     return pair[X,Y](<X>x, <Y>y)
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_2);
+  __Pyx_XDECREF(__pyx_t_3);
+  __Pyx_AddTraceback("pair.from_py.__pyx_convert_pair_from_py_int__and_float", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_x);
+  __Pyx_XDECREF(__pyx_v_y);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
+/* "vector.from_py":45
+ * 
+ * @cname("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
+ */
+
+static std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(PyObject *__pyx_v_o) {
+  std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_v_v;
+  PyObject *__pyx_v_item = NULL;
+  std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_r;
+  __Pyx_RefNannyDeclarations
+  PyObject *__pyx_t_1 = NULL;
+  Py_ssize_t __pyx_t_2;
+  PyObject *(*__pyx_t_3)(PyObject *);
+  PyObject *__pyx_t_4 = NULL;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR __pyx_t_5;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", 0);
+
+  /* "vector.from_py":47
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(<X>item)
+ *     return v
+ */
+  if (likely(PyList_CheckExact(__pyx_v_o)) || PyTuple_CheckExact(__pyx_v_o)) {
+    __pyx_t_1 = __pyx_v_o; __Pyx_INCREF(__pyx_t_1); __pyx_t_2 = 0;
+    __pyx_t_3 = NULL;
+  } else {
+    __pyx_t_2 = -1; __pyx_t_1 = PyObject_GetIter(__pyx_v_o); if (unlikely(!__pyx_t_1)) __PYX_ERR(1, 47, __pyx_L1_error)
+    __Pyx_GOTREF(__pyx_t_1);
+    __pyx_t_3 = Py_TYPE(__pyx_t_1)->tp_iternext; if (unlikely(!__pyx_t_3)) __PYX_ERR(1, 47, __pyx_L1_error)
+  }
+  for (;;) {
+    if (likely(!__pyx_t_3)) {
+      if (likely(PyList_CheckExact(__pyx_t_1))) {
+        if (__pyx_t_2 >= PyList_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyList_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(1, 47, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 47, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      } else {
+        if (__pyx_t_2 >= PyTuple_GET_SIZE(__pyx_t_1)) break;
+        #if CYTHON_ASSUME_SAFE_MACROS && !CYTHON_AVOID_BORROWED_REFS
+        __pyx_t_4 = PyTuple_GET_ITEM(__pyx_t_1, __pyx_t_2); __Pyx_INCREF(__pyx_t_4); __pyx_t_2++; if (unlikely(0 < 0)) __PYX_ERR(1, 47, __pyx_L1_error)
+        #else
+        __pyx_t_4 = PySequence_ITEM(__pyx_t_1, __pyx_t_2); __pyx_t_2++; if (unlikely(!__pyx_t_4)) __PYX_ERR(1, 47, __pyx_L1_error)
+        __Pyx_GOTREF(__pyx_t_4);
+        #endif
+      }
+    } else {
+      __pyx_t_4 = __pyx_t_3(__pyx_t_1);
+      if (unlikely(!__pyx_t_4)) {
+        PyObject* exc_type = PyErr_Occurred();
+        if (exc_type) {
+          if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) PyErr_Clear();
+          else __PYX_ERR(1, 47, __pyx_L1_error)
+        }
+        break;
+      }
+      __Pyx_GOTREF(__pyx_t_4);
+    }
+    __Pyx_XDECREF_SET(__pyx_v_item, __pyx_t_4);
+    __pyx_t_4 = 0;
+
+    /* "vector.from_py":48
+ *     cdef vector[X] v
+ *     for item in o:
+ *         v.push_back(<X>item)             # <<<<<<<<<<<<<<
+ *     return v
+ * 
+ */
+    __pyx_t_5 = __pyx_convert_pair_from_py_int__and_float(__pyx_v_item); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 48, __pyx_L1_error)
+    __pyx_v_v.push_back(((__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR)__pyx_t_5));
+
+    /* "vector.from_py":47
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:
+ *     cdef vector[X] v
+ *     for item in o:             # <<<<<<<<<<<<<<
+ *         v.push_back(<X>item)
+ *     return v
+ */
+  }
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+
+  /* "vector.from_py":49
+ *     for item in o:
+ *         v.push_back(<X>item)
+ *     return v             # <<<<<<<<<<<<<<
+ * 
+ * 
+ */
+  __pyx_r = __pyx_v_v;
+  goto __pyx_L0;
+
+  /* "vector.from_py":45
+ * 
+ * @cname("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:             # <<<<<<<<<<<<<<
+ *     cdef vector[X] v
+ *     for item in o:
+ */
+
+  /* function exit code */
+  __pyx_L1_error:;
+  __Pyx_XDECREF(__pyx_t_1);
+  __Pyx_XDECREF(__pyx_t_4);
+  __Pyx_AddTraceback("vector.from_py.__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_pretend_to_initialize(&__pyx_r);
+  __pyx_L0:;
+  __Pyx_XDECREF(__pyx_v_item);
+  __Pyx_RefNannyFinishContext();
+  return __pyx_r;
+}
+
 static PyMethodDef __pyx_methods[] = {
   {0, 0, 0, 0}
 };
@@ -1751,14 +2929,16 @@ static struct PyModuleDef __pyx_moduledef = {
 
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_List, __pyx_k_List, sizeof(__pyx_k_List), 0, 0, 1, 1},
+  {&__pyx_n_s_Tuple, __pyx_k_Tuple, sizeof(__pyx_k_Tuple), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_cosine_sim_py, __pyx_k_cosine_sim_py, sizeof(__pyx_k_cosine_sim_py), 0, 0, 1, 1},
+  {&__pyx_n_s_dwh_pyrecall_pyrecall_utils_sim, __pyx_k_dwh_pyrecall_pyrecall_utils_sim, sizeof(__pyx_k_dwh_pyrecall_pyrecall_utils_sim), 0, 0, 1, 1},
   {&__pyx_n_s_import, __pyx_k_import, sizeof(__pyx_k_import), 0, 0, 1, 1},
   {&__pyx_n_s_jaccard_sim_py, __pyx_k_jaccard_sim_py, sizeof(__pyx_k_jaccard_sim_py), 0, 0, 1, 1},
   {&__pyx_n_s_l1, __pyx_k_l1, sizeof(__pyx_k_l1), 0, 0, 1, 1},
   {&__pyx_n_s_l2, __pyx_k_l2, sizeof(__pyx_k_l2), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_pyrecall_pyrecall_utils_sim_metr, __pyx_k_pyrecall_pyrecall_utils_sim_metr, sizeof(__pyx_k_pyrecall_pyrecall_utils_sim_metr), 0, 0, 1, 1},
   {&__pyx_kp_s_sim_metrics_pyx, __pyx_k_sim_metrics_pyx, sizeof(__pyx_k_sim_metrics_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_test, __pyx_k_test, sizeof(__pyx_k_test), 0, 0, 1, 1},
   {&__pyx_n_s_typing, __pyx_k_typing, sizeof(__pyx_k_typing), 0, 0, 1, 1},
@@ -1772,17 +2952,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":44
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":47
  * 
  * 
  * def jaccard_sim_py(l1: List[int], l2: List[int])->float:             # <<<<<<<<<<<<<<
  *     """jaccard_simPython"""
  *     return jaccard_sim(l1, l2)
  */
-  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_l1, __pyx_n_s_l2); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(2, __pyx_n_s_l1, __pyx_n_s_l2); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sim_metrics_pyx, __pyx_n_s_jaccard_sim_py, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sim_metrics_pyx, __pyx_n_s_jaccard_sim_py, 47, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 47, __pyx_L1_error)
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":118
+ * 
+ * 
+ * def cosine_sim_py(l1: List[Tuple[int, float]], l2: List[Tuple[int, float]])->float:             # <<<<<<<<<<<<<<
+ *     """consine_simPython"""
+ *     return cosine_sim(l1, l2)
+ */
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_l1, __pyx_n_s_l2); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_tuple__3);
+  __Pyx_GIVEREF(__pyx_tuple__3);
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_sim_metrics_pyx, __pyx_n_s_cosine_sim_py, 118, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 118, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -1825,7 +3017,12 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("jaccard_sim", (void (*)(void))__pyx_f_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim, "float (std::vector<int>  &, std::vector<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("jaccard_sim", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_jaccard_sim, "float (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("vector_dot", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_dot, "float (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("vector_module", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_vector_module, "float (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("cosine_sim", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_cosine_sim, "float (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("fast_cosine_sim", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_fast_cosine_sim, "float (float, float, float)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("pow2", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_pow2, "float (float)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2036,14 +3233,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyrecall__pyrecall__utils__sim_metrics) {
+  if (__pyx_module_is_main_dwh__pyrecall__pyrecall__utils__sim_metrics) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyrecall.pyrecall.utils.sim_metrics")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyrecall.pyrecall.utils.sim_metrics", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "dwh.pyrecall.pyrecall.utils.sim_metrics")) {
+      if (unlikely(PyDict_SetItemString(modules, "dwh.pyrecall.pyrecall.utils.sim_metrics", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2064,18 +3261,21 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":11
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":11
  * """
- * from libcpp.vector cimport vector
- * from typing import List             # <<<<<<<<<<<<<<
  * 
- * 
+ * from typing import List, Tuple             # <<<<<<<<<<<<<<
+ * from libc.math cimport sqrt
+ * from cython.operator cimport dereference as deref, preincrement as inc
  */
-  __pyx_t_1 = PyList_New(1); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __pyx_t_1 = PyList_New(2); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __Pyx_INCREF(__pyx_n_s_List);
   __Pyx_GIVEREF(__pyx_n_s_List);
   PyList_SET_ITEM(__pyx_t_1, 0, __pyx_n_s_List);
+  __Pyx_INCREF(__pyx_n_s_Tuple);
+  __Pyx_GIVEREF(__pyx_n_s_Tuple);
+  PyList_SET_ITEM(__pyx_t_1, 1, __pyx_n_s_Tuple);
   __pyx_t_2 = __Pyx_Import(__pyx_n_s_typing, __pyx_t_1, -1); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
@@ -2083,21 +3283,37 @@ if (!__Pyx_RefNanny) {
   __Pyx_GOTREF(__pyx_t_1);
   if (PyDict_SetItem(__pyx_d, __pyx_n_s_List, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
+  __pyx_t_1 = __Pyx_ImportFrom(__pyx_t_2, __pyx_n_s_Tuple); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_1);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_Tuple, __pyx_t_1) < 0) __PYX_ERR(0, 11, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":44
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":47
  * 
  * 
  * def jaccard_sim_py(l1: List[int], l2: List[int])->float:             # <<<<<<<<<<<<<<
  *     """jaccard_simPython"""
  *     return jaccard_sim(l1, l2)
  */
-  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py, NULL, __pyx_n_s_pyrecall_pyrecall_utils_sim_metr); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_1jaccard_sim_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_sim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_2);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_jaccard_sim_py, __pyx_t_2) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_jaccard_sim_py, __pyx_t_2) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
 
-  /* "pyrecall/pyrecall/utils/sim_metrics.pyx":1
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":118
+ * 
+ * 
+ * def cosine_sim_py(l1: List[Tuple[int, float]], l2: List[Tuple[int, float]])->float:             # <<<<<<<<<<<<<<
+ *     """consine_simPython"""
+ *     return cosine_sim(l1, l2)
+ */
+  __pyx_t_2 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_11sim_metrics_3cosine_sim_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_sim); if (unlikely(!__pyx_t_2)) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_GOTREF(__pyx_t_2);
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_cosine_sim_py, __pyx_t_2) < 0) __PYX_ERR(0, 118, __pyx_L1_error)
+  __Pyx_DECREF(__pyx_t_2); __pyx_t_2 = 0;
+
+  /* "dwh/pyrecall/pyrecall/utils/sim_metrics.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
  * #cython: boundscheck=False
  * #cython: wraparound=False
@@ -2109,8 +3325,8 @@ if (!__Pyx_RefNanny) {
 
   /* "vector.from_py":45
  * 
- * @cname("__pyx_convert_vector_from_py_int")
- * cdef vector[X] __pyx_convert_vector_from_py_int(object o) except *:             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:             # <<<<<<<<<<<<<<
  *     cdef vector[X] v
  *     for item in o:
  */
@@ -2123,11 +3339,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_2);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyrecall.pyrecall.utils.sim_metrics", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init dwh.pyrecall.pyrecall.utils.sim_metrics", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyrecall.pyrecall.utils.sim_metrics");
+    PyErr_SetString(PyExc_ImportError, "init dwh.pyrecall.pyrecall.utils.sim_metrics");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
@@ -2298,6 +3514,66 @@ invalid_keyword:
     #endif
 bad:
     return -1;
+}
+
+/* RaiseTooManyValuesToUnpack */
+static CYTHON_INLINE void __Pyx_RaiseTooManyValuesError(Py_ssize_t expected) {
+    PyErr_Format(PyExc_ValueError,
+                 "too many values to unpack (expected %" CYTHON_FORMAT_SSIZE_T "d)", expected);
+}
+
+/* RaiseNeedMoreValuesToUnpack */
+static CYTHON_INLINE void __Pyx_RaiseNeedMoreValuesError(Py_ssize_t index) {
+    PyErr_Format(PyExc_ValueError,
+                 "need more than %" CYTHON_FORMAT_SSIZE_T "d value%.1s to unpack",
+                 index, (index == 1) ? "" : "s");
+}
+
+/* IterFinish */
+static CYTHON_INLINE int __Pyx_IterFinish(void) {
+#if CYTHON_FAST_THREAD_STATE
+    PyThreadState *tstate = __Pyx_PyThreadState_Current;
+    PyObject* exc_type = tstate->curexc_type;
+    if (unlikely(exc_type)) {
+        if (likely(__Pyx_PyErr_GivenExceptionMatches(exc_type, PyExc_StopIteration))) {
+            PyObject *exc_value, *exc_tb;
+            exc_value = tstate->curexc_value;
+            exc_tb = tstate->curexc_traceback;
+            tstate->curexc_type = 0;
+            tstate->curexc_value = 0;
+            tstate->curexc_traceback = 0;
+            Py_DECREF(exc_type);
+            Py_XDECREF(exc_value);
+            Py_XDECREF(exc_tb);
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+    return 0;
+#else
+    if (unlikely(PyErr_Occurred())) {
+        if (likely(PyErr_ExceptionMatches(PyExc_StopIteration))) {
+            PyErr_Clear();
+            return 0;
+        } else {
+            return -1;
+        }
+    }
+    return 0;
+#endif
+}
+
+/* UnpackItemEndCheck */
+static int __Pyx_IternextUnpackEndCheck(PyObject *retval, Py_ssize_t expected) {
+    if (unlikely(retval)) {
+        Py_DECREF(retval);
+        __Pyx_RaiseTooManyValuesError(expected);
+        return -1;
+    } else {
+        return __Pyx_IterFinish();
+    }
+    return 0;
 }
 
 /* PyObjectGetAttrStr */

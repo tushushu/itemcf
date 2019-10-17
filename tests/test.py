@@ -32,4 +32,4 @@ if __name__ == "__main__":
     # 测试SparseMatrixBinary类的recommend方法推出内容是否与手动计算结果一致。
     test_recommend_accuracy(100)
     # 测试SparseMatrixBinary类的recommend方法中合法非法清单是否生效。
-    test_recommend_checklist()
+    test_recommend_checklist(50)

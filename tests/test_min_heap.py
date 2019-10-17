@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(".."))
 
 from typing import List, Tuple
 from random import shuffle
-from utils.heap import min_heappush_py
+from pyrecall.utils.heap import min_heappush_py
 
 
 def test_min_heap(n_test: int):

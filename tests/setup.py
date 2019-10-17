@@ -34,7 +34,8 @@ def compile_file(file_name: str):
 
 
 if __name__ == "__main__":
-    compile_cpp11_file("test_sorted_set.pyx")
+    # compile_cpp11_file("test_sorted_set.pyx")
+    compile_cpp11_file("dymanic_method.pyx")
 
 # source activate py36
 # python setup.py build_ext --inplace

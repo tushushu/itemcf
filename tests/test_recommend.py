@@ -12,7 +12,7 @@ sys.path.append(os.path.abspath(".."))
 
 from collections import defaultdict
 from typing import Dict, List
-from utils.sparse_matrix import SparseMatrixBinary
+from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary
 from tests.test_knn_search import get_test_cases
 
 # 用户的user * item矩阵
@@ -88,18 +88,20 @@ def test_recommend_accuracy(n_rows: int):
     print("共计测试%d次, " % n_cols, "测试通过!\n")
 
 
-def _test_recommend_checklist_logic(validlist: set, blacklist: set, mat_t: dict, k: int):
+def _test_recommend_checklist_logic(validlist: set, blacklist: set,
+                                    mat: dict, mat_t: dict,
+                                    k: int):
     print(f"validlist={validlist}, blacklist={blacklist}")
     sparse_mat = SparseMatrixBinary(mat_t, validlist, blacklist)
-    for key, val in MAT.items():
-        print("key:", key, "val:", val)
+    for key, val in mat.items():
+        # print("key:", key, "val:", val)
         actual = sparse_mat.recommend(val, k)
         if validlist:
-            print("check recommend in validlist")
+            # print("check recommend in validlist")
             for rec in actual:
                 assert rec[0] in validlist, '测试不通过!\n'
         if blacklist:
-            print("check recommend in blacklist")
+            # print("check recommend in blacklist")
             for rec in actual:
                 assert rec[0] not in blacklist, '测试不通过!\n'
 
@@ -122,11 +124,13 @@ def test_recommend_checklist(n_rows: int):
     mat = get_test_cases(n_rows, n_cols)
     mat_t = transpose(mat)
 
+    print("转置后的矩阵大小为:\n", len(mat_t.keys()), "\n")
+
     test_cases = get_test_cases_logic(mat_t)
     i = 1
     for valid_list, blacklist in test_cases:
-        print(f"第{i}次测试！")
-        _test_recommend_checklist_logic(valid_list, blacklist, mat_t, k)
+        print(f"\n第{i}次测试！")
+        _test_recommend_checklist_logic(valid_list, blacklist, mat, mat_t, k)
         i += 1
     print("测试通过!\n")
 
@@ -142,17 +146,20 @@ def test_recommend_checklist(n_rows: int):
 
 def get_test_cases_logic(mat_t: dict, n_test: int = 1000):
     ret = list()
+    valid_list = set()
+    blacklist = set()
     for i in range(n_test):
-        max_i = min(1, len(mat_t.keys()) // 10)
+        max_i = max(1, len(mat_t.keys()) // 10)
         valid_list = set(sample(mat_t.keys(), randint(1, max_i)))
         blacklist = set(sample(mat_t.keys(), randint(1, max_i)))
 
         if blacklist.issubset(valid_list):
             continue
         ret.append([valid_list, blacklist])
-        ret.append([None, None])
-        ret.append([valid_list, None])
-        ret.append([None, blacklist])
+
+    ret.append([None, None])
+    ret.append([valid_list, None])
+    ret.append([None, blacklist])
 
     return ret
 
@@ -161,19 +168,18 @@ def get_test_cases_bound():
     # 1两个都在,24仅在合法清单,3仅在非法清单,5两个都不在
     valid_list = {1, 2, 4}
     blacklist = {1, 3}
-    # BLACKLIST2是VALIDLIST的子集
-    blacklist2 = {1}
+    # validlist是blacklist的子集
+    valid_list2 = {1}
 
     ret = list()
     ret.append([set(), None])
     ret.append([set(), blacklist])
     ret.append([None, set()])
     ret.append([valid_list, set()])
-    ret.append([valid_list, blacklist2])
+    ret.append([valid_list2, blacklist])
     return ret
 
 
 if __name__ == "__main__":
     test_recommend_accuracy(100)
-    test_recommend_checklist(100)
-
+    test_recommend_checklist(50)

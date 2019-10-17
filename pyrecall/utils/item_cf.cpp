@@ -5,12 +5,12 @@
     "distutils": {
         "depends": [],
         "language": "c++",
-        "name": "pyrecall.pyrecall.utils.item_cf",
+        "name": "dwh.pyrecall.pyrecall.utils.item_cf",
         "sources": [
             "item_cf.pyx"
         ]
     },
-    "module_name": "pyrecall.pyrecall.utils.item_cf"
+    "module_name": "dwh.pyrecall.pyrecall.utils.item_cf"
 }
 END: Cython Metadata */
 
@@ -613,8 +613,8 @@ static CYTHON_INLINE float __PYX_NAN() {
   #endif
 #endif
 
-#define __PYX_HAVE__pyrecall__pyrecall__utils__item_cf
-#define __PYX_HAVE_API__pyrecall__pyrecall__utils__item_cf
+#define __PYX_HAVE__dwh__pyrecall__pyrecall__utils__item_cf
+#define __PYX_HAVE_API__dwh__pyrecall__pyrecall__utils__item_cf
 /* Early includes */
 #include "ios"
 #include "new"
@@ -838,6 +838,120 @@ static const char *__pyx_f[] = {
 };
 
 /*--- Type declarations ---*/
+
+/* "typedefs.pxd":12
+ * 
+ * # Element
+ * ctypedef pair[int, float] IFPAIR             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef vector[int] BINVEC
+ */
+typedef std::pair<int,float>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR;
+
+/* "typedefs.pxd":14
+ * ctypedef pair[int, float] IFPAIR
+ * #
+ * ctypedef vector[int] BINVEC             # <<<<<<<<<<<<<<
+ * ctypedef vector[int].iterator BINVEC_IT
+ * #
+ */
+typedef std::vector<int>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC;
+
+/* "typedefs.pxd":15
+ * #
+ * ctypedef vector[int] BINVEC
+ * ctypedef vector[int].iterator BINVEC_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef vector[IFPAIR] CONVEC
+ */
+typedef std::vector<int> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC_IT;
+
+/* "typedefs.pxd":17
+ * ctypedef vector[int].iterator BINVEC_IT
+ * #
+ * ctypedef vector[IFPAIR] CONVEC             # <<<<<<<<<<<<<<
+ * ctypedef vector[IFPAIR].iterator CONVEC_IT
+ * #
+ */
+typedef std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC;
+
+/* "typedefs.pxd":18
+ * #
+ * ctypedef vector[IFPAIR] CONVEC
+ * ctypedef vector[IFPAIR].iterator CONVEC_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef fused VEC:
+ */
+typedef std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC_IT;
+
+/* "typedefs.pxd":24
+ *     CONVEC
+ * #
+ * ctypedef cpp_map[int, BINVEC] BINMAT             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT
+ * #
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINMAT;
+
+/* "typedefs.pxd":25
+ * #
+ * ctypedef cpp_map[int, BINVEC] BINMAT
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINVEC> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_BINMAT_IT;
+
+/* "typedefs.pxd":27
+ * ctypedef cpp_map[int, BINVEC].iterator BINMAT_IT
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, CONVEC].iterator CONMAT_IT
+ * #
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONMAT;
+
+/* "typedefs.pxd":28
+ * #
+ * ctypedef cpp_map[int, CONVEC] CONMAT
+ * ctypedef cpp_map[int, CONVEC].iterator CONMAT_IT             # <<<<<<<<<<<<<<
+ * #
+ * ctypedef fused MAT:
+ */
+typedef std::unordered_map<int,__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONMAT_IT;
+
+/* "typedefs.pxd":34
+ *     CONMAT
+ * # SetElement
+ * ctypedef cpp_set[int] ISET             # <<<<<<<<<<<<<<
+ * ctypedef cpp_set[int].iterator ISET_IT
+ * # KeyValueMapElement
+ */
+typedef std::unordered_set<int>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET;
+
+/* "typedefs.pxd":35
+ * # SetElement
+ * ctypedef cpp_set[int] ISET
+ * ctypedef cpp_set[int].iterator ISET_IT             # <<<<<<<<<<<<<<
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP
+ */
+typedef std::unordered_set<int> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET_IT;
+
+/* "typedefs.pxd":37
+ * ctypedef cpp_set[int].iterator ISET_IT
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP             # <<<<<<<<<<<<<<
+ * ctypedef cpp_map[int, float].iterator IFMAP_IT
+ */
+typedef std::unordered_map<int,float>  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP;
+
+/* "typedefs.pxd":38
+ * # KeyValueMapElement
+ * ctypedef cpp_map[int, float] IFMAP
+ * ctypedef cpp_map[int, float].iterator IFMAP_IT             # <<<<<<<<<<<<<<
+ */
+typedef std::unordered_map<int,float> ::iterator __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP_IT;
 
 /* --- Runtime support code (head) --- */
 /* Refnanny.proto */
@@ -1224,29 +1338,31 @@ static int __Pyx_InitStrings(__Pyx_StringTabEntry *t);
 
 /* Module declarations from 'libcpp.vector' */
 
+/* Module declarations from 'dwh.pyrecall.pyrecall.utils.typedefs' */
+
 /* Module declarations from 'libcpp' */
 
 /* Module declarations from 'libcpp.algorithm' */
 
-/* Module declarations from 'pyrecall.pyrecall.utils.heap' */
-static bool (*__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_cmp)(std::pair<int,float>  const &, std::pair<int,float>  const &); /*proto*/
-static void (*__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush)(std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &); /*proto*/
+/* Module declarations from 'dwh.pyrecall.pyrecall.utils.heap' */
+static bool (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp)(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &); /*proto*/
+static void (*__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush)(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, unsigned int, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &); /*proto*/
 
-/* Module declarations from 'pyrecall.pyrecall.utils.item_cf' */
-static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &); /*proto*/
-static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(std::unordered_map<int,float>  &, unsigned int); /*proto*/
+/* Module declarations from 'dwh.pyrecall.pyrecall.utils.item_cf' */
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET &); /*proto*/
+static __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &, unsigned int); /*proto*/
 static std::unordered_map<int,float>  __pyx_convert_unordered_map_from_py_int__and_float(PyObject *); /*proto*/
 static std::pair<int,float>  __pyx_convert_pair_from_py_int__and_float(PyObject *); /*proto*/
-static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(PyObject *); /*proto*/
+static std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(PyObject *); /*proto*/
 static std::unordered_set<int>  __pyx_convert_unordered_set_from_py_int(PyObject *); /*proto*/
 static PyObject *__pyx_convert_unordered_map_to_py_int____float(std::unordered_map<int,float>  const &); /*proto*/
 static PyObject *__pyx_convert_pair_to_py_int____float(std::pair<int,float>  const &); /*proto*/
-static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(const std::vector<std::pair<int,float> >  &); /*proto*/
-#define __Pyx_MODULE_NAME "pyrecall.pyrecall.utils.item_cf"
-extern int __pyx_module_is_main_pyrecall__pyrecall__utils__item_cf;
-int __pyx_module_is_main_pyrecall__pyrecall__utils__item_cf = 0;
+static PyObject *__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(const std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  &); /*proto*/
+#define __Pyx_MODULE_NAME "dwh.pyrecall.pyrecall.utils.item_cf"
+extern int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__item_cf;
+int __pyx_module_is_main_dwh__pyrecall__pyrecall__utils__item_cf = 0;
 
-/* Implementation of 'pyrecall.pyrecall.utils.item_cf' */
+/* Implementation of 'dwh.pyrecall.pyrecall.utils.item_cf' */
 static PyObject *__pyx_builtin_range;
 static const char __pyx_k_k[] = "k";
 static const char __pyx_k_main[] = "__main__";
@@ -1263,67 +1379,67 @@ static const char __pyx_k_top_k_map_py[] = "top_k_map_py";
 static const char __pyx_k_exclude_elements[] = "exclude_elements";
 static const char __pyx_k_cline_in_traceback[] = "cline_in_traceback";
 static const char __pyx_k_Author_tushushu_Date_2019_07_16[] = "\n@Author: tushushu\n@Date: 2019-07-16 15:36:10\n";
-static const char __pyx_k_pyrecall_pyrecall_utils_item_cf[] = "pyrecall.pyrecall.utils.item_cf";
+static const char __pyx_k_dwh_pyrecall_pyrecall_utils_item[] = "dwh.pyrecall.pyrecall.utils.item_cf";
 static PyObject *__pyx_n_s_agg_score_py;
 static PyObject *__pyx_n_s_cline_in_traceback;
+static PyObject *__pyx_n_s_dwh_pyrecall_pyrecall_utils_item;
 static PyObject *__pyx_n_s_exclude_elements;
 static PyObject *__pyx_kp_s_item_cf_pyx;
 static PyObject *__pyx_n_s_iteritems;
 static PyObject *__pyx_n_s_k;
 static PyObject *__pyx_n_s_main;
 static PyObject *__pyx_n_s_name;
-static PyObject *__pyx_n_s_pyrecall_pyrecall_utils_item_cf;
 static PyObject *__pyx_n_s_range;
 static PyObject *__pyx_n_s_score_map;
 static PyObject *__pyx_n_s_score_map_2;
 static PyObject *__pyx_n_s_test;
 static PyObject *__pyx_n_s_top_k;
 static PyObject *__pyx_n_s_top_k_map_py;
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_top_k, PyObject *__pyx_v_exclude_elements); /* proto */
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_k); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_top_k, PyObject *__pyx_v_exclude_elements); /* proto */
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_k); /* proto */
 static PyObject *__pyx_tuple_;
 static PyObject *__pyx_tuple__3;
 static PyObject *__pyx_codeobj__2;
 static PyObject *__pyx_codeobj__4;
 /* Late includes */
 
-/* "pyrecall/pyrecall/utils/item_cf.pyx":18
+/* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":15
  * 
  * 
- * cdef void agg_score(cpp_map[int, float]& score_map, vector[pair[int, float]]& top_k, cpp_set[int]& exclude_elements) except *:             # <<<<<<<<<<<<<<
+ * cdef void agg_score(IFMAP& score_map, CONVEC& top_k, ISET& exclude_elements) except *:             # <<<<<<<<<<<<<<
  *     """top_kelementscore_mapelment"""
  *     cdef:
  */
 
-static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered_map<int,float>  &__pyx_v_score_map, std::vector<std::pair<int,float> >  &__pyx_v_top_k, std::unordered_set<int>  &__pyx_v_exclude_elements) {
-  std::vector<std::pair<int,float> > ::iterator __pyx_v_it;
-  std::vector<std::pair<int,float> > ::iterator __pyx_v_end;
+static void __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &__pyx_v_score_map, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &__pyx_v_top_k, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET &__pyx_v_exclude_elements) {
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC_IT __pyx_v_it;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC_IT __pyx_v_end;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   int __pyx_t_2;
   __Pyx_RefNannySetupContext("agg_score", 0);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":21
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":18
  *     """top_kelementscore_mapelment"""
  *     cdef:
- *         vector[pair[int, float]].iterator it = top_k.begin()             # <<<<<<<<<<<<<<
- *         vector[pair[int, float]].iterator end = top_k.end()
+ *         CONVEC_IT it = top_k.begin()             # <<<<<<<<<<<<<<
+ *         CONVEC_IT end = top_k.end()
  *     while it != end:
  */
   __pyx_v_it = __pyx_v_top_k.begin();
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":22
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":19
  *     cdef:
- *         vector[pair[int, float]].iterator it = top_k.begin()
- *         vector[pair[int, float]].iterator end = top_k.end()             # <<<<<<<<<<<<<<
+ *         CONVEC_IT it = top_k.begin()
+ *         CONVEC_IT end = top_k.end()             # <<<<<<<<<<<<<<
  *     while it != end:
  *         if exclude_elements.count(deref(it).first):
  */
   __pyx_v_end = __pyx_v_top_k.end();
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":23
- *         vector[pair[int, float]].iterator it = top_k.begin()
- *         vector[pair[int, float]].iterator end = top_k.end()
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":20
+ *         CONVEC_IT it = top_k.begin()
+ *         CONVEC_IT end = top_k.end()
  *     while it != end:             # <<<<<<<<<<<<<<
  *         if exclude_elements.count(deref(it).first):
  *             inc(it)
@@ -1332,8 +1448,8 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
     __pyx_t_1 = ((__pyx_v_it != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":24
- *         vector[pair[int, float]].iterator end = top_k.end()
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":21
+ *         CONVEC_IT end = top_k.end()
  *     while it != end:
  *         if exclude_elements.count(deref(it).first):             # <<<<<<<<<<<<<<
  *             inc(it)
@@ -1342,7 +1458,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
     __pyx_t_1 = (__pyx_v_exclude_elements.count((*__pyx_v_it).first) != 0);
     if (__pyx_t_1) {
 
-      /* "pyrecall/pyrecall/utils/item_cf.pyx":25
+      /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":22
  *     while it != end:
  *         if exclude_elements.count(deref(it).first):
  *             inc(it)             # <<<<<<<<<<<<<<
@@ -1351,7 +1467,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
  */
       (void)((++__pyx_v_it));
 
-      /* "pyrecall/pyrecall/utils/item_cf.pyx":26
+      /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":23
  *         if exclude_elements.count(deref(it).first):
  *             inc(it)
  *             continue             # <<<<<<<<<<<<<<
@@ -1360,8 +1476,8 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
  */
       goto __pyx_L3_continue;
 
-      /* "pyrecall/pyrecall/utils/item_cf.pyx":24
- *         vector[pair[int, float]].iterator end = top_k.end()
+      /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":21
+ *         CONVEC_IT end = top_k.end()
  *     while it != end:
  *         if exclude_elements.count(deref(it).first):             # <<<<<<<<<<<<<<
  *             inc(it)
@@ -1369,7 +1485,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
  */
     }
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":27
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":24
  *             inc(it)
  *             continue
  *         if score_map.count(deref(it).first):             # <<<<<<<<<<<<<<
@@ -1379,7 +1495,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
     __pyx_t_1 = (__pyx_v_score_map.count((*__pyx_v_it).first) != 0);
     if (__pyx_t_1) {
 
-      /* "pyrecall/pyrecall/utils/item_cf.pyx":28
+      /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":25
  *             continue
  *         if score_map.count(deref(it).first):
  *             score_map[deref(it).first] += deref(it).second             # <<<<<<<<<<<<<<
@@ -1389,7 +1505,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
       __pyx_t_2 = (*__pyx_v_it).first;
       (__pyx_v_score_map[__pyx_t_2]) = ((__pyx_v_score_map[__pyx_t_2]) + (*__pyx_v_it).second);
 
-      /* "pyrecall/pyrecall/utils/item_cf.pyx":27
+      /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":24
  *             inc(it)
  *             continue
  *         if score_map.count(deref(it).first):             # <<<<<<<<<<<<<<
@@ -1399,7 +1515,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
       goto __pyx_L6;
     }
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":30
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":27
  *             score_map[deref(it).first] += deref(it).second
  *         else:
  *             score_map.insert(deref(it))             # <<<<<<<<<<<<<<
@@ -1411,7 +1527,7 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
     }
     __pyx_L6:;
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":31
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":28
  *         else:
  *             score_map.insert(deref(it))
  *         inc(it)             # <<<<<<<<<<<<<<
@@ -1422,10 +1538,10 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
     __pyx_L3_continue:;
   }
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":18
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":15
  * 
  * 
- * cdef void agg_score(cpp_map[int, float]& score_map, vector[pair[int, float]]& top_k, cpp_set[int]& exclude_elements) except *:             # <<<<<<<<<<<<<<
+ * cdef void agg_score(IFMAP& score_map, CONVEC& top_k, ISET& exclude_elements) except *:             # <<<<<<<<<<<<<<
  *     """top_kelementscore_mapelment"""
  *     cdef:
  */
@@ -1434,44 +1550,44 @@ static void __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(std::unordered
   __Pyx_RefNannyFinishContext();
 }
 
-/* "pyrecall/pyrecall/utils/item_cf.pyx":34
+/* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":31
  * 
  * 
- * cdef vector[pair[int, float]] top_k_map(cpp_map[int, float]& score_map, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ * cdef CONVEC top_k_map(IFMAP& score_map, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *     """mapvaluetop k pairvalue"""
  *     cdef:
  */
 
-static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(std::unordered_map<int,float>  &__pyx_v_score_map, unsigned int __pyx_v_k) {
-  std::vector<std::pair<int,float> >  __pyx_v_heap;
-  std::unordered_map<int,float> ::iterator __pyx_v_it;
-  std::unordered_map<int,float> ::iterator __pyx_v_end;
-  std::vector<std::pair<int,float> >  __pyx_r;
+static __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &__pyx_v_score_map, unsigned int __pyx_v_k) {
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_v_heap;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP_IT __pyx_v_it;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP_IT __pyx_v_end;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_r;
   __Pyx_RefNannyDeclarations
   int __pyx_t_1;
   __Pyx_RefNannySetupContext("top_k_map", 0);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":38
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":35
  *     cdef:
- *         vector[pair[int, float]] heap
- *         cpp_map[int, float].iterator it = score_map.begin()             # <<<<<<<<<<<<<<
- *         cpp_map[int, float].iterator end = score_map.end()
+ *         CONVEC heap
+ *         IFMAP_IT it = score_map.begin()             # <<<<<<<<<<<<<<
+ *         IFMAP_IT end = score_map.end()
  *     while it != end:
  */
   __pyx_v_it = __pyx_v_score_map.begin();
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":39
- *         vector[pair[int, float]] heap
- *         cpp_map[int, float].iterator it = score_map.begin()
- *         cpp_map[int, float].iterator end = score_map.end()             # <<<<<<<<<<<<<<
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":36
+ *         CONVEC heap
+ *         IFMAP_IT it = score_map.begin()
+ *         IFMAP_IT end = score_map.end()             # <<<<<<<<<<<<<<
  *     while it != end:
  *         min_heappush(heap, k, deref(it))
  */
   __pyx_v_end = __pyx_v_score_map.end();
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":40
- *         cpp_map[int, float].iterator it = score_map.begin()
- *         cpp_map[int, float].iterator end = score_map.end()
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":37
+ *         IFMAP_IT it = score_map.begin()
+ *         IFMAP_IT end = score_map.end()
  *     while it != end:             # <<<<<<<<<<<<<<
  *         min_heappush(heap, k, deref(it))
  *         inc(it)
@@ -1480,16 +1596,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_7i
     __pyx_t_1 = ((__pyx_v_it != __pyx_v_end) != 0);
     if (!__pyx_t_1) break;
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":41
- *         cpp_map[int, float].iterator end = score_map.end()
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":38
+ *         IFMAP_IT end = score_map.end()
  *     while it != end:
  *         min_heappush(heap, k, deref(it))             # <<<<<<<<<<<<<<
  *         inc(it)
  *     sort_heap(heap.begin(), heap.end(), min_cmp)
  */
-    __pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush(__pyx_v_heap, __pyx_v_k, (*__pyx_v_it)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 41, __pyx_L1_error)
+    __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush(__pyx_v_heap, __pyx_v_k, (*__pyx_v_it)); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 38, __pyx_L1_error)
 
-    /* "pyrecall/pyrecall/utils/item_cf.pyx":42
+    /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":39
  *     while it != end:
  *         min_heappush(heap, k, deref(it))
  *         inc(it)             # <<<<<<<<<<<<<<
@@ -1499,16 +1615,16 @@ static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_7i
     (void)((++__pyx_v_it));
   }
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":43
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":40
  *         min_heappush(heap, k, deref(it))
  *         inc(it)
  *     sort_heap(heap.begin(), heap.end(), min_cmp)             # <<<<<<<<<<<<<<
  *     return heap
  * 
  */
-  std::sort_heap<std::vector<std::pair<int,float> > ::iterator,bool (std::pair<int,float>  const &, std::pair<int,float>  const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_cmp);
+  std::sort_heap<std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR> ::iterator,bool (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &)>(__pyx_v_heap.begin(), __pyx_v_heap.end(), __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":44
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":41
  *         inc(it)
  *     sort_heap(heap.begin(), heap.end(), min_cmp)
  *     return heap             # <<<<<<<<<<<<<<
@@ -1518,36 +1634,36 @@ static std::vector<std::pair<int,float> >  __pyx_f_8pyrecall_8pyrecall_5utils_7i
   __pyx_r = __pyx_v_heap;
   goto __pyx_L0;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":34
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":31
  * 
  * 
- * cdef vector[pair[int, float]] top_k_map(cpp_map[int, float]& score_map, unsigned int k) except +:             # <<<<<<<<<<<<<<
+ * cdef CONVEC top_k_map(IFMAP& score_map, unsigned int k) except +:             # <<<<<<<<<<<<<<
  *     """mapvaluetop k pairvalue"""
  *     cdef:
  */
 
   /* function exit code */
   __pyx_L1_error:;
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.item_cf.top_k_map", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.item_cf.top_k_map", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
   return __pyx_r;
 }
 
-/* "pyrecall/pyrecall/utils/item_cf.pyx":47
+/* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":44
  * 
  * 
  * def agg_score_py(score_map: dict, top_k: list, exclude_elements: list) -> dict:             # <<<<<<<<<<<<<<
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map
+ *     cdef IFMAP _score_map = score_map
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py[] = "\345\214\205\350\243\205agg_score\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyMethodDef __pyx_mdef_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py = {"agg_score_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py};
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py[] = "\345\214\205\350\243\205agg_score\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py = {"agg_score_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py};
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_score_map = 0;
   PyObject *__pyx_v_top_k = 0;
   PyObject *__pyx_v_exclude_elements = 0;
@@ -1579,17 +1695,17 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_top_k)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, 1); __PYX_ERR(0, 47, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, 1); __PYX_ERR(0, 44, __pyx_L3_error)
         }
         CYTHON_FALLTHROUGH;
         case  2:
         if (likely((values[2] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_exclude_elements)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, 2); __PYX_ERR(0, 47, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, 2); __PYX_ERR(0, 44, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "agg_score_py") < 0)) __PYX_ERR(0, 47, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "agg_score_py") < 0)) __PYX_ERR(0, 44, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 3) {
       goto __pyx_L5_argtuple_error;
@@ -1604,16 +1720,16 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 47, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("agg_score_py", 1, 3, 3, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 44, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.item_cf.agg_score_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.item_cf.agg_score_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_score_map), (&PyDict_Type), 1, "score_map", 1))) __PYX_ERR(0, 47, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_top_k), (&PyList_Type), 1, "top_k", 1))) __PYX_ERR(0, 47, __pyx_L1_error)
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exclude_elements), (&PyList_Type), 1, "exclude_elements", 1))) __PYX_ERR(0, 47, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(__pyx_self, __pyx_v_score_map, __pyx_v_top_k, __pyx_v_exclude_elements);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_score_map), (&PyDict_Type), 1, "score_map", 1))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_top_k), (&PyList_Type), 1, "top_k", 1))) __PYX_ERR(0, 44, __pyx_L1_error)
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_exclude_elements), (&PyList_Type), 1, "exclude_elements", 1))) __PYX_ERR(0, 44, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(__pyx_self, __pyx_v_score_map, __pyx_v_top_k, __pyx_v_exclude_elements);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1624,64 +1740,64 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py(PyOb
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_top_k, PyObject *__pyx_v_exclude_elements) {
-  std::unordered_map<int,float>  __pyx_v__score_map;
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_top_k, PyObject *__pyx_v_exclude_elements) {
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP __pyx_v__score_map;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  std::unordered_map<int,float>  __pyx_t_1;
-  std::vector<std::pair<int,float> >  __pyx_t_2;
-  std::unordered_set<int>  __pyx_t_3;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP __pyx_t_1;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_t_2;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("agg_score_py", 0);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":49
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":46
  * def agg_score_py(score_map: dict, top_k: list, exclude_elements: list) -> dict:
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map             # <<<<<<<<<<<<<<
+ *     cdef IFMAP _score_map = score_map             # <<<<<<<<<<<<<<
  *     agg_score(_score_map, top_k, exclude_elements)
  *     return _score_map
  */
-  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_float(__pyx_v_score_map); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 49, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_float(__pyx_v_score_map); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 46, __pyx_L1_error)
   __pyx_v__score_map = __pyx_t_1;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":50
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":47
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map
+ *     cdef IFMAP _score_map = score_map
  *     agg_score(_score_map, top_k, exclude_elements)             # <<<<<<<<<<<<<<
  *     return _score_map
  * 
  */
-  __pyx_t_2 = __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_v_top_k); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L1_error)
-  __pyx_t_3 = __pyx_convert_unordered_set_from_py_int(__pyx_v_exclude_elements); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L1_error)
-  __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v__score_map, __pyx_t_2, __pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 50, __pyx_L1_error)
+  __pyx_t_2 = __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(__pyx_v_top_k); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_3 = __pyx_convert_unordered_set_from_py_int(__pyx_v_exclude_elements); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score(__pyx_v__score_map, __pyx_t_2, __pyx_t_3); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 47, __pyx_L1_error)
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":51
- *     cdef cpp_map[int, float] _score_map = score_map
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":48
+ *     cdef IFMAP _score_map = score_map
  *     agg_score(_score_map, top_k, exclude_elements)
  *     return _score_map             # <<<<<<<<<<<<<<
  * 
  * 
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_4 = __pyx_convert_unordered_map_to_py_int____float(__pyx_v__score_map); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_unordered_map_to_py_int____float(__pyx_v__score_map); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 48, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (!(likely(PyDict_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "dict", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 51, __pyx_L1_error)
+  if (!(likely(PyDict_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "dict", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 48, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":47
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":44
  * 
  * 
  * def agg_score_py(score_map: dict, top_k: list, exclude_elements: list) -> dict:             # <<<<<<<<<<<<<<
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map
+ *     cdef IFMAP _score_map = score_map
  */
 
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.item_cf.agg_score_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.item_cf.agg_score_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -1689,7 +1805,7 @@ static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHO
   return __pyx_r;
 }
 
-/* "pyrecall/pyrecall/utils/item_cf.pyx":54
+/* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":51
  * 
  * 
  * def top_k_map_py(score_map: dict, k: int) -> list:             # <<<<<<<<<<<<<<
@@ -1698,10 +1814,10 @@ static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_agg_score_py(CYTHO
  */
 
 /* Python wrapper */
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
-static char __pyx_doc_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py[] = "\345\214\205\350\243\205top_k_map\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
-static PyMethodDef __pyx_mdef_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py = {"top_k_map_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py};
-static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds); /*proto*/
+static char __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py[] = "\345\214\205\350\243\205top_k_map\345\207\275\346\225\260\347\273\231Python\347\250\213\345\272\217\350\260\203\347\224\250\343\200\202";
+static PyMethodDef __pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py = {"top_k_map_py", (PyCFunction)(void*)(PyCFunctionWithKeywords)__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py, METH_VARARGS|METH_KEYWORDS, __pyx_doc_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py};
+static PyObject *__pyx_pw_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyObject *__pyx_self, PyObject *__pyx_args, PyObject *__pyx_kwds) {
   PyObject *__pyx_v_score_map = 0;
   PyObject *__pyx_v_k = 0;
   PyObject *__pyx_r = 0;
@@ -1730,11 +1846,11 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyOb
         case  1:
         if (likely((values[1] = __Pyx_PyDict_GetItemStr(__pyx_kwds, __pyx_n_s_k)) != 0)) kw_args--;
         else {
-          __Pyx_RaiseArgtupleInvalid("top_k_map_py", 1, 2, 2, 1); __PYX_ERR(0, 54, __pyx_L3_error)
+          __Pyx_RaiseArgtupleInvalid("top_k_map_py", 1, 2, 2, 1); __PYX_ERR(0, 51, __pyx_L3_error)
         }
       }
       if (unlikely(kw_args > 0)) {
-        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "top_k_map_py") < 0)) __PYX_ERR(0, 54, __pyx_L3_error)
+        if (unlikely(__Pyx_ParseOptionalKeywords(__pyx_kwds, __pyx_pyargnames, 0, values, pos_args, "top_k_map_py") < 0)) __PYX_ERR(0, 51, __pyx_L3_error)
       }
     } else if (PyTuple_GET_SIZE(__pyx_args) != 2) {
       goto __pyx_L5_argtuple_error;
@@ -1747,14 +1863,14 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyOb
   }
   goto __pyx_L4_argument_unpacking_done;
   __pyx_L5_argtuple_error:;
-  __Pyx_RaiseArgtupleInvalid("top_k_map_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 54, __pyx_L3_error)
+  __Pyx_RaiseArgtupleInvalid("top_k_map_py", 1, 2, 2, PyTuple_GET_SIZE(__pyx_args)); __PYX_ERR(0, 51, __pyx_L3_error)
   __pyx_L3_error:;
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.item_cf.top_k_map_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.item_cf.top_k_map_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_RefNannyFinishContext();
   return NULL;
   __pyx_L4_argument_unpacking_done:;
-  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_score_map), (&PyDict_Type), 1, "score_map", 1))) __PYX_ERR(0, 54, __pyx_L1_error)
-  __pyx_r = __pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(__pyx_self, __pyx_v_score_map, __pyx_v_k);
+  if (unlikely(!__Pyx_ArgTypeTest(((PyObject *)__pyx_v_score_map), (&PyDict_Type), 1, "score_map", 1))) __PYX_ERR(0, 51, __pyx_L1_error)
+  __pyx_r = __pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(__pyx_self, __pyx_v_score_map, __pyx_v_k);
 
   /* function exit code */
   goto __pyx_L0;
@@ -1765,37 +1881,37 @@ static PyObject *__pyx_pw_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py(PyOb
   return __pyx_r;
 }
 
-static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_k) {
+static PyObject *__pyx_pf_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(CYTHON_UNUSED PyObject *__pyx_self, PyObject *__pyx_v_score_map, PyObject *__pyx_v_k) {
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
-  std::unordered_map<int,float>  __pyx_t_1;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP __pyx_t_1;
   unsigned int __pyx_t_2;
-  std::vector<std::pair<int,float> >  __pyx_t_3;
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC __pyx_t_3;
   PyObject *__pyx_t_4 = NULL;
   __Pyx_RefNannySetupContext("top_k_map_py", 0);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":56
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":53
  * def top_k_map_py(score_map: dict, k: int) -> list:
  *     """top_k_mapPython"""
  *     return top_k_map(score_map, k)             # <<<<<<<<<<<<<<
  */
   __Pyx_XDECREF(__pyx_r);
-  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_float(__pyx_v_score_map); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
-  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_1 = __pyx_convert_unordered_map_from_py_int__and_float(__pyx_v_score_map); if (unlikely(PyErr_Occurred())) __PYX_ERR(0, 53, __pyx_L1_error)
+  __pyx_t_2 = __Pyx_PyInt_As_unsigned_int(__pyx_v_k); if (unlikely((__pyx_t_2 == (unsigned int)-1) && PyErr_Occurred())) __PYX_ERR(0, 53, __pyx_L1_error)
   try {
-    __pyx_t_3 = __pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_t_1, __pyx_t_2);
+    __pyx_t_3 = __pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map(__pyx_t_1, __pyx_t_2);
   } catch(...) {
     __Pyx_CppExn2PyErr();
-    __PYX_ERR(0, 56, __pyx_L1_error)
+    __PYX_ERR(0, 53, __pyx_L1_error)
   }
-  __pyx_t_4 = __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 56, __pyx_L1_error)
+  __pyx_t_4 = __pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(__pyx_t_3); if (unlikely(!__pyx_t_4)) __PYX_ERR(0, 53, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_4);
-  if (!(likely(PyList_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 56, __pyx_L1_error)
+  if (!(likely(PyList_CheckExact(__pyx_t_4))||(PyErr_Format(PyExc_TypeError, "Expected %.16s, got %.200s", "list", Py_TYPE(__pyx_t_4)->tp_name), 0))) __PYX_ERR(0, 53, __pyx_L1_error)
   __pyx_r = ((PyObject*)__pyx_t_4);
   __pyx_t_4 = 0;
   goto __pyx_L0;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":54
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":51
  * 
  * 
  * def top_k_map_py(score_map: dict, k: int) -> list:             # <<<<<<<<<<<<<<
@@ -1806,7 +1922,7 @@ static PyObject *__pyx_pf_8pyrecall_8pyrecall_5utils_7item_cf_2top_k_map_py(CYTH
   /* function exit code */
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("pyrecall.pyrecall.utils.item_cf.top_k_map_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("dwh.pyrecall.pyrecall.utils.item_cf.top_k_map_py", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = NULL;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2039,26 +2155,26 @@ static std::pair<int,float>  __pyx_convert_pair_from_py_int__and_float(PyObject 
 
 /* "vector.from_py":45
  * 
- * @cname("__pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(object o) except *:             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:             # <<<<<<<<<<<<<<
  *     cdef vector[X] v
  *     for item in o:
  */
 
-static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(PyObject *__pyx_v_o) {
-  std::vector<std::pair<int,float> >  __pyx_v_v;
+static std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(PyObject *__pyx_v_o) {
+  std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_v_v;
   PyObject *__pyx_v_item = NULL;
-  std::vector<std::pair<int,float> >  __pyx_r;
+  std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  __pyx_r;
   __Pyx_RefNannyDeclarations
   PyObject *__pyx_t_1 = NULL;
   Py_ssize_t __pyx_t_2;
   PyObject *(*__pyx_t_3)(PyObject *);
   PyObject *__pyx_t_4 = NULL;
-  std::pair<int,float>  __pyx_t_5;
-  __Pyx_RefNannySetupContext("__pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___", 0);
+  __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR __pyx_t_5;
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", 0);
 
   /* "vector.from_py":47
- * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(object o) except *:
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:
  *     cdef vector[X] v
  *     for item in o:             # <<<<<<<<<<<<<<
  *         v.push_back(<X>item)
@@ -2114,10 +2230,10 @@ static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__
  * 
  */
     __pyx_t_5 = __pyx_convert_pair_from_py_int__and_float(__pyx_v_item); if (unlikely(PyErr_Occurred())) __PYX_ERR(1, 48, __pyx_L1_error)
-    __pyx_v_v.push_back(((std::pair<int,float> )__pyx_t_5));
+    __pyx_v_v.push_back(((__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR)__pyx_t_5));
 
     /* "vector.from_py":47
- * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(object o) except *:
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:
  *     cdef vector[X] v
  *     for item in o:             # <<<<<<<<<<<<<<
  *         v.push_back(<X>item)
@@ -2138,8 +2254,8 @@ static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__
 
   /* "vector.from_py":45
  * 
- * @cname("__pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef vector[X] __pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___(object o) except *:             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef vector[X] __pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(object o) except *:             # <<<<<<<<<<<<<<
  *     cdef vector[X] v
  *     for item in o:
  */
@@ -2148,7 +2264,7 @@ static std::vector<std::pair<int,float> >  __pyx_convert_vector_from_py_std_3a__
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_4);
-  __Pyx_AddTraceback("vector.from_py.__pyx_convert_vector_from_py_std_3a__3a_pair_3c_int_2c_float_3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("vector.from_py.__pyx_convert_vector_from_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __Pyx_pretend_to_initialize(&__pyx_r);
   __pyx_L0:;
   __Pyx_XDECREF(__pyx_v_item);
@@ -2456,13 +2572,13 @@ static PyObject *__pyx_convert_pair_to_py_int____float(std::pair<int,float>  con
 
 /* "vector.to_py":60
  * 
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef object __pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(vector[X]& v):             # <<<<<<<<<<<<<<
  *     return [v[i] for i in range(v.size())]
  * 
  */
 
-static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(const std::vector<std::pair<int,float> >  &__pyx_v_v) {
+static PyObject *__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(const std::vector<__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR>  &__pyx_v_v) {
   size_t __pyx_v_i;
   PyObject *__pyx_r = NULL;
   __Pyx_RefNannyDeclarations
@@ -2471,11 +2587,11 @@ static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e__
   size_t __pyx_t_3;
   size_t __pyx_t_4;
   PyObject *__pyx_t_5 = NULL;
-  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___", 0);
+  __Pyx_RefNannySetupContext("__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", 0);
 
   /* "vector.to_py":61
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(vector[X]& v):
+ * @cname("__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef object __pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(vector[X]& v):
  *     return [v[i] for i in range(v.size())]             # <<<<<<<<<<<<<<
  * 
  * 
@@ -2498,8 +2614,8 @@ static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e__
 
   /* "vector.to_py":60
  * 
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef object __pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(vector[X]& v):             # <<<<<<<<<<<<<<
  *     return [v[i] for i in range(v.size())]
  * 
  */
@@ -2508,7 +2624,7 @@ static PyObject *__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e__
   __pyx_L1_error:;
   __Pyx_XDECREF(__pyx_t_1);
   __Pyx_XDECREF(__pyx_t_5);
-  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___", __pyx_clineno, __pyx_lineno, __pyx_filename);
+  __Pyx_AddTraceback("vector.to_py.__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR", __pyx_clineno, __pyx_lineno, __pyx_filename);
   __pyx_r = 0;
   __pyx_L0:;
   __Pyx_XGIVEREF(__pyx_r);
@@ -2564,13 +2680,13 @@ static struct PyModuleDef __pyx_moduledef = {
 static __Pyx_StringTabEntry __pyx_string_tab[] = {
   {&__pyx_n_s_agg_score_py, __pyx_k_agg_score_py, sizeof(__pyx_k_agg_score_py), 0, 0, 1, 1},
   {&__pyx_n_s_cline_in_traceback, __pyx_k_cline_in_traceback, sizeof(__pyx_k_cline_in_traceback), 0, 0, 1, 1},
+  {&__pyx_n_s_dwh_pyrecall_pyrecall_utils_item, __pyx_k_dwh_pyrecall_pyrecall_utils_item, sizeof(__pyx_k_dwh_pyrecall_pyrecall_utils_item), 0, 0, 1, 1},
   {&__pyx_n_s_exclude_elements, __pyx_k_exclude_elements, sizeof(__pyx_k_exclude_elements), 0, 0, 1, 1},
   {&__pyx_kp_s_item_cf_pyx, __pyx_k_item_cf_pyx, sizeof(__pyx_k_item_cf_pyx), 0, 0, 1, 0},
   {&__pyx_n_s_iteritems, __pyx_k_iteritems, sizeof(__pyx_k_iteritems), 0, 0, 1, 1},
   {&__pyx_n_s_k, __pyx_k_k, sizeof(__pyx_k_k), 0, 0, 1, 1},
   {&__pyx_n_s_main, __pyx_k_main, sizeof(__pyx_k_main), 0, 0, 1, 1},
   {&__pyx_n_s_name, __pyx_k_name, sizeof(__pyx_k_name), 0, 0, 1, 1},
-  {&__pyx_n_s_pyrecall_pyrecall_utils_item_cf, __pyx_k_pyrecall_pyrecall_utils_item_cf, sizeof(__pyx_k_pyrecall_pyrecall_utils_item_cf), 0, 0, 1, 1},
   {&__pyx_n_s_range, __pyx_k_range, sizeof(__pyx_k_range), 0, 0, 1, 1},
   {&__pyx_n_s_score_map, __pyx_k_score_map, sizeof(__pyx_k_score_map), 0, 0, 1, 1},
   {&__pyx_n_s_score_map_2, __pyx_k_score_map_2, sizeof(__pyx_k_score_map_2), 0, 0, 1, 1},
@@ -2590,29 +2706,29 @@ static CYTHON_SMALL_CODE int __Pyx_InitCachedConstants(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_InitCachedConstants", 0);
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":47
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":44
  * 
  * 
  * def agg_score_py(score_map: dict, top_k: list, exclude_elements: list) -> dict:             # <<<<<<<<<<<<<<
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map
+ *     cdef IFMAP _score_map = score_map
  */
-  __pyx_tuple_ = PyTuple_Pack(4, __pyx_n_s_score_map, __pyx_n_s_top_k, __pyx_n_s_exclude_elements, __pyx_n_s_score_map_2); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_tuple_ = PyTuple_Pack(4, __pyx_n_s_score_map, __pyx_n_s_top_k, __pyx_n_s_exclude_elements, __pyx_n_s_score_map_2); if (unlikely(!__pyx_tuple_)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple_);
   __Pyx_GIVEREF(__pyx_tuple_);
-  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_item_cf_pyx, __pyx_n_s_agg_score_py, 47, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_codeobj__2 = (PyObject*)__Pyx_PyCode_New(3, 0, 4, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple_, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_item_cf_pyx, __pyx_n_s_agg_score_py, 44, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__2)) __PYX_ERR(0, 44, __pyx_L1_error)
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":54
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":51
  * 
  * 
  * def top_k_map_py(score_map: dict, k: int) -> list:             # <<<<<<<<<<<<<<
  *     """top_k_mapPython"""
  *     return top_k_map(score_map, k)
  */
-  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_score_map, __pyx_n_s_k); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_tuple__3 = PyTuple_Pack(2, __pyx_n_s_score_map, __pyx_n_s_k); if (unlikely(!__pyx_tuple__3)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_tuple__3);
   __Pyx_GIVEREF(__pyx_tuple__3);
-  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_item_cf_pyx, __pyx_n_s_top_k_map_py, 54, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_codeobj__4 = (PyObject*)__Pyx_PyCode_New(2, 0, 2, 0, CO_OPTIMIZED|CO_NEWLOCALS, __pyx_empty_bytes, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_tuple__3, __pyx_empty_tuple, __pyx_empty_tuple, __pyx_kp_s_item_cf_pyx, __pyx_n_s_top_k_map_py, 51, __pyx_empty_bytes); if (unlikely(!__pyx_codeobj__4)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2655,8 +2771,8 @@ static int __Pyx_modinit_function_export_code(void) {
   __Pyx_RefNannyDeclarations
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_export_code", 0);
   /*--- Function export code ---*/
-  if (__Pyx_ExportFunction("agg_score", (void (*)(void))__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_agg_score, "void (std::unordered_map<int,float>  &, std::vector<std::pair<int,float> >  &, std::unordered_set<int>  &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ExportFunction("top_k_map", (void (*)(void))__pyx_f_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map, "std::vector<std::pair<int,float> >  (std::unordered_map<int,float>  &, unsigned int)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("agg_score", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_agg_score, "void (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_ISET &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ExportFunction("top_k_map", (void (*)(void))__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_top_k_map, "__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFMAP &, unsigned int)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   __Pyx_RefNannyFinishContext();
   return 0;
   __pyx_L1_error:;
@@ -2693,9 +2809,9 @@ static int __Pyx_modinit_function_import_code(void) {
   PyObject *__pyx_t_1 = NULL;
   __Pyx_RefNannySetupContext("__Pyx_modinit_function_import_code", 0);
   /*--- Function import code ---*/
-  __pyx_t_1 = PyImport_ImportModule("pyrecall.pyrecall.utils.heap"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_1, "min_cmp", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_cmp, "bool (std::pair<int,float>  const &, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
-  if (__Pyx_ImportFunction(__pyx_t_1, "min_heappush", (void (**)(void))&__pyx_f_8pyrecall_8pyrecall_5utils_4heap_min_heappush, "void (std::vector<std::pair<int,float> >  &, unsigned int, std::pair<int,float>  const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("dwh.pyrecall.pyrecall.utils.heap"); if (!__pyx_t_1) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "min_cmp", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_cmp, "bool (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
+  if (__Pyx_ImportFunction(__pyx_t_1, "min_heappush", (void (**)(void))&__pyx_f_3dwh_8pyrecall_8pyrecall_5utils_4heap_min_heappush, "void (__pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_CONVEC &, unsigned int, __pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR const &)") < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   Py_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
@@ -2875,14 +2991,14 @@ if (!__Pyx_RefNanny) {
   #if PY_MAJOR_VERSION < 3 && (__PYX_DEFAULT_STRING_ENCODING_IS_ASCII || __PYX_DEFAULT_STRING_ENCODING_IS_DEFAULT)
   if (__Pyx_init_sys_getdefaultencoding_params() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
-  if (__pyx_module_is_main_pyrecall__pyrecall__utils__item_cf) {
+  if (__pyx_module_is_main_dwh__pyrecall__pyrecall__utils__item_cf) {
     if (PyObject_SetAttr(__pyx_m, __pyx_n_s_name, __pyx_n_s_main) < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   }
   #if PY_MAJOR_VERSION >= 3
   {
     PyObject *modules = PyImport_GetModuleDict(); if (unlikely(!modules)) __PYX_ERR(0, 1, __pyx_L1_error)
-    if (!PyDict_GetItemString(modules, "pyrecall.pyrecall.utils.item_cf")) {
-      if (unlikely(PyDict_SetItemString(modules, "pyrecall.pyrecall.utils.item_cf", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
+    if (!PyDict_GetItemString(modules, "dwh.pyrecall.pyrecall.utils.item_cf")) {
+      if (unlikely(PyDict_SetItemString(modules, "dwh.pyrecall.pyrecall.utils.item_cf", __pyx_m) < 0)) __PYX_ERR(0, 1, __pyx_L1_error)
     }
   }
   #endif
@@ -2903,31 +3019,31 @@ if (!__Pyx_RefNanny) {
   if (__Pyx_patch_abc() < 0) __PYX_ERR(0, 1, __pyx_L1_error)
   #endif
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":47
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":44
  * 
  * 
  * def agg_score_py(score_map: dict, top_k: list, exclude_elements: list) -> dict:             # <<<<<<<<<<<<<<
  *     """agg_scorePython"""
- *     cdef cpp_map[int, float] _score_map = score_map
+ *     cdef IFMAP _score_map = score_map
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py, NULL, __pyx_n_s_pyrecall_pyrecall_utils_item_cf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 47, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_1agg_score_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_item); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_agg_score_py, __pyx_t_1) < 0) __PYX_ERR(0, 47, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_agg_score_py, __pyx_t_1) < 0) __PYX_ERR(0, 44, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":54
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":51
  * 
  * 
  * def top_k_map_py(score_map: dict, k: int) -> list:             # <<<<<<<<<<<<<<
  *     """top_k_mapPython"""
  *     return top_k_map(score_map, k)
  */
-  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py, NULL, __pyx_n_s_pyrecall_pyrecall_utils_item_cf); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 54, __pyx_L1_error)
+  __pyx_t_1 = PyCFunction_NewEx(&__pyx_mdef_3dwh_8pyrecall_8pyrecall_5utils_7item_cf_3top_k_map_py, NULL, __pyx_n_s_dwh_pyrecall_pyrecall_utils_item); if (unlikely(!__pyx_t_1)) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
-  if (PyDict_SetItem(__pyx_d, __pyx_n_s_top_k_map_py, __pyx_t_1) < 0) __PYX_ERR(0, 54, __pyx_L1_error)
+  if (PyDict_SetItem(__pyx_d, __pyx_n_s_top_k_map_py, __pyx_t_1) < 0) __PYX_ERR(0, 51, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
 
-  /* "pyrecall/pyrecall/utils/item_cf.pyx":1
+  /* "dwh/pyrecall/pyrecall/utils/item_cf.pyx":1
  * # distutils: language = c++             # <<<<<<<<<<<<<<
  * #cython: boundscheck=False
  * #cython: wraparound=False
@@ -2939,8 +3055,8 @@ if (!__Pyx_RefNanny) {
 
   /* "vector.to_py":60
  * 
- * @cname("__pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___")
- * cdef object __pyx_convert_vector_to_py_std_3a__3a_pair_3c_int_2c_float_3e___(vector[X]& v):             # <<<<<<<<<<<<<<
+ * @cname("__pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR")
+ * cdef object __pyx_convert_vector_to_py___pyx_t_3dwh_8pyrecall_8pyrecall_5utils_8typedefs_IFPAIR(vector[X]& v):             # <<<<<<<<<<<<<<
  *     return [v[i] for i in range(v.size())]
  * 
  */
@@ -2952,11 +3068,11 @@ if (!__Pyx_RefNanny) {
   __Pyx_XDECREF(__pyx_t_1);
   if (__pyx_m) {
     if (__pyx_d) {
-      __Pyx_AddTraceback("init pyrecall.pyrecall.utils.item_cf", __pyx_clineno, __pyx_lineno, __pyx_filename);
+      __Pyx_AddTraceback("init dwh.pyrecall.pyrecall.utils.item_cf", __pyx_clineno, __pyx_lineno, __pyx_filename);
     }
     Py_CLEAR(__pyx_m);
   } else if (!PyErr_Occurred()) {
-    PyErr_SetString(PyExc_ImportError, "init pyrecall.pyrecall.utils.item_cf");
+    PyErr_SetString(PyExc_ImportError, "init dwh.pyrecall.pyrecall.utils.item_cf");
   }
   __pyx_L0:;
   __Pyx_RefNannyFinishContext();
