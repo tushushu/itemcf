@@ -5,7 +5,7 @@
 """
 from typing import List, Tuple, Optional, Set
 from pandas import DataFrame
-from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary  # pylint: disable=no-name-in-module
+from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary  # pylint: disable=import-error, no-name-in-module
 from ..preprocessing.process_data import get_item_vectors, get_user_vectors, get_popular_items,\
     get_similar_elements
 
@@ -75,8 +75,7 @@ class JaccardItemCF:
             DataFrame
         """
         user_vectors = get_user_vectors(data, user_col, item_col)
-        ret = user_vectors.loc[:, user_col].to_frame()
-        print("ret\n", ret.head(3), "type", type(ret))
-        ret.loc[:, "recommendations"] = ret.loc[:, item_col].apply(lambda x:
-                                                                   self.predict_one(x, n_recommend))
-        return ret
+        user_vectors.loc[:, "recommendations"] = user_vectors.loc[:, item_col]\
+            .apply(lambda x: self.predict_one(x, n_recommend))
+        user_vectors.drop(item_col, axis=1, inplace=True)
+        return user_vectors
