@@ -3,31 +3,55 @@
 @Date: 2019-06-13 11:13:03
 """
 
-from typing import Dict, List, Optional, Callable, Any
+from typing import Dict, List, Set, Optional, Callable, Any, Union
 from pandas import DataFrame
 from numpy import ndarray
 
 
-def get_item_vectors(data: DataFrame, user_col: str, item_col: str) -> Dict[int, List[int]]:
-    """获取物品及评分过该物品的用户，并将用户id按照升序排列。
+def get_agg_func(container: str)->Callable:
+    """选择生成向量的函数。
+
+    Arguments:
+        container {str} -- 向量的存储容器，可选list, set或asc_list
+
+    Returns:
+        Callable -- [description]
+    """
+    assert container in ("list", "set", "asc_list"), "container参数必须是'list', 'set'或'asc_list'!"
+    if container == "list":
+        agg_func = lambda x: list(set(x))
+    if container == "set":
+        agg_func = set
+    if container == "asc_list":
+        agg_func = lambda x: sorted(set(x))
+    return agg_func
+
+
+def get_item_vectors(data: DataFrame, user_col: str, item_col: str,
+                     container="asc_list") -> Dict[int, Union[List[int], Set[int]]]:
+    """获取物品及评分过该物品的用户，如果container选在'list'则将用户id按照升序排列。
 
     Arguments:
         data {DataFrame} -- [user_col(int), item_col(int)...]
         user_col {str} -- 用户id所在的列名称。
         item_col {str} -- 物品id所在的列名称。
 
+    Keyword Arguments:
+        container {str} -- 向量的存储容器，可选list, set或asc_list (default: {"asc_list"})
+
     Returns:
         Dict[int, List[int]] -- key: 物品id, value: [用户id...]
     """
+    agg_func = get_agg_func(container)
     ret = data.loc[:, [user_col, item_col]]\
         .groupby(item_col)\
-        .aggregate(lambda x: sorted(set(x)))\
+        .aggregate(agg_func)\
         .to_dict()\
         .get(user_col)
     return ret
 
 
-def get_user_vectors(data: DataFrame, user_col: str, item_col: str) -> DataFrame:
+def get_user_vectors(data: DataFrame, user_col: str, item_col: str, container="list") -> DataFrame:
     """获取用户及用户曾经评分过的物品。
 
     Arguments:
@@ -35,12 +59,17 @@ def get_user_vectors(data: DataFrame, user_col: str, item_col: str) -> DataFrame
         user_col {str} -- 用户id所在的列名称。
         item_col {str} -- 物品id所在的列名称。
 
+    Keyword Arguments:
+        container {str} -- 向量的存储容器，可选list, set或asc_list (default: {"list"})
+
     Returns:
-        DataFrame -- 列名称[user_col(int), item_ids(List[int])]
+        DataFrame -- 列名称[user_col(int), item_ids(Union[List[int], Set[int]])]
     """
+
+    agg_func = get_agg_func(container)
     ret = data.loc[:, [user_col, item_col]]\
         .groupby(user_col)\
-        .aggregate(lambda x: list(set(x)))\
+        .aggregate(agg_func)\
         .reset_index()
     return ret
 

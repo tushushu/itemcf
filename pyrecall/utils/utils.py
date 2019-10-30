@@ -6,7 +6,7 @@ from time import time
 from typing import Callable
 
 
-def run_time(func: Callable) -> Callable:
+def run_time(func: Callable, *args) -> Callable:
     """计算并打印函数的运行时间，并根据数字的大小选择恰当的时间单位。
 
     Arguments:
@@ -16,9 +16,9 @@ def run_time(func: Callable) -> Callable:
         Callable
     """
 
-    def inner():
+    def inner(*args):
         start = time()
-        func()
+        func(*args)
         ret = time() - start
         if ret < 1e-6:
             unit = "ns"

@@ -6,6 +6,7 @@
 from typing import List, Tuple, Optional, Set
 from pandas import DataFrame
 from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary  # pylint: disable=import-error, no-name-in-module
+from pyrecall.utils.python_sparse_matrix_bin import PythonSparseMatrixBinary
 from ..preprocessing.process_data import get_item_vectors, get_user_vectors, get_popular_items,\
     get_similar_elements
 
@@ -18,9 +19,23 @@ class JaccardItemCF:
         mat_size {int} -- 物品矩阵每一行的元素个数。
     """
 
-    def __init__(self):
+    def __init__(self, sparse_matrix="cython"):
+        """初始化类的实例，并设定稀疏矩阵的实现。
+
+        Keyword Arguments:
+            sparse_matrix {str} -- 选择稀疏矩阵的实现， (default: {"cython"})
+        """
         self.mat = None
         self.mat_size = None
+        assert sparse_matrix in ("cython", "python"), "参数sparse_matrix必须是'cython'或者'python'!"
+        if sparse_matrix == "cython":
+            self.sparse_matrix = SparseMatrixBinary
+            self.user_vector_type = "list"
+            self.item_vector_type = "asc_list"
+        else:
+            self.sparse_matrix = PythonSparseMatrixBinary
+            self.user_vector_type = "set"
+            self.item_vector_type = "set"
 
     def fit(self, data: DataFrame, user_col: str, item_col: str, mat_size: int,
             threshold: Optional[int] = None, show_coverage: bool = False,
@@ -42,9 +57,9 @@ class JaccardItemCF:
         # 模型推荐物品的数量。
         self.mat_size = mat_size
         # 获取物品及评分过该物品的用户。
-        item_vectors = get_item_vectors(data, user_col, item_col)
+        item_vectors = get_item_vectors(data, user_col, item_col, self.item_vector_type)
         # 初始化物品矩阵。
-        self.mat = SparseMatrixBinary(item_vectors, valid_list, blacklist)
+        self.mat = self.sparse_matrix(item_vectors, valid_list, blacklist)
         # 计算最热门物品的相似物品，并缓存到mat中。
         popular_items = get_popular_items(
             data, user_col, item_col, threshold, show_coverage)
@@ -74,7 +89,7 @@ class JaccardItemCF:
         Returns:
             DataFrame
         """
-        user_vectors = get_user_vectors(data, user_col, item_col)
+        user_vectors = get_user_vectors(data, user_col, item_col, self.user_vector_type)
         user_vectors.loc[:, "recommendations"] = user_vectors.loc[:, item_col]\
             .apply(lambda x: self.predict_one(x, n_recommend))
         user_vectors.drop(item_col, axis=1, inplace=True)
