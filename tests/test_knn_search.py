@@ -16,7 +16,7 @@ from heapq import nlargest
 from time import time
 from typing import Dict, List, Set
 from random import randint, sample
-from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary
+from src.utils.sparse_matrix_bin import SparseMatrixBinary
 
 
 def jaccard_sim(set1: Set[int], set2: Set[int]) -> float:

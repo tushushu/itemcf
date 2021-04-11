@@ -5,8 +5,8 @@
 """
 from typing import List, Tuple, Optional, Set
 from pandas import DataFrame
-from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary  # pylint: disable=import-error, no-name-in-module
-from pyrecall.utils.python_sparse_matrix_bin import PythonSparseMatrixBinary
+from ..utils.sparse_matrix_bin import SparseMatrixBinary  # pylint: disable=import-error, no-name-in-module
+from ..utils.python_sparse_matrix_bin import PythonSparseMatrixBinary
 from ..preprocessing.process_data import get_item_vectors, get_user_vectors, get_popular_items,\
     get_similar_elements
 

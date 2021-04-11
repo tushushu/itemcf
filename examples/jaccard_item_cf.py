@@ -10,9 +10,9 @@ import sys
 sys.path.append(os.path.abspath(".."))
 
 import pandas as pd
-from pyrecall.item_cf.jaccard import JaccardItemCF
-from pyrecall.preprocessing.load_data import MovieRatingsData
-from pyrecall.utils.utils import run_time
+from src.item_cf.jaccard import JaccardItemCF
+from src.preprocessing.load_data import MovieRatingsData
+from src.utils.utils import run_time
 
 @run_time
 def run(sparse_matrix: str):

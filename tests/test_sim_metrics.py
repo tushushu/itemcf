@@ -11,7 +11,7 @@ sys.path.append(os.path.abspath(".."))
 from math import isclose
 from random import sample, randint, random
 from typing import List, Tuple, Any
-from pyrecall.utils.sim_metrics import jaccard_sim_py, cosine_sim_py
+from src.utils.sim_metrics import jaccard_sim_py, cosine_sim_py
 
 
 def iszero(x: float)->bool:

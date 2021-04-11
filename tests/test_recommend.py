@@ -12,7 +12,7 @@ sys.path.append(os.path.abspath(".."))
 
 from collections import defaultdict
 from typing import Dict, List
-from pyrecall.utils.sparse_matrix_bin import SparseMatrixBinary
+from src.utils.sparse_matrix_bin import SparseMatrixBinary
 from tests.test_knn_search import get_test_cases
 
 # 用户的user * item矩阵
