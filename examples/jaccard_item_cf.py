@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 """
 @Author: tushushu
 @Date: 2019-07-26 17:39:47
@@ -14,10 +17,11 @@ from src.item_cf.jaccard import JaccardItemCF
 from src.preprocessing.load_data import MovieRatingsData
 from src.utils.utils import run_time
 
+
 @run_time
 def run(sparse_matrix: str):
     """读取电影评分数据，并推荐用户喜欢的电影。"""
-    print("使用%s版本的实现!\n" % sparse_matrix)
+    print("Using %s version implementation!\n" % sparse_matrix)
     # 读取数据
     movie_ratings = MovieRatingsData()
     user_col = movie_ratings.user_col
@@ -31,7 +35,7 @@ def run(sparse_matrix: str):
     n_recommend = 20  # 用户可自定义该参数
     recommendation = model.predict(data, user_col, item_col, n_recommend)
     # 展示推荐结果
-    print("推荐结果展示(用户id, [(电影id, 推荐分数)]):")
+    print("Show recommend result (UserID, [(MovieID, Score)]):")
     pd.set_option('display.max_colwidth', 80)
     samples = recommendation.iloc[:3, :].copy()
     samples.recommendations = samples.recommendations\
