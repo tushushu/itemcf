@@ -153,7 +153,7 @@ def get_test_cases_logic(mat_t: dict, n_test: int = 1000):
         valid_list = set(sample(mat_t.keys(), randint(1, max_i)))
         blacklist = set(sample(mat_t.keys(), randint(1, max_i)))
 
-        if blacklist.issubset(valid_list):
+        if valid_list.issubset(blacklist):
             continue
         ret.append([valid_list, blacklist])
 
