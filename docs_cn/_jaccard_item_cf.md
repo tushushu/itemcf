@@ -1,10 +1,10 @@
 提到Item CF(基于物品的协同过滤)相信大家应该都不会觉得陌生(不陌生你点进来干嘛[捂脸])，本文就Item CF的基本原理进行讲解，并分享一下个人实现的高性能、分布式的Item CF轮子。
 
 主要代码代码请参考本人的p...哦不是...github：
-[jaccard.py](hhttps://github.com/tushushu/pyrecall/blob/master/pyrecall/item_cf/jaccard.py)
-[sparse_matrix.pyx](https://github.com/tushushu/pyrecall/blob/master/pyrecall/utils/sparse_matrix.pyx)
-[heap.pyx](https://github.com/tushushu/pyrecall/blob/master/pyrecall/utils/heap.pyx)
-[sim_metrics.pyx](https://github.com/tushushu/pyrecall/blob/master/pyrecall/utils/sim_metrics.pyx)
+[jaccard.py](hhttps://github.com/tushushu/itemcf/blob/master/src/item_cf/jaccard.py)
+[sparse_matrix_bin.pyx](https://github.com/tushushu/itemcf/blob/master/src/utils/sparse_matrix_bin.pyx)
+[heap.pyx](https://github.com/tushushu/itemcf/blob/master/src/utils/heap.pyx)
+[sim_metrics.pyx](https://github.com/tushushu/itemcf/blob/master/src/utils/sim_metrics.pyx)
 
 
 我们讲讲基于物品的协同过滤是怎么一回事。
@@ -34,7 +34,7 @@ TOP K查找
 提到Item CF(基于物品的协同过滤)相信大家应该都不会觉得陌生(不陌生你点进来干嘛[捂脸])，本文就Item CF的基本原理进行讲解，并分享一下个人实现的高性能、分布式的Item CF轮子。
 
 完整代码请参考本人的p...哦不是...github：
-[pyrecall](https://github.com/tushushu/pyrecall)
+[itemcf](https://github.com/tushushu/itemcf)
 
 我们讲讲基于物品的协同过滤是怎么一回事。
 
