@@ -1,4 +1,4 @@
-## PyRecall
+## Item CF
 The item-based collaborative filtering algorithm developed based on Python, using Cython to write the core computing module, is 20x faster than the native Python implementation.      
 
 **System:** Linux  
