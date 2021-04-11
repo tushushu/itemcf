@@ -4,7 +4,7 @@
 """
 
 from libcpp cimport bool
-from .typedefs cimport BINMAT, ISET, CONMAT, BINVEC, CONVEC
+from .typedefs cimport BINMAT, ISET, CONMAT, BINVEC, CONVEC, CONVEC_IT, IFPAIR
 
 
 # 内联函数，判断一个浮点数是否等于0.0。
@@ -26,3 +26,8 @@ cdef class SparseMatrixBinary:
     cdef CONVEC _knn_search(self, int key, unsigned int k, bool is_sorted=*) except +
     # 根据用户的评分过的物品列表推荐物品，不推荐用户已经评分过的物品。
     cdef CONVEC _recommend(self, ISET& items, unsigned int k) except +
+
+
+# Will got a complie error if directly import libcpp.algorithm.sort_heap and use generic type.
+cdef extern from "<algorithm>" namespace "std":
+    void sort_heap(CONVEC_IT first, CONVEC_IT last, bool (const IFPAIR &, const IFPAIR &))

@@ -7,7 +7,6 @@
 @Date: 2019-07-16 15:36:10
 """
 from cython.operator cimport dereference as deref, preincrement as inc
-from libcpp.algorithm cimport sort_heap
 from .heap cimport min_heappush, min_cmp
 from .typedefs cimport IFMAP, CONVEC, ISET, IFMAP_IT, CONVEC_IT
 

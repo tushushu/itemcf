@@ -9,7 +9,6 @@
 """
 
 from libcpp cimport bool
-from libcpp.algorithm cimport sort_heap
 from cython.operator cimport dereference as deref, preincrement as inc
 from .heap cimport min_heappush, min_cmp
 from .sim_metrics cimport jaccard_sim
