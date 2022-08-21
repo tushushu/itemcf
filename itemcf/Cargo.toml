@@ -1,0 +1,16 @@
+[package]
+name = "itemcf"
+version = "1.0.0"
+authors = ["tushushu"]
+edition = "2018"
+
+[lib]
+name = "itemcf"
+crate-type = ["cdylib"]
+
+[dependencies.pyo3]
+version = "0.16.4"
+features = ["extension-module"]
+
+[package.metadata.maturin]
+python-source = "python"
