@@ -4,6 +4,7 @@ use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
 // Key is item ID, and value is item score.
+#[derive(Debug)]
 struct ItemScore(i32, NotNan<f32>);
 
 impl PartialEq for ItemScore {
@@ -32,21 +33,49 @@ struct MinHeap {
     max_size: usize,
 }
 
-trait FixSizedHeap {
+trait FixedSize {
     fn push(&mut self, elem: ItemScore);
 }
 
-impl FixSizedHeap for MinHeap {
+impl FixedSize for MinHeap {
     fn push(&mut self, elem: ItemScore) {
         let elem_r = Reverse(elem);
         let heap = &mut self.heap;
         if self.size == self.max_size {
-            if elem_r > *heap.peek().unwrap() {
+            if elem_r < *heap.peek().unwrap() {
                 heap.push(elem_r);
                 heap.pop();
             }
         } else {
             heap.push(elem_r);
         }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+
+    use super::*;
+    #[test]
+    fn test_eq() {
+        assert_eq!(
+            ItemScore(0, NotNan::new(0.1).unwrap()),
+            ItemScore(0, NotNan::new(0.1).unwrap()),
+        );
+
+        assert_eq!(
+            ItemScore(0, NotNan::new(0.1).unwrap()),
+            ItemScore(1, NotNan::new(0.1).unwrap()),
+        );
+
+        assert_ne!(
+            ItemScore(0, NotNan::new(0.1).unwrap()),
+            ItemScore(1, NotNan::new(0.2).unwrap()),
+        );
+
+        assert_ne!(
+            ItemScore(0, NotNan::new(0.1).unwrap()),
+            ItemScore(0, NotNan::new(0.2).unwrap()),
+        );
     }
 }
