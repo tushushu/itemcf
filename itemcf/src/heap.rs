@@ -27,10 +27,26 @@ impl PartialOrd for ItemScore {
     }
 }
 
+impl ItemScore {
+    pub fn new(key: i32, val: f32) -> ItemScore {
+        ItemScore(key, NotNan::new(val).unwrap())
+    }
+}
+
 struct MinHeap {
     heap: BinaryHeap<Reverse<ItemScore>>,
     size: usize,
     max_size: usize,
+}
+
+impl MinHeap {
+    pub fn new(max_size: usize) -> MinHeap {
+        MinHeap {
+            heap: BinaryHeap::new(),
+            size: 0,
+            max_size: max_size,
+        }
+    }
 }
 
 trait FixedSize {
@@ -56,26 +72,35 @@ impl FixedSize for MinHeap {
 mod tests {
 
     use super::*;
+
     #[test]
     fn test_eq() {
-        assert_eq!(
-            ItemScore(0, NotNan::new(0.1).unwrap()),
-            ItemScore(0, NotNan::new(0.1).unwrap()),
-        );
+        assert_eq!(ItemScore::new(0, 0.1), ItemScore::new(0, 0.1),);
 
-        assert_eq!(
-            ItemScore(0, NotNan::new(0.1).unwrap()),
-            ItemScore(1, NotNan::new(0.1).unwrap()),
-        );
-
-        assert_ne!(
-            ItemScore(0, NotNan::new(0.1).unwrap()),
-            ItemScore(1, NotNan::new(0.2).unwrap()),
-        );
-
-        assert_ne!(
-            ItemScore(0, NotNan::new(0.1).unwrap()),
-            ItemScore(0, NotNan::new(0.2).unwrap()),
-        );
+        assert_eq!(ItemScore::new(0, 0.1), ItemScore::new(1, 0.1),);
     }
+
+    #[test]
+    fn test_ne() {
+        assert_ne!(ItemScore::new(0, 0.1), ItemScore::new(1, 0.2),);
+
+        assert_ne!(ItemScore::new(0, 0.1), ItemScore::new(0, 0.2),);
+    }
+
+    #[test]
+    fn test_gt() {
+        assert!(ItemScore::new(0, 0.2) > ItemScore::new(1, 0.1));
+        assert!(ItemScore::new(1, 0.2) > ItemScore::new(0, 0.1));
+    }
+
+    #[test]
+    fn test_lt() {
+        assert!(ItemScore::new(0, 0.1) < ItemScore::new(1, 0.2));
+        assert!(ItemScore::new(1, 0.1) < ItemScore::new(0, 0.2));
+    }
+
+    // #[test]
+    // fn test_size() {
+    //     let heap = MinHeap::new(5);
+    // }
 }
