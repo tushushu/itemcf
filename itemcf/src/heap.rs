@@ -5,7 +5,7 @@ use std::collections::BinaryHeap;
 
 // Key is item ID, and value is item score.
 #[derive(Debug)]
-struct ItemScore(i32, NotNan<f32>);
+struct ItemScore(u32, NotNan<f32>);
 
 impl PartialEq for ItemScore {
     fn eq(&self, other: &ItemScore) -> bool {
@@ -28,7 +28,7 @@ impl PartialOrd for ItemScore {
 }
 
 impl ItemScore {
-    pub fn new(key: i32, val: f32) -> ItemScore {
+    pub fn new(key: u32, val: f32) -> ItemScore {
         ItemScore(key, NotNan::new(val).unwrap())
     }
 }
@@ -42,7 +42,7 @@ struct MinHeap {
 impl MinHeap {
     pub fn new(max_size: usize) -> MinHeap {
         MinHeap {
-            heap: BinaryHeap::new(),
+            heap: BinaryHeap::with_capacity(max_size),
             _size: 0,
             max_size: max_size,
         }
@@ -64,6 +64,22 @@ impl MinHeap {
             heap.push(elem_r);
             self._size += 1;
         }
+    }
+
+    pub fn to_vec(&self) -> Vec<ItemScore> {
+        vec![]
+    }
+
+    pub fn keys(&self) -> Vec<u32> {
+        vec![]
+    }
+
+    pub fn values(&self) -> Vec<NotNan<f32>> {
+        vec![]
+    }
+
+    pub fn top(&self) -> ItemScore {
+        vec![]
     }
 }
 
@@ -117,7 +133,10 @@ mod tests {
         heap.push(ItemScore::new(5, 0.5));
         assert_eq!(heap.size(), 5);
 
-        heap.push(ItemScore::new(6, 0.6));
+        heap.push(ItemScore::new(6, 0.0));
+        assert_eq!(heap.size(), 5);
+
+        heap.push(ItemScore::new(7, 0.6));
         assert_eq!(heap.size(), 5);
     }
 }
