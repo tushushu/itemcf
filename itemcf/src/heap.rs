@@ -4,7 +4,7 @@ use std::cmp::Reverse;
 use std::collections::BinaryHeap;
 
 // Key is item ID, and value is item score.
-#[derive(Debug)]
+#[derive(Debug, Clone)]
 struct ItemScore(u32, NotNan<f32>);
 
 impl PartialEq for ItemScore {
@@ -71,15 +71,17 @@ impl MinHeap {
     }
 
     pub fn keys(&self) -> Vec<u32> {
-        vec![]
+        let result: Vec<u32> = self.heap.iter().map(|x| x.0 .0).collect();
+        result
     }
 
     pub fn values(&self) -> Vec<NotNan<f32>> {
-        vec![]
+        let result: Vec<NotNan<f32>> = self.heap.iter().map(|x| x.0 .1).collect();
+        result
     }
 
-    pub fn top(&self) -> ItemScore {
-        vec![]
+    fn peek(&self) -> ItemScore {
+        (*self.heap.peek().unwrap()).0.clone()
     }
 }
 
