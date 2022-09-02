@@ -35,7 +35,7 @@ impl ItemScore {
 
 struct MinHeap {
     heap: BinaryHeap<Reverse<ItemScore>>,
-    size: usize,
+    _size: usize,
     max_size: usize,
 }
 
@@ -43,27 +43,26 @@ impl MinHeap {
     pub fn new(max_size: usize) -> MinHeap {
         MinHeap {
             heap: BinaryHeap::new(),
-            size: 0,
+            _size: 0,
             max_size: max_size,
         }
     }
-}
 
-trait FixedSize {
-    fn push(&mut self, elem: ItemScore);
-}
+    pub fn size(&self) -> usize {
+        self._size
+    }
 
-impl FixedSize for MinHeap {
-    fn push(&mut self, elem: ItemScore) {
+    pub fn push(&mut self, elem: ItemScore) {
         let elem_r = Reverse(elem);
         let heap = &mut self.heap;
-        if self.size == self.max_size {
+        if self._size == self.max_size {
             if elem_r < *heap.peek().unwrap() {
                 heap.push(elem_r);
                 heap.pop();
             }
         } else {
             heap.push(elem_r);
+            self._size += 1;
         }
     }
 }
@@ -99,8 +98,26 @@ mod tests {
         assert!(ItemScore::new(1, 0.1) < ItemScore::new(0, 0.2));
     }
 
-    // #[test]
-    // fn test_size() {
-    //     let heap = MinHeap::new(5);
-    // }
+    #[test]
+    fn test_size() {
+        let mut heap = MinHeap::new(5);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap.size(), 1);
+
+        heap.push(ItemScore::new(2, 0.2));
+        assert_eq!(heap.size(), 2);
+
+        heap.push(ItemScore::new(3, 0.3));
+        assert_eq!(heap.size(), 3);
+
+        heap.push(ItemScore::new(4, 0.4));
+        assert_eq!(heap.size(), 4);
+
+        heap.push(ItemScore::new(5, 0.5));
+        assert_eq!(heap.size(), 5);
+
+        heap.push(ItemScore::new(6, 0.6));
+        assert_eq!(heap.size(), 5);
+    }
 }
