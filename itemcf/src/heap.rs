@@ -1,10 +1,10 @@
 use ordered_float::NotNan;
 use std::cmp::Ordering;
-use std::cmp::Reverse;
-use std::collections::BinaryHeap;
+use std::mem;
+use std::ops::Index;
 
 // Key is item ID, and value is item score.
-#[derive(Debug, Clone)]
+#[derive(Debug, Copy, Clone)]
 struct ItemScore(u32, NotNan<f32>);
 
 impl PartialEq for ItemScore {
@@ -34,54 +34,62 @@ impl ItemScore {
 }
 
 struct MinHeap {
-    heap: BinaryHeap<Reverse<ItemScore>>,
+    _heap: Vec<ItemScore>,
     _size: usize,
     max_size: usize,
+}
+
+impl Index<usize> for MinHeap {
+    type Output = ItemScore;
+
+    fn index(&self, idx: usize) -> &Self::Output {
+        &self._heap[idx]
+    }
 }
 
 impl MinHeap {
     pub fn new(max_size: usize) -> MinHeap {
         MinHeap {
-            heap: BinaryHeap::with_capacity(max_size),
+            _heap: Vec::with_capacity(max_size),
             _size: 0,
             max_size: max_size,
         }
     }
 
-    pub fn size(&self) -> usize {
+    pub fn len(&self) -> usize {
         self._size
     }
 
-    pub fn push(&mut self, elem: ItemScore) {
-        let elem_r = Reverse(elem);
-        let heap = &mut self.heap;
-        if self._size == self.max_size {
-            if elem_r < *heap.peek().unwrap() {
-                heap.push(elem_r);
-                heap.pop();
-            }
-        } else {
-            heap.push(elem_r);
-            self._size += 1;
+    pub fn push(&mut self, elem: ItemScore) {}
+
+    fn _shift_up(&mut self, idx: usize) {
+        assert!(
+            idx < self._size,
+            "Parameter idx must be less than heap size!"
+        );
+        let parent = (idx - 1) / 2;
+        while parent >= 0 && self[parent] < self[idx] {
+            mem::swap(&mut self._heap[parent], &mut self._heap[idx]);
+            idx = parent;
+            parent = (idx - 1) / 2;
         }
     }
 
-    pub fn to_vec(&self) -> Vec<ItemScore> {
-        vec![]
+    pub fn into_sorted_vec(&self) -> Vec<ItemScore> {
+        self._heap.into_sorted_vec().iter().map(|x| x.0).collect()
     }
 
     pub fn keys(&self) -> Vec<u32> {
-        let result: Vec<u32> = self.heap.iter().map(|x| x.0 .0).collect();
-        result
+        self.to_vec().iter().map(|x| x.0).collect()
     }
 
     pub fn values(&self) -> Vec<NotNan<f32>> {
-        let result: Vec<NotNan<f32>> = self.heap.iter().map(|x| x.0 .1).collect();
+        let result: Vec<NotNan<f32>> = self._heap.iter().map(|x| x.0 .1).collect();
         result
     }
 
     fn peek(&self) -> ItemScore {
-        (*self.heap.peek().unwrap()).0.clone()
+        (*self._heap.peek().unwrap()).0.clone()
     }
 }
 
