@@ -1,6 +1,5 @@
 use ordered_float::NotNan;
 use std::cmp::Ordering;
-use std::mem;
 use std::ops::Index;
 
 // Key is item ID, and value is item score.
@@ -62,34 +61,40 @@ impl MinHeap {
 
     pub fn push(&mut self, elem: ItemScore) {}
 
-    fn _shift_up(&mut self, idx: usize) {
+    fn _sift_up(&mut self, mut idx: usize) {
+        if idx == 0 {
+            return;
+        }
         assert!(
             idx < self._size,
             "Parameter idx must be less than heap size!"
         );
-        let parent = (idx - 1) / 2;
-        while parent >= 0 && self[parent] < self[idx] {
-            mem::swap(&mut self._heap[parent], &mut self._heap[idx]);
+        let mut parent = (idx - 1) / 2;
+        while self[parent] < self[idx] {
+            self._heap.swap(parent, idx);
             idx = parent;
+            if idx == 0 {
+                break;
+            }
             parent = (idx - 1) / 2;
         }
     }
 
     pub fn into_sorted_vec(&self) -> Vec<ItemScore> {
-        self._heap.into_sorted_vec().iter().map(|x| x.0).collect()
+        vec![]
     }
 
     pub fn keys(&self) -> Vec<u32> {
-        self.to_vec().iter().map(|x| x.0).collect()
+        self._heap.iter().map(|x| x.0).collect()
     }
 
     pub fn values(&self) -> Vec<NotNan<f32>> {
-        let result: Vec<NotNan<f32>> = self._heap.iter().map(|x| x.0 .1).collect();
+        let result: Vec<NotNan<f32>> = self._heap.iter().map(|x| x.1).collect();
         result
     }
 
     fn peek(&self) -> ItemScore {
-        (*self._heap.peek().unwrap()).0.clone()
+        self[0]
     }
 }
 
