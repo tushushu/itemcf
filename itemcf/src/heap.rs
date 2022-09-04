@@ -64,10 +64,10 @@ impl MinHeap {
     fn _sift_down(&mut self, mut idx: usize) {
         let mut child = (idx + 1) * 2 - 1;
         while child < self._size {
-            if child + 1 < self._size && self[child + 1] > self[child] {
+            if child + 1 < self._size && self[child + 1] < self[child] {
                 child += 1;
             }
-            if self[idx] < self[child] {
+            if self[idx] > self[child] {
                 self._heap.swap(idx, child);
                 idx = child;
                 child = (idx + 1) * 2 - 1;
@@ -86,7 +86,7 @@ impl MinHeap {
             "Parameter idx must be less than heap size!"
         );
         let mut parent = (idx - 1) / 2;
-        while self[parent] < self[idx] {
+        while self[parent] > self[idx] {
             self._heap.swap(parent, idx);
             idx = parent;
             if idx == 0 {
