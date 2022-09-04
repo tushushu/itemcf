@@ -61,6 +61,22 @@ impl MinHeap {
 
     pub fn push(&mut self, elem: ItemScore) {}
 
+    fn _sift_down(&mut self, mut idx: usize) {
+        let mut child = (idx + 1) * 2 - 1;
+        while child < self._size {
+            if child + 1 < self._size && self[child + 1] > self[child] {
+                child += 1;
+            }
+            if self[idx] < self[child] {
+                self._heap.swap(idx, child);
+                idx = child;
+                child = (idx + 1) * 2 - 1;
+            } else {
+                break;
+            }
+        }
+    }
+
     fn _sift_up(&mut self, mut idx: usize) {
         if idx == 0 {
             return;
