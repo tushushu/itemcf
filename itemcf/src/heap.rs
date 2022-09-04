@@ -55,7 +55,7 @@ impl MinHeap {
         }
     }
 
-    pub fn len(&self) -> usize {
+    pub fn size(&self) -> usize {
         self._size
     }
 
