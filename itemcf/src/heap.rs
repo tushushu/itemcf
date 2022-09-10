@@ -1,6 +1,7 @@
 use ordered_float::NotNan;
 use std::cmp::Ordering;
 use std::ops::Index;
+use std::ops::IndexMut;
 
 // Key is item ID, and value is item score.
 #[derive(Debug, Copy, Clone)]
@@ -35,7 +36,7 @@ impl ItemScore {
 struct MinHeap {
     _heap: Vec<ItemScore>,
     _size: usize,
-    max_size: usize,
+    _max_size: usize,
 }
 
 impl Index<usize> for MinHeap {
@@ -46,12 +47,18 @@ impl Index<usize> for MinHeap {
     }
 }
 
+impl IndexMut<usize> for MinHeap {
+    fn index_mut(&mut self, idx: usize) -> &mut Self::Output {
+        &mut self._heap[idx]
+    }
+}
+
 impl MinHeap {
     pub fn new(max_size: usize) -> MinHeap {
         MinHeap {
             _heap: Vec::with_capacity(max_size),
             _size: 0,
-            max_size: max_size,
+            _max_size: max_size,
         }
     }
 
@@ -59,7 +66,23 @@ impl MinHeap {
         self._size
     }
 
-    pub fn push(&mut self, elem: ItemScore) {}
+    pub fn max_size(&self) -> usize {
+        self._max_size
+    }
+
+    pub fn push(&mut self, elem: ItemScore) {
+        if self._size == self._max_size {
+            if elem > self.peek() {
+                self[0] = elem;
+                self._sift_down(0);
+            }
+        } else {
+            let i = self._size;
+            self[i] = elem;
+            self._size += 1;
+            self._sift_up(self._size - 1);
+        }
+    }
 
     fn _sift_down(&mut self, mut idx: usize) {
         let mut child = (idx + 1) * 2 - 1;
@@ -83,7 +106,7 @@ impl MinHeap {
         }
         assert!(
             idx < self._size,
-            "Parameter idx must be less than heap size!"
+            "Parameter idx must be less than the heap size!"
         );
         let mut parent = (idx - 1) / 2;
         while self[parent] > self[idx] {
