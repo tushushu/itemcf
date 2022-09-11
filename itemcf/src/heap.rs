@@ -77,8 +77,7 @@ impl MinHeap {
                 self._sift_down(0);
             }
         } else {
-            let i = self._size;
-            self[i] = elem;
+            self._heap.push(elem);
             self._size += 1;
             self._sift_up(self._size - 1);
         }
@@ -117,6 +116,10 @@ impl MinHeap {
             }
             parent = (idx - 1) / 2;
         }
+    }
+
+    fn _capacity(&self) -> usize {
+        self._heap.capacity()
     }
 
     pub fn into_sorted_vec(&self) -> Vec<ItemScore> {
@@ -169,7 +172,25 @@ mod tests {
     }
 
     #[test]
+    fn test_capacity() {
+        let heap = MinHeap::new(3);
+        assert_eq!(heap._capacity(), 3);
+    }
+
+    #[test]
     fn test_size() {
+        let heap = MinHeap::new(3);
+        assert_eq!(heap.size(), 0);
+    }
+
+    #[test]
+    fn test_max_size() {
+        let heap = MinHeap::new(3);
+        assert_eq!(heap.max_size(), 3);
+    }
+
+    #[test]
+    fn test_push() {
         let mut heap = MinHeap::new(5);
 
         heap.push(ItemScore::new(1, 0.1));
