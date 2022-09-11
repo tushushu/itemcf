@@ -72,7 +72,7 @@ impl MinHeap {
 
     pub fn push(&mut self, elem: ItemScore) {
         if self._size == self._max_size {
-            if elem > self.peek() {
+            if elem > self._peek() {
                 self[0] = elem;
                 self._sift_down(0);
             }
@@ -135,7 +135,7 @@ impl MinHeap {
         result
     }
 
-    fn peek(&self) -> ItemScore {
+    fn _peek(&self) -> ItemScore {
         self[0]
     }
 }
@@ -213,5 +213,158 @@ mod tests {
 
         heap.push(ItemScore::new(7, 0.6));
         assert_eq!(heap.size(), 5);
+    }
+
+    #[test]
+    fn test_peek() {
+        // size = 1, ascending order
+        let mut heap = MinHeap::new(1);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 1, descending order
+        let mut heap = MinHeap::new(1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 2, ascending order
+        let mut heap = MinHeap::new(2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 2, descending order
+        let mut heap = MinHeap::new(2);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 3, ascending order
+        let mut heap = MinHeap::new(3);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 3, descending order
+        let mut heap = MinHeap::new(3);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.4);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 4, ascending order
+        let mut heap = MinHeap::new(4);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.5));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 4, descending order
+        let mut heap = MinHeap::new(4);
+
+        heap.push(ItemScore::new(1, 0.5));
+        assert_eq!(heap._peek().1, 0.5);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.4);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 5, ascending order
+        let mut heap = MinHeap::new(5);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.5));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.6));
+        assert_eq!(heap._peek().1, 0.2);
+
+        // size = 5, descending order
+        let mut heap = MinHeap::new(5);
+
+        heap.push(ItemScore::new(1, 0.6));
+        assert_eq!(heap._peek().1, 0.6);
+
+        heap.push(ItemScore::new(1, 0.5));
+        assert_eq!(heap._peek().1, 0.5);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.4);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.2);
     }
 }
