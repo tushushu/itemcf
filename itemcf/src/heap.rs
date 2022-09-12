@@ -366,6 +366,27 @@ mod tests {
 
         heap.push(ItemScore::new(1, 0.1));
         assert_eq!(heap._peek().1, 0.2);
+
+        // size = 5, random order
+        let mut heap = MinHeap::new(5);
+
+        heap.push(ItemScore::new(1, 0.3));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.5));
+        assert_eq!(heap._peek().1, 0.3);
+
+        heap.push(ItemScore::new(1, 0.2));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.6));
+        assert_eq!(heap._peek().1, 0.2);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap._peek().1, 0.1);
+
+        heap.push(ItemScore::new(1, 0.4));
+        assert_eq!(heap._peek().1, 0.2);
     }
 
     #[test]
