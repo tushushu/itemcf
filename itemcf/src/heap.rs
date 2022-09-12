@@ -367,4 +367,30 @@ mod tests {
         heap.push(ItemScore::new(1, 0.1));
         assert_eq!(heap._peek().1, 0.2);
     }
+
+    #[test]
+    fn test_keys() {
+        let mut heap = MinHeap::new(2);
+        let v: Vec<u32> = vec![];
+        assert_eq!(heap.keys(), v);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap.keys(), vec![1]);
+
+        heap.push(ItemScore::new(2, 0.2));
+        assert_eq!(heap.keys(), vec![1, 2]);
+    }
+
+    #[test]
+    fn test_values() {
+        let mut heap = MinHeap::new(2);
+        let v: Vec<f32> = vec![];
+        assert_eq!(heap.values(), v);
+
+        heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap.values(), vec![0.1]);
+
+        heap.push(ItemScore::new(2, 0.2));
+        assert_eq!(heap.values(), vec![0.1, 0.2]);
+    }
 }
