@@ -73,6 +73,7 @@ impl MinHeap {
     pub fn push(&mut self, elem: ItemScore) {
         if self._size == self._max_size {
             if elem > self._peek() {
+                // TODO: uncheck bound
                 self[0] = elem;
                 self._sift_down(0);
             }
@@ -86,10 +87,13 @@ impl MinHeap {
     fn _sift_down(&mut self, mut idx: usize) {
         let mut child = (idx + 1) * 2 - 1;
         while child < self._size {
+            // TODO: uncheck bound
             if child + 1 < self._size && self[child + 1] < self[child] {
                 child += 1;
             }
+            // TODO: uncheck bound
             if self[idx] > self[child] {
+                // TODO: uncheck bound
                 self._heap.swap(idx, child);
                 idx = child;
                 child = (idx + 1) * 2 - 1;
@@ -108,6 +112,7 @@ impl MinHeap {
             "Parameter idx must be less than the heap size!"
         );
         let mut parent = (idx - 1) / 2;
+        // TODO: uncheck bound
         while self[parent] > self[idx] {
             self._heap.swap(parent, idx);
             idx = parent;
