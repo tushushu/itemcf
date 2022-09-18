@@ -195,6 +195,19 @@ mod tests {
     }
 
     #[test]
+    fn test_index() {
+        let mut heap = MinHeap::new(3);
+        heap._heap.push(ItemScore::new(1, 0.1));
+        assert_eq!(heap[0], ItemScore::new(1, 0.1));
+
+        heap._heap.push(ItemScore::new(2, 0.2));
+        assert_eq!(heap[1], ItemScore::new(2, 0.2));
+
+        heap._heap.push(ItemScore::new(3, 0.3));
+        assert_eq!(heap[2], ItemScore::new(3, 0.3));
+    }
+
+    #[test]
     fn test_push() {
         let mut heap = MinHeap::new(5);
 
