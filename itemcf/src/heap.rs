@@ -1,5 +1,6 @@
 use ordered_float::NotNan;
 use std::cmp::Ordering;
+use std::convert::From;
 use std::ops::Index;
 use std::ops::IndexMut;
 
@@ -50,6 +51,12 @@ impl Index<usize> for MinHeap {
 impl IndexMut<usize> for MinHeap {
     fn index_mut(&mut self, idx: usize) -> &mut Self::Output {
         &mut self._heap[idx]
+    }
+}
+
+impl From<MinHeap> for Vec<ItemScore> {
+    fn from(heap: MinHeap) -> Self {
+        heap._heap
     }
 }
 
@@ -114,6 +121,7 @@ impl MinHeap {
         let mut parent = (idx - 1) / 2;
         // TODO: uncheck bound
         while self[parent] > self[idx] {
+            // TODO: uncheck bound
             self._heap.swap(parent, idx);
             idx = parent;
             if idx == 0 {
@@ -127,8 +135,15 @@ impl MinHeap {
         self._heap.capacity()
     }
 
-    pub fn into_sorted_vec(&self) -> Vec<ItemScore> {
-        vec![]
+    pub fn into_sorted_vec(mut self) -> Vec<ItemScore> {
+        let n = self.size();
+        for _ in 0..n {
+            // TODO: uncheck bound
+            self._heap.swap(0, self._size - 1);
+            self._size -= 1;
+            self._sift_down(0);
+        }
+        self.into()
     }
 
     pub fn keys(&self) -> Vec<u32> {
