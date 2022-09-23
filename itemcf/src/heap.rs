@@ -447,4 +447,29 @@ mod tests {
         heap.push(ItemScore::new(2, 0.2));
         assert_eq!(heap.values(), vec![0.1, 0.2]);
     }
+
+    #[test]
+    fn test_into_sorted_vec() {
+        fn _permutation(output: &mut Vec<Vec<usize>>, v: &mut Vec<usize>, l: usize) {
+            let r = v.len();
+            if l == r {
+                output.push(v.clone());
+                return;
+            };
+            for i in l..r {
+                v.swap(l, i);
+                _permutation(output, v, l + 1);
+                v.swap(l, i);
+            }
+        }
+
+        for i in 1..4 {
+            let test_cases: &mut Vec<Vec<usize>> = &mut vec![vec![]; 0];
+            let v = &mut (1..i + 1).collect();
+            _permutation(test_cases, v, 0);
+            for test_case in test_cases.iter() {
+                println!("Test case is: {:#?}", test_case);
+            }
+        }
+    }
 }
