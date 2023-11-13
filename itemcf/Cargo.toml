@@ -4,13 +4,17 @@ version = "1.0.0"
 authors = ["tushushu"]
 edition = "2018"
 
+[dependencies]
+pyo3 = "0.16.4"
+ordered-float = "3.0.0"
+
 [lib]
 name = "itemcf"
 crate-type = ["cdylib"]
 
-[dependencies.pyo3]
-version = "0.16.4"
-features = ["extension-module"]
-
 [package.metadata.maturin]
 python-source = "python"
+
+[features]
+extension-module = ["pyo3/extension-module"]
+default = ["extension-module"]

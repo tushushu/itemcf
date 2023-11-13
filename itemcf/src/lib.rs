@@ -1,3 +1,4 @@
+mod heap;
 use pyo3::prelude::*;
 
 #[pyfunction]
